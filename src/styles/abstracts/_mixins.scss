@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+// ============================================
+// Media Queries
+// ============================================
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// ============================================
+// Utilities
+// ============================================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin border-standard {
+  border: 0.1rem solid $color-border;
+}
+
+// ============================================
+// Animations
+// ============================================
+@mixin smooth-transition($property: all) {
+  transition: $property $transition-fast ease;
+}

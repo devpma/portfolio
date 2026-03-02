@@ -1,0 +1,225 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// About Section
+// ============================================
+.about-wrap {
+  margin: 0 $spacing-lg;
+
+  .info-wrap {
+    .info-top {
+      @include flex-between;
+      padding: $spacing-lg $spacing-md;
+      @include border-standard;
+      border-bottom: 0;
+      border-radius: $border-radius-lg $border-radius-lg 0 0;
+      background: $color-bg;
+      position: relative;
+      z-index: 11;
+
+      .main-title {
+        font-size: clamp($spacing-md, 3vw, $font-size-xl);
+        font-family: $font-bold;
+      }
+
+      @include laptop {
+        padding: $spacing-lg;
+        border-radius: $border-radius-md $border-radius-md 0 0;
+      }
+
+      @include tablet {
+        padding: $spacing-lg;
+      }
+
+      @include mobile {
+        padding: $spacing-md;
+      }
+    }
+
+    .info-cont {
+      padding: $spacing-lg $spacing-md;
+      @include flex-center;
+      @include border-standard;
+      border-bottom-width: 0.1rem;
+      border-radius: 0 0 $border-radius-lg $border-radius-lg;
+      position: relative;
+
+      @include laptop {
+        @include flex-between;
+        padding: $spacing-lg;
+      }
+
+      @include tablet {
+        flex-direction: column;
+        padding: $spacing-md;
+      }
+
+      .info-text {
+        width: clamp(20rem, 18.78vw, 30rem);
+        font-size: clamp($font-size-sm, 0.96vw, $font-size-base);
+        margin-right: 0.6vw;
+        line-height: $line-height-normal;
+        position: absolute;
+        left: $spacing-md;
+        top: $spacing-md;
+        word-break: keep-all;
+
+        @include laptop {
+          position: static;
+          margin-right: 0;
+          width: 30%;
+        }
+
+        @include tablet {
+          width: 100%;
+          margin-bottom: $spacing-md;
+        }
+
+        @include mobile {
+          font-size: $font-size-sm;
+        }
+      }
+
+      .info-box {
+        position: relative;
+        text-align: center;
+
+        @include laptop {
+          width: 65%;
+        }
+
+        @include tablet {
+          width: 100%;
+        }
+
+        .info-img {
+          @include smooth-transition(all);
+          margin: 0 auto;
+          max-width: 50rem;
+
+          img {
+            border-radius: $border-radius-md;
+            max-width: 100%;
+            width: 100%;
+          }
+
+          &:hover {
+            transform: scale(0.95);
+          }
+
+          @include desktop {
+            width: 50rem;
+          }
+
+          @include tablet {
+            width: 100%;
+            max-width: 40rem;
+
+            &:hover {
+              transform: scale(1);
+            }
+          }
+
+          @include mobile {
+            margin-top: $spacing-md;
+          }
+        }
+      }
+
+      .info-desc {
+        display: flex;
+        text-align: left;
+        flex-wrap: wrap;
+        margin-top: $spacing-sm;
+        gap: 1.5rem;
+
+        h3 {
+          font-size: $font-size-base;
+
+          @include mobile {
+            font-size: $font-size-xs;
+          }
+        }
+
+        p {
+          font-size: $font-size-sm;
+
+          @include mobile {
+            font-size: $font-size-xs;
+          }
+        }
+
+        @include tablet {
+          @include flex-center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .text-wrap {
+    position: relative;
+    z-index: 5;
+    height: 30rem;
+    @include flex-center;
+
+    p {
+      font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
+      text-align: center;
+      line-height: $line-height-normal;
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: $font-medium;
+      position: relative;
+
+      &.on {
+        animation: typing 2s steps(36);
+
+        &::after {
+          content: '';
+          display: inline-flex;
+          position: absolute;
+          right: auto;
+          bottom: 0.6rem;
+          margin-left: $spacing-sm;
+          width: 0.2rem;
+          height: 3rem;
+          background-color: $color-dark;
+          animation: blink 1.2s step-end infinite;
+
+          @include mobile {
+            width: 0.1rem;
+            height: 1.5rem;
+            bottom: 0.3rem;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+      @include mobile {
+        font-size: $font-size-sm;
+      }
+    }
+    @include mobile {
+      height: 20rem;
+    }
+  }
+}
+
+// ============================================
+// Animations
+// ============================================
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 37ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,45 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// Visual Section
+// ============================================
+.visual-wrap {
+  width: 100%;
+  background: $color-primary;
+  color: #fff;
+
+  .visual-logo {
+    font-family: $font-display;
+    font-size: clamp(3rem, 10.7vw, 25rem);
+    text-align: center;
+    padding: clamp(2rem, 4vw, 3rem) 0;
+  }
+
+  .visual-caption {
+    @include flex-between;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    word-break: keep-all;
+
+    p {
+      font-size: $font-size-sm;
+      line-height: $line-height-normal;
+    }
+
+    @include tablet {
+      p {
+        font-size: $font-size-base;
+      }
+    }
+
+    @include mobile {
+      flex-wrap: wrap;
+      padding: 0 2rem 2rem;
+
+      p {
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}

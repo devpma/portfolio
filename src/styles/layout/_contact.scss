@@ -1,0 +1,56 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// Contact Section
+// ============================================
+.contact-wrap {
+  margin-top: $spacing-md;
+  padding: $spacing-sm;
+  @include flex-between;
+
+  .main-title {
+    font-family: $font-bold;
+  }
+
+  .contact-box {
+    padding: $spacing-lg $spacing-md;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: $spacing-md;
+
+    @include tablet {
+      gap: 0;
+      row-gap: 1rem;
+    }
+
+    dt {
+      font-size: $font-size-sm;
+      box-sizing: border-box;
+
+      @include tablet {
+        width: 10rem;
+      }
+
+      @include mobile {
+        width: 5rem;
+        font-size: $font-size-xs;
+      }
+    }
+
+    dd {
+      font-size: $font-size-sm;
+
+      @include tablet {
+        width: calc(100% - 10rem);
+      }
+
+      @include mobile {
+        width: calc(100% - 5rem);
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// Slide Section
+// ============================================
+.sld-wrap {
+  background: $color-text;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+
+  .sld {
+    width: 100%;
+    margin: 0 auto;
+
+    .section {
+      overflow: hidden;
+    }
+
+    .items {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      list-style: none;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        padding: clamp(13rem, 3rem, 3rem) $spacing-xl;
+        position: relative;
+
+        .link {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 10;
+        }
+
+        .img {
+          background: #eee;
+          width: 70rem;
+          overflow: hidden;
+          border-radius: $border-radius-md;
+          @include smooth-transition(transform);
+
+          @include tablet {
+            width: 60rem;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 700 / 350;
+          }
+
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+
+        .txt {
+          color: $color-bg;
+          margin-top: 2rem;
+          width: 70rem;
+
+          @include tablet {
+            width: 50rem;
+          }
+
+          strong {
+            display: block;
+            font-size: clamp($font-size-sm, 1.2vw, $font-size-lg);
+            color: inherit;
+            margin-bottom: $spacing-sm;
+            font-family: $font-bold;
+            line-height: 1.8;
+          }
+
+          .tech {
+            line-height: 2;
+            color: inherit;
+            font-size: clamp($font-size-sm, 0.8vw, $font-size-base);
+            margin-bottom: 0.5rem;
+          }
+
+          .work {
+            line-height: 2;
+            color: inherit;
+            font-size: clamp($font-size-xs, 0.5vw, $font-size-base);
+            font-weight: 500;
+          }
+        }
+
+        @include mobile {
+          min-width: 90vw;
+          flex-direction: column;
+          padding: $spacing-xl $spacing-md;
+
+          .img {
+            width: 100%;
+            margin-bottom: $spacing-md;
+          }
+        }
+      }
+    }
+  }
+
+  .spacer {
+    &.dn {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    border-radius: $border-radius-md;
+  }
+}
