@@ -24,6 +24,8 @@
 
       @include mobile {
         flex-direction: column;
+        gap: $spacing-xl;
+        padding: $spacing-xl $spacing-md;
       }
 
       .item {
@@ -102,7 +104,6 @@
         @include mobile {
           min-width: 90vw;
           flex-direction: column;
-          padding: $spacing-xl $spacing-md;
 
           .img {
             width: 100%;

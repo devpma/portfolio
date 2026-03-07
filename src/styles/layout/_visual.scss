@@ -14,6 +14,10 @@
     font-size: clamp(3rem, 10.7vw, 25rem);
     text-align: center;
     padding: clamp(2rem, 4vw, 3rem) 0;
+
+    @include tablet {
+      font-size: clamp(4.1rem, calc(1.7085rem + 0.6637vw), 8.5rem);
+    }
   }
 
   .visual-caption {
