@@ -44,7 +44,7 @@ const imageZoom = gsap.timeline({
 imageZoom
   .to('#animate1', {
     scale: 0.7,
-    borderRadius: '30rem',
+    borderRadius: '5%',
     ease: 'none'
   })
   .to(
