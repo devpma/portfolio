@@ -119,16 +119,20 @@ const slides = document.querySelector('.items')
 const slideItems = gsap.utils.toArray('.item')
 
 if (slides && slideItems.length > 0) {
-  gsap.to(slides, {
-    x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: sldWrap,
-      start: 'top top',
-      end: () => `+=${slides.scrollWidth - sldWrap.offsetWidth}`,
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true
-    }
+  const mm = gsap.matchMedia()
+
+  mm.add('(min-width: 769px)', () => {
+    gsap.to(slides, {
+      x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: sldWrap,
+        start: 'top top',
+        end: () => `+=${slides.scrollWidth - sldWrap.offsetWidth}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true
+      }
+    })
   })
 }

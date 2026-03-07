@@ -21,7 +21,10 @@
       display: flex;
       justify-content: flex-start;
       flex-wrap: nowrap;
-      list-style: none;
+
+      @include mobile {
+        flex-direction: column;
+      }
 
       .item {
         display: flex;
