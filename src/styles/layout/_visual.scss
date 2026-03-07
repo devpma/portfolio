@@ -11,7 +11,7 @@
 
   .visual-logo {
     font-family: $font-display;
-    font-size: clamp(3rem, 10.7vw, 25rem);
+    font-size: clamp(12.5rem, calc(-0.67rem + 1.285vw), 24rem);
     text-align: center;
     padding: clamp(2rem, 4vw, 3rem) 0;
 
