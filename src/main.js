@@ -4,9 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// ============================================
 // 무한 스크롤 텍스트
-// ============================================
 const movingWrapper = document.querySelector('.pin-moving-wrapper')
 const movingText = document.querySelector('.pin-moving-text')
 
@@ -28,37 +26,91 @@ if (movingWrapper && movingText) {
   })
 }
 
-// ============================================
 // 이미지 효과
-// ============================================
-const imageZoom = gsap.timeline({
-  scrollTrigger: {
-    trigger: '#trigger1',
-    start: 'top top+=200',
-    end: 'bottom top',
-    scrub: 0.5,
-    invalidateOnRefresh: true
-  }
+const mm = gsap.matchMedia()
+
+mm.add('(min-width: 1025px)', () => {
+  const imageZoom = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#trigger1',
+      start: 'top top+=300',
+      end: 'bottom top',
+      scrub: 0.5,
+      invalidateOnRefresh: true
+    }
+  })
+
+  imageZoom
+    .to('#animate1', {
+      scale: 0.7,
+      borderRadius: '3rem',
+      ease: 'none'
+    })
+    .to(
+      '#animate1 img',
+      {
+        scale: 1.05,
+        ease: 'none'
+      },
+      0
+    )
 })
 
-imageZoom
-  .to('#animate1', {
-    scale: 0.7,
-    borderRadius: '5%',
-    ease: 'none'
+mm.add('(min-width: 641px) and (max-width: 1024px)', () => {
+  const imageZoom = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#trigger1',
+      start: 'top top+=150',
+      end: 'bottom top',
+      scrub: 0.5,
+      invalidateOnRefresh: true
+    }
   })
-  .to(
-    '#animate1 img',
-    {
-      scale: 1.05,
-      ease: 'none'
-    },
-    0
-  )
 
-// ============================================
+  imageZoom
+    .to('#animate1', {
+      scale: 0.7,
+      borderRadius: '2rem',
+      ease: 'none'
+    })
+    .to(
+      '#animate1 img',
+      {
+        scale: 1.05,
+        ease: 'none'
+      },
+      0
+    )
+})
+
+mm.add('(max-width: 640px)', () => {
+  const imageZoom = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#trigger1',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.5,
+      invalidateOnRefresh: true
+    }
+  })
+
+  imageZoom
+    .to('#animate1', {
+      scale: 0.7,
+      borderRadius: '1rem',
+      ease: 'none'
+    })
+    .to(
+      '#animate1 img',
+      {
+        scale: 1.05,
+        ease: 'none'
+      },
+      0
+    )
+})
+
 // 커서 효과
-// ============================================
 const cursor = document.querySelector('.cursor')
 let mouseX = 0
 let mouseY = 0
@@ -97,9 +149,7 @@ cursorScaleElements.forEach((el) => {
   })
 })
 
-// ============================================
 // 텍스트 타이핑 효과
-// ============================================
 const textWrap = document.querySelector('.text-wrap p')
 
 if (textWrap) {
@@ -111,9 +161,7 @@ if (textWrap) {
   })
 }
 
-// ============================================
 // 가로 스크롤 슬라이드
-// ============================================
 const sldWrap = document.querySelector('.sld-wrap')
 const slides = document.querySelector('.items')
 const slideItems = gsap.utils.toArray('.item')
