@@ -87,7 +87,7 @@ mm.add('(max-width: 640px)', () => {
   const imageZoom = gsap.timeline({
     scrollTrigger: {
       trigger: '#trigger1',
-      start: 'top bottom+=80',
+      start: 'top bottom+=30',
       end: 'bottom top',
       scrub: 0.5,
       invalidateOnRefresh: true
