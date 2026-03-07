@@ -43,7 +43,7 @@ mm.add('(min-width: 1025px)', () => {
   imageZoom
     .to('#animate1', {
       scale: 0.7,
-      borderRadius: '3rem',
+      borderRadius: '30rem',
       ease: 'none'
     })
     .to(
@@ -70,7 +70,7 @@ mm.add('(min-width: 641px) and (max-width: 1024px)', () => {
   imageZoom
     .to('#animate1', {
       scale: 0.7,
-      borderRadius: '2rem',
+      borderRadius: '20rem',
       ease: 'none'
     })
     .to(
@@ -97,7 +97,7 @@ mm.add('(max-width: 640px)', () => {
   imageZoom
     .to('#animate1', {
       scale: 0.7,
-      borderRadius: '1rem',
+      borderRadius: '10rem',
       ease: 'none'
     })
     .to(
