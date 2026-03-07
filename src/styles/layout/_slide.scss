@@ -1,9 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
 // Slide Section
-// ============================================
 .sld-wrap {
   background: $color-text;
   border-radius: $border-radius-lg;

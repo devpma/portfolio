@@ -1,11 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
 // Common Components
-// ============================================
-
-// Wrapper
 .wrapper {
   width: 100%;
   overflow-x: hidden;

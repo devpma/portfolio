@@ -1,6 +1,4 @@
-// ============================================
 // Colors
-// ============================================
 $color-primary: #e06322;
 $color-text: #333;
 $color-bg: #fff;
@@ -8,9 +6,7 @@ $color-border: #abaa9d;
 $color-dark: #212227;
 $color-accent: #000;
 
-// ============================================
 // Typography
-// ============================================
 $font-base:
   'GmarketSansLight',
   -apple-system,
@@ -34,26 +30,20 @@ $line-height-tight: 1.2;
 $line-height-normal: 1.5;
 $line-height-loose: 2;
 
-// ============================================
 // Spacing
-// ============================================
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 2rem;
 $spacing-lg: 3rem;
 $spacing-xl: 5rem;
 
-// ============================================
 // Breakpoints
-// ============================================
 $breakpoint-mobile: 47.8rem;
 $breakpoint-tablet: 64rem;
 $breakpoint-laptop: 102.4rem;
 $breakpoint-desktop: 145rem;
 
-// ============================================
 // Effects
-// ============================================
 $border-radius-sm: 0.5rem;
 $border-radius-md: 3rem;
 $border-radius-lg: 5rem;

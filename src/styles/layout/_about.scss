@@ -1,9 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
 // About Section
-// ============================================
 .about-wrap {
   margin: 0 $spacing-lg;
 
@@ -206,9 +204,7 @@
   }
 }
 
-// ============================================
 // Animations
-// ============================================
 @keyframes typing {
   from {
     width: 0;

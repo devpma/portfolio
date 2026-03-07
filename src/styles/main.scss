@@ -1,26 +1,18 @@
-// ============================================
 // Abstracts
-// ============================================
 @use 'abstracts/variables' as *;
 @use 'abstracts/mixins' as *;
 
-// ============================================
 // Base
-// ============================================
 @use 'base/reset';
 @use 'base/fonts';
 
-// ============================================
 // Layout
-// ============================================
 @use 'layout/visual';
 @use 'layout/zoom';
 @use 'layout/about';
 @use 'layout/slide';
 @use 'layout/contact';
 
-// ============================================
 // Components
-// ============================================
 @use 'components/cursor';
 @use 'components/common';

@@ -1,43 +1,43 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
 // Cursor Component
-// ============================================
-.cursor {
-  position: fixed;
-  width: 4rem;
-  height: 4rem;
-  margin-left: -2rem;
-  margin-top: -2rem;
-  border-radius: $border-radius-circle;
-  border: 0.2rem solid $color-accent;
-  @include smooth-transition(transform);
-  transform-origin: center center;
-  pointer-events: none;
-  z-index: 1000;
+@include desktop {
+  .cursor {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    margin-left: -2rem;
+    margin-top: -2rem;
+    border-radius: $border-radius-circle;
+    border: 0.2rem solid $color-accent;
+    @include smooth-transition(transform);
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 1000;
 
-  &.white {
-    border-color: $color-bg;
+    &.white {
+      border-color: $color-bg;
+    }
   }
-}
 
-.grow,
-.grow-small {
-  transform: scale(7);
-  background: $color-bg;
-  mix-blend-mode: difference;
-  border: none;
+  .grow,
+  .grow-small {
+    transform: scale(7);
+    background: $color-bg;
+    mix-blend-mode: difference;
+    border: none;
 
-  @include tablet {
+    @include tablet {
+      transform: scale(3);
+    }
+  }
+
+  .grow-small {
     transform: scale(3);
-  }
-}
 
-.grow-small {
-  transform: scale(3);
-
-  @include tablet {
-    transform: scale(2);
+    @include tablet {
+      transform: scale(2);
+    }
   }
 }

@@ -1,9 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
 // Visual Section
-// ============================================
 .visual-wrap {
   width: 100%;
   background: $color-primary;
