@@ -158,7 +158,7 @@ gsap.from('.info-text', {
   scrollTrigger: {
     trigger: '.info-cont',
     start: 'top 50%',
-    end: 'bottom 30%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -171,7 +171,7 @@ gsap.from('.info-img', {
   scrollTrigger: {
     trigger: '.info-img',
     start: 'top 55%',
-    end: 'bottom 30%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -184,8 +184,8 @@ gsap.from('.info-desc > *', {
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-desc',
-    start: 'top 60%',
-    end: 'bottom 30%',
+    start: 'top 55%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -198,7 +198,7 @@ gsap.from('.text-wrap', {
   scrollTrigger: {
     trigger: '.text-wrap',
     start: 'top 65%',
-    end: 'bottom 30%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
