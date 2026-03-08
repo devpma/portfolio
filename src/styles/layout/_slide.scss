@@ -78,7 +78,7 @@
 
           strong {
             display: block;
-            font-size: clamp($font-size-sm, 1.2vw, $font-size-lg);
+            font-size: $font-size-lg;
             color: inherit;
             margin-bottom: $spacing-sm;
             font-family: $font-bold;
@@ -88,24 +88,34 @@
           .tech {
             line-height: 2;
             color: inherit;
-            font-size: clamp($font-size-sm, 0.8vw, $font-size-base);
+            font-size: $font-size-base;
             margin-bottom: 0.5rem;
           }
 
           .work {
             line-height: 2;
             color: inherit;
-            font-size: clamp($font-size-xs, 0.5vw, $font-size-base);
+            font-size: $font-size-base;
             font-weight: 500;
-          }
-
-          @include tablet {
-            width: 50rem;
-            opacity: 0;
-            margin-top: 0;
           }
         }
 
+        @include tablet {
+          .txt {
+            width: 50rem;
+            opacity: 0;
+            margin-top: 0;
+
+            strong {
+              font-size: $font-size-md;
+            }
+
+            .tech,
+            .work {
+              font-size: $font-size-sm;
+            }
+          }
+        }
         @include mobile {
           padding: 0;
           flex-direction: column;
