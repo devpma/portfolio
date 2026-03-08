@@ -7,8 +7,8 @@ gsap.registerPlugin(ScrollTrigger)
 // 스크롤 시 도형 parallax
 gsap.utils.toArray('.shape').forEach((shape, i) => {
   gsap.to(shape, {
-    yPercent: (i + 1) * 20, // 각각 다른 속도
-    rotate: (i + 1) * 30, // 살짝 회전도!
+    yPercent: (i + 1) * 20,
+    rotate: (i + 1) * 30,
     ease: 'none',
     scrollTrigger: {
       trigger: '.visual-wrap',
