@@ -193,20 +193,22 @@ mm.add('(max-width: 768px)', () => {
     const img = item.querySelector('.img')
     const txt = item.querySelector('.txt')
 
-    const tl = gsap.timeline({
-      paused: true // 처음엔 멈춤
-    })
+    // 확실하게 초기화
+    gsap.set(img, { opacity: 0, y: 60 })
+    gsap.set(txt, { opacity: 0, y: 30 })
 
-    tl.from(img, {
-      y: 60,
-      opacity: 0,
+    const tl = gsap.timeline({ paused: true })
+
+    tl.to(img, {
+      y: 0,
+      opacity: 1,
       duration: 0.6,
       ease: 'power2.out'
-    }).from(
+    }).to(
       txt,
       {
-        y: 30,
-        opacity: 0,
+        y: 0,
+        opacity: 1,
         duration: 0.5,
         ease: 'power2.out'
       },
@@ -216,8 +218,8 @@ mm.add('(max-width: 768px)', () => {
     ScrollTrigger.create({
       trigger: item,
       start: 'top 80%',
-      onEnter: () => tl.restart(), // 들어올 때 재시작
-      onEnterBack: () => tl.restart() // 뒤로 들어올 때도 재시작
+      onEnter: () => tl.restart(),
+      onEnterBack: () => tl.restart()
     })
   })
 })

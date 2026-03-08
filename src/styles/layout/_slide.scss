@@ -64,6 +64,10 @@
           &:hover {
             transform: scale(1.02);
           }
+
+          @include mobile {
+            opacity: 0;
+          }
         }
 
         .txt {
@@ -96,6 +100,10 @@
             color: inherit;
             font-size: clamp($font-size-xs, 0.5vw, $font-size-base);
             font-weight: 500;
+          }
+
+          @include mobile {
+            opacity: 0;
           }
         }
 
