@@ -9,15 +9,17 @@
   margin-left: -2rem;
   margin-top: -2rem;
   border-radius: $border-radius-circle;
-  border: 0.2rem solid $color-accent;
+  border: 0.2rem solid $color-bg;
   @include smooth-transition(transform);
   transform-origin: center center;
   pointer-events: none;
   z-index: 1000;
 
-  &.white {
-    border-color: $color-bg;
+  &.black {
+    border-color: $color-accent;
+    background: rgba(0, 0, 0, 0.8);
   }
+
   @include tablet {
     display: none;
   }

@@ -127,23 +127,21 @@ gsap.ticker.add(() => {
   })
 })
 
-const cursorColorElements = document.querySelectorAll('.visual-wrap')
-cursorColorElements.forEach((el) => {
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add(el.classList.contains('white') ? 'black' : 'white')
+const visualWrap = document.querySelector('.visual-wrap')
+if (visualWrap) {
+  visualWrap.addEventListener('mouseenter', () => {
+    cursor.classList.add('black')
   })
-
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('white', 'black')
+  visualWrap.addEventListener('mouseleave', () => {
+    cursor.classList.remove('black')
   })
-})
+}
 
 const cursorScaleElements = document.querySelectorAll('.cursor-scale')
 cursorScaleElements.forEach((el) => {
   el.addEventListener('mouseenter', () => {
     cursor.classList.add(el.classList.contains('small') ? 'grow-small' : 'grow')
   })
-
   el.addEventListener('mouseleave', () => {
     cursor.classList.remove('grow', 'grow-small')
   })
@@ -184,7 +182,7 @@ gsap.from('.info-desc > *', {
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-desc',
-    start: 'top 55%',
+    start: 'top 30%',
     end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
