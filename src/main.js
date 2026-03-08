@@ -22,7 +22,7 @@ if (shapes.length > 0) {
       scrollTrigger: {
         trigger: '.visual-wrap',
         start: 'top top',
-        end: () => `bottom top+=${window.innerHeight}`,
+        end: 'bottom top',
         scrub: 1.5,
         markers: true
       }
