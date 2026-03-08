@@ -23,7 +23,8 @@ if (shapes.length > 0) {
         trigger: '.visual-wrap',
         start: 'top top',
         end: () => `bottom top+=${window.innerHeight}`,
-        scrub: 1.5
+        scrub: 1.5,
+        markers: true
       }
     })
   })
