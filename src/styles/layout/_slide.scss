@@ -100,7 +100,7 @@
         }
 
         @include mobile {
-          min-width: 90vw;
+          padding: 0;
           flex-direction: column;
 
           .img {
