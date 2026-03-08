@@ -3,7 +3,6 @@
 
 // Contact Section
 .contact-wrap {
-  margin-top: $spacing-md;
   padding: $spacing-sm;
   @include flex-between;
 
@@ -50,9 +49,5 @@
         font-size: $font-size-xs;
       }
     }
-  }
-
-  @include tablet {
-    margin-top: 0;
   }
 }

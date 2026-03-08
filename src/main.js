@@ -182,7 +182,7 @@ gsap.from('.info-desc > *', {
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-desc',
-    start: 'top 30%',
+    start: 'top 70%',
     end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
