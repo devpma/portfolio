@@ -121,7 +121,7 @@
       }
 
       .info-desc {
-        display: flex;
+        @include flex-center;
         text-align: left;
         flex-wrap: wrap;
         margin-top: $spacing-sm;

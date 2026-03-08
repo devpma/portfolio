@@ -149,7 +149,7 @@ cursorScaleElements.forEach((el) => {
   })
 })
 
-// About 섹션 애니메이션
+// About 섹션
 gsap.from('.info-text', {
   x: -40,
   opacity: 0,
@@ -157,7 +157,9 @@ gsap.from('.info-text', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.info-cont',
-    start: 'top 50%'
+    start: 'top 50%',
+    end: 'bottom 30%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
@@ -168,23 +170,26 @@ gsap.from('.info-img', {
   ease: 'back.out(1.2)',
   scrollTrigger: {
     trigger: '.info-img',
-    start: 'top 55%'
+    start: 'top 55%',
+    end: 'bottom 30%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
 gsap.from('.info-desc > *', {
   y: 20,
   opacity: 0,
-  stagger: 0.12,
+  stagger: 0.3,
   duration: 0.5,
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-desc',
-    start: 'top 60%'
+    start: 'top 60%',
+    end: 'bottom 30%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
-// 텍스트 타이핑 효과
 gsap.from('.text-wrap', {
   y: 60,
   opacity: 0,
@@ -192,10 +197,13 @@ gsap.from('.text-wrap', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.text-wrap',
-    start: 'top 65%'
+    start: 'top 65%',
+    end: 'bottom 30%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
+// 텍스트 타이핑
 const textWrap = document.querySelector('.text-wrap p')
 
 if (textWrap) {
@@ -203,7 +211,6 @@ if (textWrap) {
     trigger: '.text-wrap',
     start: 'center bottom',
     toggleClass: { targets: textWrap, className: 'on' }
-    // once: true 삭제!
   })
 }
 
