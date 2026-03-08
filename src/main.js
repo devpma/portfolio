@@ -7,14 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 const mm = gsap.matchMedia()
 
 // 도형 parallax
-
-// ============================================
-// Visual 도형 패럴랙스
-// ============================================
-console.log('Visual 패럴랙스 코드 시작')
-
 const shapes = document.querySelectorAll('.shape')
-console.log('찾은 도형:', shapes.length, shapes)
 
 if (shapes.length > 0) {
   gsap.utils.toArray('.shape').forEach((shape, i) => {
@@ -34,8 +27,6 @@ if (shapes.length > 0) {
       }
     })
   })
-} else {
-  console.error('도형을 찾을 수 없어요! HTML 확인 필요!')
 }
 
 // 무한 스크롤 텍스트
