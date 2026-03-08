@@ -20,7 +20,7 @@
       justify-content: flex-start;
       flex-wrap: nowrap;
 
-      @include mobile {
+      @include tablet {
         flex-direction: column;
         gap: $spacing-xl;
         padding: $spacing-xl $spacing-md;

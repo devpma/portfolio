@@ -13,7 +13,7 @@
     text-align: center;
     padding: clamp(2rem, 4vw, 3rem) 0;
 
-    @include tablet {
+    @include laptop {
       font-size: clamp(3rem, calc(-1.32rem + 13.49vw), 12.5rem);
     }
   }
@@ -29,13 +29,14 @@
       line-height: $line-height-normal;
     }
 
-    @include tablet {
+    @include laptop {
       p {
         font-size: $font-size-base;
       }
     }
 
-    @include mobile {
+    @include tab;
+    et {
       flex-wrap: wrap;
       padding: 0 2rem 2rem;
 
