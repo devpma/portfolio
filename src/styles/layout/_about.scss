@@ -57,6 +57,7 @@
         left: $spacing-md;
         top: $spacing-md;
         word-break: keep-all;
+        opacity: 0;
 
         @include laptop {
           position: static;
@@ -82,11 +83,14 @@
           @include smooth-transition(all);
           margin: 0 auto;
           max-width: 50rem;
+          opacity: 0;
 
           img {
             border-radius: $border-radius-md;
             max-width: 100%;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           &:hover {
@@ -108,7 +112,7 @@
 
             img {
               border-radius: $border-radius-sm;
-              aspect-ratio: 640 / 400;
+              aspect-ratio: 640 / 600;
             }
 
             &:hover {
@@ -124,6 +128,7 @@
         flex-wrap: wrap;
         margin-top: $spacing-sm;
         gap: 1.5rem;
+        opacity: 0;
 
         h3 {
           font-size: $font-size-base;
@@ -154,6 +159,7 @@
     z-index: 5;
     height: 30rem;
     @include flex-center;
+    opacity: 0;
 
     p {
       font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);

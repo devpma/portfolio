@@ -149,7 +149,53 @@ cursorScaleElements.forEach((el) => {
   })
 })
 
+// About 섹션 애니메이션
+gsap.from('.info-text', {
+  x: -40,
+  opacity: 0,
+  duration: 0.7,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.info-cont',
+    start: 'top 70%'
+  }
+})
+
+gsap.from('.info-img', {
+  scale: 0.9,
+  opacity: 0,
+  duration: 0.8,
+  ease: 'back.out(1.2)',
+  scrollTrigger: {
+    trigger: '.info-img',
+    start: 'top 75%'
+  }
+})
+
+gsap.from('.info-desc > *', {
+  y: 20,
+  opacity: 0,
+  stagger: 0.12,
+  duration: 0.5,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.info-desc',
+    start: 'top 80%'
+  }
+})
+
 // 텍스트 타이핑 효과
+gsap.from('.text-wrap', {
+  y: 60,
+  opacity: 0,
+  duration: 0.8,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.text-wrap',
+    start: 'top 75%'
+  }
+})
+
 const textWrap = document.querySelector('.text-wrap p')
 
 if (textWrap) {
