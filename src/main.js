@@ -194,11 +194,7 @@ mm.add('(max-width: 768px)', () => {
     const txt = item.querySelector('.txt')
 
     const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
+      paused: true // 처음엔 멈춤
     })
 
     tl.from(img, {
@@ -216,5 +212,12 @@ mm.add('(max-width: 768px)', () => {
       },
       '-=0.3'
     )
+
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 80%',
+      onEnter: () => tl.restart(), // 들어올 때 재시작
+      onEnterBack: () => tl.restart() // 뒤로 들어올 때도 재시작
+    })
   })
 })
