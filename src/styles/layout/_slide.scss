@@ -63,9 +63,6 @@
 
           @include tablet {
             width: 60rem;
-          }
-
-          @include mobile {
             opacity: 0;
 
             img {
@@ -104,9 +101,6 @@
 
           @include tablet {
             width: 50rem;
-          }
-
-          @include mobile {
             opacity: 0;
             margin-top: 0;
           }

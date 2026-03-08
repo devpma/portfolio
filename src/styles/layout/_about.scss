@@ -44,11 +44,6 @@
       position: relative;
 
       @include laptop {
-        @include flex-between;
-        padding: $spacing-lg;
-      }
-
-      @include tablet {
         flex-direction: column;
         padding: $spacing-md;
       }
@@ -65,16 +60,12 @@
 
         @include laptop {
           position: static;
-          margin-right: 0;
-          width: 30%;
-        }
-
-        @include tablet {
           width: 100%;
+          margin-right: 0;
           margin-bottom: $spacing-md;
         }
 
-        @include mobile {
+        @include tablet {
           font-size: $font-size-sm;
         }
       }
@@ -84,10 +75,6 @@
         text-align: center;
 
         @include laptop {
-          width: 65%;
-        }
-
-        @include tablet {
           width: 100%;
         }
 
@@ -119,7 +106,7 @@
             }
           }
 
-          @include mobile {
+          @include tablet {
             margin-top: $spacing-md;
           }
         }
@@ -134,23 +121,23 @@
 
         h3 {
           font-size: $font-size-base;
-
-          @include mobile {
-            font-size: $font-size-xs;
-          }
         }
 
         p {
           font-size: $font-size-sm;
-
-          @include mobile {
-            font-size: $font-size-xs;
-          }
         }
 
         @include tablet {
           @include flex-center;
           text-align: center;
+
+          h3 {
+            font-size: $font-size-xs;
+          }
+
+          p {
+            font-size: $font-size-xs;
+          }
         }
       }
     }
@@ -194,16 +181,18 @@
           }
         }
       }
-      @include mobile {
+    }
+  }
+  @include tablet {
+    margin: $spacing-lg $spacing-md 0;
+
+    p {
+      height: 20rem;
+
+      &.on {
         font-size: $font-size-sm;
       }
     }
-    @include mobile {
-      height: 20rem;
-    }
-  }
-  @include mobile {
-    margin: $spacing-lg $spacing-md 0;
   }
 }
 

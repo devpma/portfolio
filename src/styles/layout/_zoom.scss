@@ -54,20 +54,6 @@
         font-size: $font-size-xs;
         color: #fff;
       }
-
-      .btn-portfolio {
-        font-size: $font-size-sm;
-        background: $color-bg;
-        @include border-standard;
-        padding: 0.81vw 0.9vw 0.6vw;
-        border-radius: $border-radius-lg;
-        @include smooth-transition(all);
-
-        &:hover {
-          transform: rotate(-5deg);
-          box-shadow: 0.3rem 0.5rem 0.1rem $color-accent;
-        }
-      }
     }
   }
 }
