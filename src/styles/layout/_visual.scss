@@ -12,45 +12,38 @@
   .floating-shapes {
     position: absolute;
     inset: 0;
-    z-index: 5; // 텍스트 위에!
+    z-index: 5;
     pointer-events: none;
 
     .shape {
       position: absolute;
       border-radius: 50%;
-      backdrop-filter: blur(20px) saturate(180%);
-
-      // 글라스모피즘 효과!
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); // Safari
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
 
       // 도형별 위치와 크기
       &.shape-1 {
-        width: 40rem;
-        height: 40rem;
-        top: -10%;
-        right: 5%;
+        width: 15rem;
+        height: 15rem;
+        top: 3%;
+        right: 3%;
         background: rgba(171, 170, 157, 0.1);
-        border: 1px solid rgba(171, 170, 157, 0.2);
       }
 
       &.shape-2 {
         width: 30rem;
         height: 30rem;
-        bottom: 10%;
-        left: -5%;
+        top: -15%;
+        left: -9%;
         background: rgba(171, 170, 157, 0.1);
-        border: 1px solid rgba(171, 170, 157, 0.2);
       }
 
       &.shape-3 {
-        width: 25rem;
-        height: 25rem;
-        top: 40%;
-        right: 30%;
-        background: rgba(171, 170, 157, 0.07);
+        width: 20rem;
+        height: 20rem;
+        top: 32%;
+        right: 40%;
       }
 
       @include mobile {
