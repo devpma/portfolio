@@ -4,7 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// 스크롤 시 도형 parallax
+const mm = gsap.matchMedia()
+
+// 도형 parallax
 gsap.utils.toArray('.shape').forEach((shape, i) => {
   const direction = i % 2 === 0 ? 1 : -1
 
@@ -22,8 +24,6 @@ gsap.utils.toArray('.shape').forEach((shape, i) => {
     }
   })
 })
-
-const mm = gsap.matchMedia()
 
 // 무한 스크롤 텍스트
 const movingWrapper = document.querySelector('.pin-moving-wrapper')
