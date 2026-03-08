@@ -193,26 +193,26 @@ mm.add('(max-width: 768px)', () => {
     const img = item.querySelector('.img')
     const txt = item.querySelector('.txt')
 
-    gsap.set(img, { opacity: 0, y: 40 }) // 거리 줄임
-    gsap.set(txt, { opacity: 0, y: 20 }) // 거리 줄임
+    gsap.set(img, { opacity: 0, y: 60 })
+    gsap.set(txt, { opacity: 0, y: 30 })
 
     const tl = gsap.timeline({ paused: true })
 
     tl.to(img, {
       y: 0,
       opacity: 1,
-      duration: 0.4, // 빠르게!
-      ease: 'power3.out' // 더 강하게!
+      duration: 0.4,
+      ease: 'power3.out'
     }).to(
       txt,
       {
         y: 0,
         opacity: 1,
-        duration: 0.3, // 더 빠르게!
+        duration: 0.3,
         ease: 'power3.out'
       },
-      '-=0.2'
-    ) // 더 겹치게
+      '-=0.3'
+    )
 
     ScrollTrigger.create({
       trigger: item,
