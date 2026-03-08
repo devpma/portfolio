@@ -2,42 +2,39 @@
 @use '../abstracts/mixins' as *;
 
 // Cursor Component
-@include desktop {
-  .cursor {
-    position: fixed;
-    width: 4rem;
-    height: 4rem;
-    margin-left: -2rem;
-    margin-top: -2rem;
-    border-radius: $border-radius-circle;
-    border: 0.2rem solid $color-accent;
-    @include smooth-transition(transform);
-    transform-origin: center center;
-    pointer-events: none;
-    z-index: 1000;
+.cursor {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  margin-left: -2rem;
+  margin-top: -2rem;
+  border-radius: $border-radius-circle;
+  border: 0.2rem solid $color-accent;
+  @include smooth-transition(transform);
+  transform-origin: center center;
+  pointer-events: none;
+  z-index: 1000;
 
-    &.white {
-      border-color: $color-bg;
-    }
+  &.white {
+    border-color: $color-bg;
   }
-
-  .grow,
-  .grow-small {
-    transform: scale(7);
-    background: $color-bg;
-    mix-blend-mode: difference;
-    border: none;
-
-    @include tablet {
-      transform: scale(3);
-    }
+  @include tablet {
+    display: none;
   }
+}
 
-  .grow-small {
+.grow,
+.grow-small {
+  transform: scale(7);
+  background: $color-bg;
+  mix-blend-mode: difference;
+  border: none;
+
+  @include tablet {
     transform: scale(3);
-
-    @include tablet {
-      transform: scale(2);
-    }
   }
+}
+
+.grow-small {
+  transform: scale(3);
 }
