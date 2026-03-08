@@ -4,38 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// 페이지 로드 시 텍스트 애니메이션
-const visualTimeline = gsap.timeline({ delay: 0.3 })
-
-visualTimeline
-  .from('.visual-logo', {
-    y: 80,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-  .from(
-    '.visual-caption p',
-    {
-      y: 40,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.7,
-      ease: 'power2.out'
-    },
-    '-=0.5'
-  )
-
 // 스크롤 시 도형 parallax
 gsap.utils.toArray('.shape').forEach((shape, i) => {
   gsap.to(shape, {
-    yPercent: (i + 1) * 15,
+    yPercent: (i + 1) * 20, // 각각 다른 속도
+    rotate: (i + 1) * 30, // 살짝 회전도!
     ease: 'none',
     scrollTrigger: {
       trigger: '.visual-wrap',
       start: 'top top',
       end: 'bottom top',
-      scrub: 1
+      scrub: 1.5 // 부드럽게
     }
   })
 })
