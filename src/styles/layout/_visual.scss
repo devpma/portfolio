@@ -77,7 +77,7 @@
   }
 
   .visual-caption {
-    font-family: $font-bold;
+    font-family: $font-medium;
     @include flex-between;
     gap: $spacing-md;
     padding: $spacing-md;
