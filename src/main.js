@@ -157,7 +157,7 @@ gsap.from('.info-text', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.info-cont',
-    start: 'top 70%'
+    start: 'top 50%'
   }
 })
 
@@ -168,7 +168,7 @@ gsap.from('.info-img', {
   ease: 'back.out(1.2)',
   scrollTrigger: {
     trigger: '.info-img',
-    start: 'top 75%'
+    start: 'top 55%'
   }
 })
 
@@ -180,7 +180,7 @@ gsap.from('.info-desc > *', {
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-desc',
-    start: 'top 80%'
+    start: 'top 60%'
   }
 })
 
@@ -192,7 +192,7 @@ gsap.from('.text-wrap', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.text-wrap',
-    start: 'top 75%'
+    start: 'top 65%'
   }
 })
 
