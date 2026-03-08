@@ -4,6 +4,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// 도형 parallax
+gsap.utils.toArray('.shape').forEach((shape, i) => {
+  gsap.to(shape, {
+    yPercent: (i + 1) * 20,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.visual-wrap',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1
+    }
+  })
+})
+
 const mm = gsap.matchMedia()
 
 // 무한 스크롤 텍스트
