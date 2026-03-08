@@ -67,6 +67,10 @@
 
           @include mobile {
             opacity: 0;
+
+            img {
+              aspect-ratio: 600 / 400;
+            }
           }
         }
 
