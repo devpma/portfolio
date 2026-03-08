@@ -196,29 +196,30 @@ mm.add('(max-width: 768px)', () => {
     gsap.set(img, { opacity: 0, y: 60 })
     gsap.set(txt, { opacity: 0, y: 30 })
 
-    const tl = gsap.timeline({ paused: true })
-
-    tl.to(img, {
-      y: 0,
-      opacity: 1,
-      duration: 0.4,
-      ease: 'power3.out'
-    }).to(
-      txt,
-      {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play reverse play reverse'
+        }
+      })
+      .to(img, {
         y: 0,
         opacity: 1,
-        duration: 0.3,
-        ease: 'power3.out'
-      },
-      '-=0.3'
-    )
-
-    ScrollTrigger.create({
-      trigger: item,
-      start: 'top 80%',
-      onEnter: () => tl.restart(),
-      onEnterBack: () => tl.restart()
-    })
+        duration: 0.6,
+        ease: 'power4.out'
+      })
+      .to(
+        txt,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.3,
+          ease: 'power4.out'
+        },
+        '-=0.3'
+      )
   })
 })
