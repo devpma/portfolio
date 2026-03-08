@@ -18,8 +18,8 @@
     .shape {
       position: absolute;
       border-radius: 50%;
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(1.7px);
+      -webkit-backdrop-filter: blur(1.7px);
       background: rgba(255, 255, 255, 0);
 
       &.shape-1 {
