@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const mm = gsap.matchMedia()
+
 // 무한 스크롤 텍스트
 const movingWrapper = document.querySelector('.pin-moving-wrapper')
 const movingText = document.querySelector('.pin-moving-text')
@@ -27,8 +29,6 @@ if (movingWrapper && movingText) {
 }
 
 // 이미지 효과
-const mm = gsap.matchMedia()
-
 mm.add('(min-width: 1025px)', () => {
   const imageZoom = gsap.timeline({
     scrollTrigger: {
@@ -184,3 +184,37 @@ if (slides && slideItems.length > 0) {
     })
   })
 }
+
+// 모바일 슬라이드
+mm.add('(max-width: 768px)', () => {
+  const items = gsap.utils.toArray('.sld .item')
+
+  items.forEach((item) => {
+    const img = item.querySelector('.img')
+    const txt = item.querySelector('.txt')
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    })
+
+    tl.from(img, {
+      y: 60,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }).from(
+      txt,
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      },
+      '-=0.3'
+    )
+  })
+})
