@@ -12,13 +12,13 @@
       @include border-standard;
       border-bottom: 0;
       border-radius: $border-radius-lg $border-radius-lg 0 0;
-      background: $color-bg;
+      background: #f5f5f5;
       position: relative;
       z-index: 11;
 
       .main-title {
         font-size: clamp($spacing-md, 3vw, $font-size-xl);
-        font-family: $font-bold;
+        font-family: $font-medium;
       }
 
       @include laptop {
