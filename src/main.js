@@ -6,15 +6,19 @@ gsap.registerPlugin(ScrollTrigger)
 
 // 스크롤 시 도형 parallax
 gsap.utils.toArray('.shape').forEach((shape, i) => {
+  const direction = i % 2 === 0 ? 1 : -1
+
   gsap.to(shape, {
-    yPercent: (i + 1) * 20,
-    rotate: (i + 1) * 30,
+    yPercent: (i + 1) * 80,
+    xPercent: direction * 20,
+    rotate: (i + 1) * 100,
+    scale: 1.1,
     ease: 'none',
     scrollTrigger: {
       trigger: '.visual-wrap',
       start: 'top top',
-      end: 'bottom top',
-      scrub: 1.5 // 부드럽게
+      end: () => `bottom top+=${window.innerHeight}`,
+      scrub: 1.5
     }
   })
 })
