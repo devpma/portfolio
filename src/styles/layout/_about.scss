@@ -92,22 +92,28 @@
           &:hover {
             transform: scale(0.95);
           }
+        }
 
-          @include desktop {
+        @include desktop {
+          .info-img {
             width: 50rem;
           }
+        }
 
-          @include tablet {
+        @include tablet {
+          .info-img {
             width: 100%;
             max-width: 40rem;
+            margin-top: $spacing-md;
+
+            img {
+              border-radius: $border-radius-sm;
+              aspect-ratio: 640 / 400;
+            }
 
             &:hover {
               transform: scale(1);
             }
-          }
-
-          @include tablet {
-            margin-top: $spacing-md;
           }
         }
       }
@@ -187,8 +193,6 @@
     margin: $spacing-lg $spacing-md 0;
 
     p {
-      height: 20rem;
-
       &.on {
         font-size: $font-size-sm;
       }
