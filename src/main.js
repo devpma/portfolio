@@ -169,7 +169,7 @@ const slideItems = gsap.utils.toArray('.item')
 if (slides && slideItems.length > 0) {
   const mm = gsap.matchMedia()
 
-  mm.add('(min-width: 769px)', () => {
+  mm.add('(min-width: 468px)', () => {
     gsap.to(slides, {
       x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
       ease: 'none',
@@ -186,7 +186,7 @@ if (slides && slideItems.length > 0) {
 }
 
 // 모바일 슬라이드
-mm.add('(max-width: 768px)', () => {
+mm.add('(max-width: 468px)', () => {
   const items = gsap.utils.toArray('.sld .item')
 
   items.forEach((item) => {
