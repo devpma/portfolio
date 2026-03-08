@@ -35,8 +35,7 @@
       }
     }
 
-    @include tab;
-    et {
+    @include tablet {
       flex-wrap: wrap;
       padding: 0 2rem 2rem;
 
