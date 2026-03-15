@@ -3,151 +3,26 @@
 
 // About Section
 .about-wrap {
-  margin: $spacing-lg $spacing-lg 0;
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
 
-  .info-wrap {
-    .info-top {
-      @include flex-between;
-      padding: $spacing-lg $spacing-md;
-      @include border-standard;
-      border-bottom: 0;
-      border-radius: $border-radius-lg $border-radius-lg 0 0;
-      background: #f5f5f5;
-      position: relative;
-      z-index: 11;
+  .about-text {
+    font-size: $font-size-base;
+    line-height: 1.8;
+  }
 
-      .main-title {
-        font-size: clamp($spacing-md, 3vw, $font-size-xl);
-        font-family: $font-medium;
-      }
-
-      @include laptop {
-        padding: $spacing-lg;
-        border-radius: $border-radius-md $border-radius-md 0 0;
-      }
-
-      @include tablet {
-        padding: $spacing-lg;
-      }
-
-      @include mobile {
-        padding: $spacing-md;
-      }
+  .about-info {
+    p {
+      margin-bottom: 1rem;
+      font-size: $font-size-base;
     }
 
-    .info-cont {
-      padding: $spacing-lg $spacing-md;
-      @include flex-center;
-      @include border-standard;
-      border-bottom-width: 0.1rem;
-      border-radius: 0 0 $border-radius-lg $border-radius-lg;
-      position: relative;
-
-      @include laptop {
-        flex-direction: column;
-        padding: $spacing-md;
-      }
-
-      .info-text {
-        width: clamp(20rem, 18.78vw, 30rem);
-        font-size: clamp($font-size-sm, 0.96vw, $font-size-base);
-        margin-right: 0.6vw;
-        line-height: $line-height-normal;
-        position: absolute;
-        left: $spacing-md;
-        top: $spacing-md;
-        word-break: keep-all;
-
-        @include laptop {
-          position: static;
-          width: 100%;
-          margin-right: 0;
-          margin-bottom: $spacing-md;
-        }
-
-        @include tablet {
-          font-size: $font-size-sm;
-        }
-      }
-
-      .info-box {
-        position: relative;
-        text-align: center;
-
-        @include laptop {
-          width: 100%;
-        }
-
-        .info-img {
-          @include smooth-transition(all);
-          margin: 0 auto;
-          max-width: 50rem;
-
-          img {
-            border-radius: $border-radius-md;
-            max-width: 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
-          &:hover {
-            transform: scale(0.95);
-          }
-        }
-
-        @include desktop {
-          .info-img {
-            width: 50rem;
-          }
-        }
-
-        @include tablet {
-          .info-img {
-            width: 100%;
-            max-width: 40rem;
-            margin-top: $spacing-md;
-
-            img {
-              border-radius: $border-radius-sm;
-              aspect-ratio: 640 / 600;
-            }
-
-            &:hover {
-              transform: scale(1);
-            }
-          }
-        }
-      }
-
-      .info-desc {
-        @include flex-center;
-        text-align: left;
-        flex-wrap: wrap;
-        margin-top: $spacing-sm;
-        gap: 1.5rem;
-
-        h3 {
-          font-size: $font-size-base;
-        }
-
-        p {
-          font-size: $font-size-sm;
-        }
-
-        @include tablet {
-          @include flex-center;
-          text-align: center;
-
-          h3 {
-            font-size: $font-size-xs;
-          }
-
-          p {
-            font-size: $font-size-xs;
-          }
-        }
-      }
+    strong {
+      display: inline-block;
+      width: 6rem;
     }
   }
 
@@ -162,7 +37,6 @@
       text-align: center;
       line-height: $line-height-normal;
       white-space: nowrap;
-      overflow: hidden;
       font-family: $font-medium;
       position: relative;
 
@@ -174,7 +48,7 @@
           display: inline-flex;
           position: absolute;
           right: auto;
-          bottom: 0.6rem;
+          bottom: 1rem;
           margin-left: $spacing-sm;
           width: 0.2rem;
           height: 3rem;
