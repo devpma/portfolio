@@ -18,8 +18,8 @@
     .shape {
       position: absolute;
       border-radius: 50%;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(14px) contrast(0.85);
+      -webkit-backdrop-filter: blur(14px) contrast(0.85);
       background:
         radial-gradient(
           circle at 30% 30%,
@@ -43,6 +43,7 @@
         height: 15rem;
         top: 3%;
         right: 3%;
+        border-radius: 30% 60% 40% 70%;
       }
 
       &.shape-2 {
@@ -50,7 +51,7 @@
         height: 30rem;
         top: -15%;
         left: -9%;
-        border-radius: 30% 70% 60% 40%;
+        border-radius: 50% 60% 60% 40%;
       }
 
       &.shape-3 {
@@ -58,6 +59,7 @@
         height: 20rem;
         top: 32%;
         right: 40%;
+        border-radius: 60% 70% 50% 90%;
       }
 
       @include mobile {
