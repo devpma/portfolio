@@ -27,7 +27,7 @@ const mm = gsap.matchMedia()
 //       }
 //     })
 //   })
-}
+//}
 
 // 무한 스크롤 텍스트
 const movingWrapper = document.querySelector('.pin-moving-wrapper')
