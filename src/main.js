@@ -172,26 +172,32 @@ cursorScaleElements.forEach((el) => {
 
 // About 섹션
 gsap.from('.text-wrap', {
-  y: 60,
+  y: 40,
   opacity: 0,
-  duration: 0.8,
+  duration: 0.6,
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.text-wrap',
-    start: 'top 65%',
-    end: 'bottom top',
-    toggleActions: 'play reverse play reverse'
+    start: 'top 70%'
   }
 })
 
-// 텍스트 타이핑
-const textWrap = document.querySelector('.text-wrap p')
+const textWrapP = document.querySelector('.text-wrap p')
+if (textWrapP) {
+  gsap.set(textWrapP, { opacity: 0 })
 
-if (textWrap) {
   ScrollTrigger.create({
     trigger: '.text-wrap',
-    start: 'center bottom',
-    toggleClass: { targets: textWrap, className: 'on' }
+    start: 'top 60%',
+    onEnter: () => {
+      gsap.to(textWrapP, {
+        opacity: 1,
+        duration: 0.3,
+        onComplete: () => {
+          textWrapP.classList.add('on')
+        }
+      })
+    }
   })
 }
 
