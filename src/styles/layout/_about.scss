@@ -43,9 +43,9 @@
       }
 
       .intro-text {
-        font-size: clamp($font-size-base, 1.8vw, $font-size-lg);
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
+        font-size: clamp(1.6rem, 1.8vw, 1.7rem);
+        line-height: 1.6;
+        margin-bottom: 1rem;
         color: $color-text;
 
         strong {
@@ -54,7 +54,6 @@
       }
     }
 
-    // 숫자 강조
     .about-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -91,8 +90,10 @@
 
   .about-card {
     position: relative;
+    margin-top: 5rem;
 
     .card-inner {
+      background-color: $color-primary;
       border-radius: 3rem;
       padding: 3rem;
       box-shadow: 0 10px 20px rgb(0 0 0 / 30%);

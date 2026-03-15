@@ -150,12 +150,12 @@ gsap.ticker.add(() => {
   })
 })
 
-const visualWrap = document.querySelector('.visual-wrap')
+const aboutWrap = document.querySelector('.about-wrap')
 if (visualWrap) {
-  visualWrap.addEventListener('mouseenter', () => {
+  aboutWrap.addEventListener('mouseenter', () => {
     cursor.classList.add('black')
   })
-  visualWrap.addEventListener('mouseleave', () => {
+  aboutWrap.addEventListener('mouseleave', () => {
     cursor.classList.remove('black')
   })
 }
