@@ -6,29 +6,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const mm = gsap.matchMedia()
 
-// 도형 parallax
-// const shapes = document.querySelectorAll('.shape')
-
-// if (shapes.length > 0) {
-//   gsap.utils.toArray('.shape').forEach((shape, i) => {
-//     const direction = i % 2 === 0 ? 1 : -1
-
-//     gsap.to(shape, {
-//       yPercent: (i + 1) * 80,
-//       xPercent: direction * 20,
-//       rotate: (i + 1) * 100,
-//       scale: 1.1,
-//       ease: 'none',
-//       scrollTrigger: {
-//         trigger: '.visual-wrap',
-//         start: 'top top',
-//         end: 'bottom top',
-//         scrub: 1.5
-//       }
-//     })
-//   })
-//}
-
 // 무한 스크롤 텍스트
 const movingWrapper = document.querySelector('.pin-moving-wrapper')
 const movingText = document.querySelector('.pin-moving-text')
@@ -51,7 +28,7 @@ if (movingWrapper && movingText) {
   })
 }
 
-// 이미지 효과
+// 이미지 줌 효과
 mm.add('(min-width: 1025px)', () => {
   const imageZoom = gsap.timeline({
     scrollTrigger: {
@@ -151,7 +128,7 @@ gsap.ticker.add(() => {
 })
 
 const aboutWrap = document.querySelector('.about-wrap')
-if (visualWrap) {
+if (aboutWrap) {
   aboutWrap.addEventListener('mouseenter', () => {
     cursor.classList.add('black')
   })
@@ -160,6 +137,7 @@ if (visualWrap) {
   })
 }
 
+// 커서 확대 효과
 const cursorScaleElements = document.querySelectorAll('.cursor-scale')
 cursorScaleElements.forEach((el) => {
   el.addEventListener('mouseenter', () => {
@@ -170,7 +148,42 @@ cursorScaleElements.forEach((el) => {
   })
 })
 
-// About 섹션
+// About 애니메이션
+gsap.from('.about-intro', {
+  y: 40,
+  opacity: 0,
+  duration: 0.8,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.about-intro',
+    start: 'top 70%'
+  }
+})
+
+gsap.from('.about-stats .stat-item', {
+  y: 30,
+  opacity: 0,
+  stagger: 0.15,
+  duration: 0.6,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.about-stats',
+    start: 'top 75%'
+  }
+})
+
+gsap.from('.about-card', {
+  x: 40,
+  opacity: 0,
+  duration: 0.8,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.about-card',
+    start: 'top 70%'
+  }
+})
+
+// 타이핑 텍스트
 gsap.from('.text-wrap', {
   y: 40,
   opacity: 0,
@@ -204,12 +217,9 @@ if (textWrapP) {
 // 가로 스크롤 슬라이드
 const sldWrap = document.querySelector('.sld-wrap')
 const slides = document.querySelector('.items')
-const slideItems = gsap.utils.toArray('.item')
 
-if (slides && slideItems.length > 0) {
-  const mm = gsap.matchMedia()
-
-  mm.add('(min-width: 640px)', () => {
+if (slides && sldWrap) {
+  mm.add('(min-width: 641px)', () => {
     gsap.to(slides, {
       x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
       ease: 'none',
@@ -225,7 +235,7 @@ if (slides && slideItems.length > 0) {
   })
 }
 
-// 모바일 슬라이드
+// 모바일 슬라이드 애니메이션
 mm.add('(max-width: 640px)', () => {
   const items = gsap.utils.toArray('.sld .item')
 
