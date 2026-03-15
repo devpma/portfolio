@@ -7,26 +7,26 @@ gsap.registerPlugin(ScrollTrigger)
 const mm = gsap.matchMedia()
 
 // 도형 parallax
-const shapes = document.querySelectorAll('.shape')
+// const shapes = document.querySelectorAll('.shape')
 
-if (shapes.length > 0) {
-  gsap.utils.toArray('.shape').forEach((shape, i) => {
-    const direction = i % 2 === 0 ? 1 : -1
+// if (shapes.length > 0) {
+//   gsap.utils.toArray('.shape').forEach((shape, i) => {
+//     const direction = i % 2 === 0 ? 1 : -1
 
-    gsap.to(shape, {
-      yPercent: (i + 1) * 80,
-      xPercent: direction * 20,
-      rotate: (i + 1) * 100,
-      scale: 1.1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.visual-wrap',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.5
-      }
-    })
-  })
+//     gsap.to(shape, {
+//       yPercent: (i + 1) * 80,
+//       xPercent: direction * 20,
+//       rotate: (i + 1) * 100,
+//       scale: 1.1,
+//       ease: 'none',
+//       scrollTrigger: {
+//         trigger: '.visual-wrap',
+//         start: 'top top',
+//         end: 'bottom top',
+//         scrub: 1.5
+//       }
+//     })
+//   })
 }
 
 // 무한 스크롤 텍스트
