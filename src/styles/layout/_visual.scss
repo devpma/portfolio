@@ -5,8 +5,8 @@
 .visual-wrap {
   position: relative;
   overflow: hidden;
-  background: $color-bg;
-  color: $color-primary;
+  background: $color-primary;
+  color: #333;
   width: 100%;
 
   .floating-shapes {
@@ -47,10 +47,10 @@
       }
 
       &.shape-2 {
-        width: 30rem;
-        height: 30rem;
-        top: -15%;
-        left: -9%;
+        width: 20rem;
+        height: 15rem;
+        top: 7%;
+        left: 1%;
         border-radius: 50% 60% 60% 40%;
       }
 
@@ -157,11 +157,11 @@
 }
 
 .shape-1 {
-  animation: float 8s ease-in-out infinite;
+  animation: float 2s ease-in-out infinite;
 }
 .shape-2 {
-  animation: float 12s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 .shape-3 {
-  animation: float 10s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
