@@ -7,11 +7,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    padding: $spacing-lg $spacing-md;
   }
 
   .about-text {
     font-size: $font-size-base;
-    line-height: 1.8;
   }
 
   .about-info {
