@@ -23,18 +23,18 @@
       background:
         radial-gradient(
           circle at 30% 30%,
-          rgba(255, 255, 255, 0.25),
-          rgba(255, 255, 255, 0.05) 40%,
-          rgba(255, 255, 255, 0.02) 60%,
+          rgb(0 0 0 / 15%),
+          rgb(1 1 1 / 5%) 40%,
+          rgb(0 0 0 / 2%) 60%,
           transparent 70%
         ),
-        rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+        #ffffff08;
+      border: 1px solid rgb(0 0 0 / 12%);
       box-shadow:
-        inset 0 0 25px rgba(255, 255, 255, 0.2),
-        inset 0 0 60px rgba(255, 255, 255, 0.08),
-        0 20px 60px rgba(0, 0, 0, 0.25),
-        0 0 40px rgba(255, 255, 255, 0.12);
+        inset 0 0 25px #00000026,
+        inset 0 0 60px #00000014,
+        0 20px 60px #00000040,
+        0 0 40px #00000012;
       mix-blend-mode: screen;
       will-change: transform;
 
@@ -44,6 +44,9 @@
         top: 3%;
         right: 3%;
         border-radius: 30% 60% 40% 70%;
+        animation:
+          float,
+          radius 2s ease-in-out infinite;
       }
 
       &.shape-2 {
@@ -71,11 +74,13 @@
         &.shape-2 {
           width: 20rem;
           height: 20rem;
+          animation: float 4s ease-in-out infinite;
         }
 
         &.shape-3 {
           width: 15rem;
           height: 15rem;
+          animation: float 6s ease-in-out infinite;
         }
       }
 
@@ -155,13 +160,14 @@
     transform: translateY(0px);
   }
 }
-
-.shape-1 {
-  animation: float 2s ease-in-out infinite;
-}
-.shape-2 {
-  animation: float 4s ease-in-out infinite;
-}
-.shape-3 {
-  animation: float 6s ease-in-out infinite;
+@keyframes radius {
+  0% {
+    border-radius: 30% 60% 40% 70%;
+  }
+  50% {
+    border-radius: 30% 70% 30% 80%;
+  }
+  100% {
+    border-radius: 30% 60% 40% 70%;
+  }
 }
