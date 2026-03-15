@@ -1,9 +1,16 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+@mixin card-title {
+  font-size: $font-size-base;
+  font-family: $font-bold;
+  margin-bottom: 1rem;
+  color: $color-white;
+}
+
 .about-wrap {
   padding: $spacing-lg 0;
-  background: $color-bg;
+  background: $color-white;
 
   .about-inner {
     max-width: 120rem;
@@ -86,16 +93,9 @@
     position: relative;
 
     .card-inner {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: $border-radius-md;
+      border-radius: 3rem;
       padding: 3rem;
-      box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.05),
-        inset 0 0 30px rgba(255, 255, 255, 0.5);
-
+      box-shadow: 0 10px 20px rgb(0 0 0 / 30%);
       @include mobile {
         padding: 2rem;
       }
@@ -109,8 +109,8 @@
 
       .position {
         font-size: $font-size-lg;
-        color: $color-text;
-        font-family: $font-medium;
+        color: $color-white;
+        font-family: $font-bold;
         margin-bottom: 0.3rem;
       }
 
@@ -124,10 +124,7 @@
       margin-bottom: 2rem;
 
       .skills-title {
-        font-size: $font-size-base;
-        font-family: $font-bold;
-        margin-bottom: 1rem;
-        color: $color-dark;
+        @include card-title;
       }
 
       .skills-tags {
@@ -157,29 +154,21 @@
       border-top: 1px solid rgba(0, 0, 0, 0.1);
 
       .contact-title {
-        font-size: $font-size-base;
-        font-family: $font-bold;
-        margin-bottom: 1rem;
-        color: $color-dark;
+        @include card-title;
       }
 
       .contact-links {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
       }
 
       .contact-link {
         display: flex;
         align-items: center;
         gap: 1rem;
-        font-size: $font-size-base;
-        color: $color-text;
+        font-size: $font-size-sm;
+        color: $color-white;
         font-family: $font-medium;
-        text-decoration: none;
-        padding: 1rem 1.5rem;
-        background: rgba(62, 87, 91, 0.05);
-        border-radius: 1rem;
         transition: all $transition-fast;
 
         .contact-icon {

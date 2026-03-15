@@ -9,7 +9,7 @@
   margin-left: -2rem;
   margin-top: -2rem;
   border-radius: $border-radius-circle;
-  border: 0.2rem solid $color-bg;
+  border: 0.2rem solid $color-white;
   @include smooth-transition(transform);
   transform-origin: center center;
   pointer-events: none;
@@ -27,7 +27,7 @@
 .grow,
 .grow-small {
   transform: scale(7);
-  background: $color-bg;
+  background: $color-white;
   mix-blend-mode: difference;
   border: none;
 
