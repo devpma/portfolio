@@ -45,8 +45,8 @@
         right: 3%;
         border-radius: 30% 60% 40% 70%;
         animation:
-          float,
-          radius 2s ease-in-out infinite;
+          float 2s ease-in-out infinite,
+          radius 3s ease-in-out infinite;
       }
 
       &.shape-2 {
@@ -55,6 +55,9 @@
         top: 7%;
         left: 1%;
         border-radius: 50% 60% 60% 40%;
+        animation:
+          float 4s ease-in-out infinite,
+          radius 5s ease-in-out infinite;
       }
 
       &.shape-3 {
@@ -63,6 +66,9 @@
         top: 32%;
         right: 40%;
         border-radius: 60% 70% 50% 90%;
+        animation:
+          float 6s ease-in-out infinite,
+          radius 7s ease-in-out infinite;
       }
 
       @include mobile {
