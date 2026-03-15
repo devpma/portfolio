@@ -1,9 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ============================================
-// About Section
-// ============================================
 .about-wrap {
   padding: 8rem 0;
   background: $color-bg;
@@ -45,8 +42,7 @@
         color: $color-text;
 
         strong {
-          color: $color-dark;
-          font-family: $font-bold;
+          font-family: $font-medium;
         }
       }
     }
@@ -86,7 +82,6 @@
     }
   }
 
-  // 오른쪽: 프로필 카드
   .about-card {
     position: relative;
 
@@ -172,11 +167,10 @@
       .contact-link {
         display: inline-block;
         font-size: $font-size-base;
-        color: $color-primary;
+        color: $color-text;
         font-family: $font-medium;
         text-decoration: none;
         padding: 1rem 2rem;
-        border: 1px solid $color-primary;
         border-radius: 3rem;
         transition: all $transition-fast;
 
@@ -188,7 +182,6 @@
     }
   }
 
-  // 타이핑 텍스트
   .text-wrap {
     position: relative;
     z-index: 5;

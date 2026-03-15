@@ -171,46 +171,6 @@ cursorScaleElements.forEach((el) => {
 })
 
 // About 섹션
-gsap.from('.info-text', {
-  x: -40,
-  opacity: 0,
-  duration: 0.7,
-  ease: 'power3.out',
-  scrollTrigger: {
-    trigger: '.info-cont',
-    start: 'top 50%',
-    end: 'bottom top',
-    toggleActions: 'play reverse play reverse'
-  }
-})
-
-gsap.from('.info-img', {
-  scale: 0.9,
-  opacity: 0,
-  duration: 0.8,
-  ease: 'back.out(1.2)',
-  scrollTrigger: {
-    trigger: '.info-img',
-    start: 'top 55%',
-    end: 'bottom top',
-    toggleActions: 'play reverse play reverse'
-  }
-})
-
-gsap.from('.info-desc > *', {
-  y: 20,
-  opacity: 0,
-  stagger: 0.3,
-  duration: 0.5,
-  ease: 'power2.out',
-  scrollTrigger: {
-    trigger: '.info-desc',
-    start: 'top 70%',
-    end: 'bottom top',
-    toggleActions: 'play reverse play reverse'
-  }
-})
-
 gsap.from('.text-wrap', {
   y: 60,
   opacity: 0,
