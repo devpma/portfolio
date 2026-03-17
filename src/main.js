@@ -156,7 +156,7 @@ gsap.from('.about-intro', {
   scrollTrigger: {
     trigger: '.about-intro',
     start: 'top 70%',
-    end: 'bottom 20%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -170,7 +170,7 @@ gsap.from('.about-stats .stat-item', {
   scrollTrigger: {
     trigger: '.about-stats',
     start: 'top 75%',
-    end: 'bottom 20%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -183,7 +183,7 @@ gsap.from('.about-card', {
   scrollTrigger: {
     trigger: '.about-card',
     start: 'top 70%',
-    end: 'bottom 20%',
+    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })
