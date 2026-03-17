@@ -147,6 +147,6 @@
   }
 
   @include tablet {
-    border-radius: $border-radius-md;
+    border-radius: $border-radius-md $border-radius-md 0 0;
   }
 }

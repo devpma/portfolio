@@ -237,7 +237,8 @@
     }
 
     @include tablet {
-      margin-top: 4rem;
+      margin-top: 0rem;
+      height: 25rem;
     }
   }
 }
