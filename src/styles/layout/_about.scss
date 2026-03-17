@@ -201,6 +201,8 @@
     @include flex-center;
     margin-top: 6rem;
     opacity: 0;
+    padding: 0 $spacing-md;
+    overflow: hidden;
 
     p {
       font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
@@ -209,8 +211,6 @@
       white-space: nowrap;
       font-family: $font-medium;
       position: relative;
-      overflow: hidden;
-      padding: 0 $spacing-md;
 
       &.on {
         animation: typing 2s steps(36);
