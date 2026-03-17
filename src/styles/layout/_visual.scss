@@ -39,10 +39,10 @@
       will-change: transform;
 
       &.shape-1 {
-        width: 15rem;
-        height: 15rem;
-        top: 3%;
-        right: 3%;
+        width: 30rem;
+        height: 29rem;
+        top: 20%;
+        right: -2%;
         border-radius: 30% 60% 40% 70%;
         animation:
           float 4s ease-in-out infinite,
@@ -50,10 +50,10 @@
       }
 
       &.shape-2 {
-        width: 20rem;
-        height: 15rem;
-        top: 7%;
-        left: 1%;
+        width: 30rem;
+        height: 29rem;
+        top: -13%;
+        left: -2%;
         border-radius: 50% 60% 60% 40%;
         animation:
           float 4s ease-in-out infinite,
@@ -61,10 +61,10 @@
       }
 
       &.shape-3 {
-        width: 20rem;
-        height: 20rem;
-        top: 32%;
-        right: 40%;
+        width: 16rem;
+        height: 16rem;
+        top: 10%;
+        right: 18%;
         border-radius: 60% 70% 50% 90%;
         animation:
           float 46s ease-in-out infinite,
@@ -73,56 +73,52 @@
 
       @include laptop {
         &.shape-1 {
-          width: 14rem;
-          height: 12rem;
-          top: 8%;
-          right: 3%;
+          width: 25rem;
+          height: 24rem;
+          top: 20%;
+          right: -4%;
         }
 
         &.shape-2 {
-          width: 15rem;
-          height: 12rem;
-          top: 9%;
-          left: 2%;
+          width: 25rem;
+          height: 22rem;
+          top: -10%;
+          left: -2%;
         }
 
         &.shape-3 {
-          width: 15rem;
-          height: 15rem;
-          top: 27%;
+          width: 13rem;
+          height: 13rem;
+          top: 10%;
         }
       }
 
       @include tablet {
         &.shape-1 {
-          width: 10rem;
-          height: 9rem;
+          width: 17rem;
+          height: 16rem;
+          top: 25%;
         }
 
         &.shape-2 {
-          width: 11rem;
-          height: 9rem;
-          top: 10%;
+          width: 17rem;
+          height: 16rem;
         }
 
         &.shape-3 {
-          width: 12rem;
-          height: 10rem;
-          top: 20%;
+          width: 8rem;
+          height: 7rem;
         }
       }
 
       @include mobile {
         &.shape-1 {
-          width: 17rem;
-          height: 13rem;
           top: 28%;
           right: -2%;
         }
 
         &.shape-2 {
           width: 14rem;
-          height: 16rem;
           top: -4%;
           left: -5%;
         }
