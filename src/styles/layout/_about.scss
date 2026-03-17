@@ -33,6 +33,7 @@
   // 왼쪽: 소개
   .about-content {
     .about-intro {
+      opacity: 0;
       margin-bottom: 4rem;
 
       h2 {
@@ -69,6 +70,7 @@
         padding: 2rem;
         background: linear-gradient(135deg, rgba(62, 87, 91, 0.05), rgba(171, 170, 157, 0.05));
         border-radius: $border-radius-md;
+        opacity: 0;
 
         .stat-number {
           display: block;
@@ -91,6 +93,7 @@
   .about-card {
     position: relative;
     margin-top: 5rem;
+    opacity: 0;
 
     .card-inner {
       background-color: $color-primary;

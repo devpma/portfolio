@@ -147,7 +147,6 @@ cursorScaleElements.forEach((el) => {
     cursor.classList.remove('grow', 'grow-small')
   })
 })
-
 // About 애니메이션
 gsap.from('.about-intro', {
   y: 40,
@@ -156,7 +155,9 @@ gsap.from('.about-intro', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.about-intro',
-    start: 'top 70%'
+    start: 'top 70%',
+    end: 'bottom 20%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
@@ -168,7 +169,9 @@ gsap.from('.about-stats .stat-item', {
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.about-stats',
-    start: 'top 75%'
+    start: 'top 75%',
+    end: 'bottom 20%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
@@ -179,7 +182,9 @@ gsap.from('.about-card', {
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.about-card',
-    start: 'top 70%'
+    start: 'top 70%',
+    end: 'bottom 20%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
@@ -187,10 +192,12 @@ gsap.from('.about-card', {
 ScrollTrigger.create({
   trigger: '.text-wrap',
   start: 'top 70%',
-  onEnter: () => {
-    const p = document.querySelector('.text-wrap p')
-    if (p) p.classList.add('on')
-  }
+  end: 'bottom 20%',
+
+  onEnter: () => textWrapP.classList.add('on'),
+  onLeave: () => textWrapP.classList.remove('on'),
+  onEnterBack: () => textWrapP.classList.add('on'),
+  onLeaveBack: () => textWrapP.classList.remove('on')
 })
 
 // 가로 스크롤 슬라이드
