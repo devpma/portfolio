@@ -200,9 +200,6 @@
     height: 30rem;
     @include flex-center;
     margin-top: 6rem;
-    opacity: 0;
-    padding: 0 $spacing-md;
-    overflow: hidden;
 
     p {
       font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
@@ -211,6 +208,9 @@
       white-space: nowrap;
       font-family: $font-medium;
       position: relative;
+      width: 0;
+      padding: 0 $spacing-md;
+      overflow: hidden;
 
       &.on {
         animation: typing 2s steps(36);
@@ -249,7 +249,7 @@
     width: 0;
   }
   to {
-    width: 37ch;
+    width: 100%;
   }
 }
 
