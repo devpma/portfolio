@@ -193,11 +193,22 @@ ScrollTrigger.create({
   trigger: '.text-wrap',
   start: 'top 70%',
   end: 'bottom 20%',
-
-  onEnter: () => textWrapP.classList.add('on'),
-  onLeave: () => textWrapP.classList.remove('on'),
-  onEnterBack: () => textWrapP.classList.add('on'),
-  onLeaveBack: () => textWrapP.classList.remove('on')
+  onEnter: () => {
+    const p = document.querySelector('.text-wrap p')
+    if (p) p.classList.add('on')
+  },
+  onLeave: () => {
+    const p = document.querySelector('.text-wrap p')
+    if (p) p.classList.remove('on')
+  },
+  onEnterBack: () => {
+    const p = document.querySelector('.text-wrap p')
+    if (p) p.classList.add('on')
+  },
+  onLeaveBack: () => {
+    const p = document.querySelector('.text-wrap p')
+    if (p) p.classList.remove('on')
+  }
 })
 
 // 가로 스크롤 슬라이드

@@ -200,6 +200,7 @@
     height: 30rem;
     @include flex-center;
     margin-top: 6rem;
+    opacity: 0;
 
     p {
       font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
