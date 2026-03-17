@@ -184,35 +184,14 @@ gsap.from('.about-card', {
 })
 
 // 타이핑 텍스트
-gsap.from('.text-wrap', {
-  y: 40,
-  opacity: 0,
-  duration: 0.6,
-  ease: 'power3.out',
-  scrollTrigger: {
-    trigger: '.text-wrap',
-    start: 'top 70%'
+ScrollTrigger.create({
+  trigger: '.text-wrap',
+  start: 'top 70%',
+  onEnter: () => {
+    const p = document.querySelector('.text-wrap p')
+    if (p) p.classList.add('on')
   }
 })
-
-const textWrapP = document.querySelector('.text-wrap p')
-if (textWrapP) {
-  gsap.set(textWrapP, { opacity: 0 })
-
-  ScrollTrigger.create({
-    trigger: '.text-wrap',
-    start: 'top 60%',
-    onEnter: () => {
-      gsap.to(textWrapP, {
-        opacity: 1,
-        duration: 0.3,
-        onComplete: () => {
-          textWrapP.classList.add('on')
-        }
-      })
-    }
-  })
-}
 
 // 가로 스크롤 슬라이드
 const sldWrap = document.querySelector('.sld-wrap')
