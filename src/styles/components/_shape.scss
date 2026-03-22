@@ -63,36 +63,6 @@
         radius3 3s ease-in-out infinite;
     }
 
-    &.heart {
-      position: absolute;
-      width: 10rem;
-      height: 9rem;
-      top: 10%;
-      right: 10%;
-      background: rgb(241, 71, 20);
-      transform: rotate(-45deg);
-    }
-
-    &.heart::before,
-    &.heart::after {
-      content: '';
-      position: absolute;
-      width: 100px;
-      height: 90px;
-      background: rgb(241, 71, 20);
-      border-radius: 50%;
-    }
-
-    &.heart::before {
-      top: -50px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 50px;
-      top: 0;
-    }
-
     @include laptop {
       &.shape-1 {
         width: 25rem;
@@ -175,5 +145,34 @@
         mix-blend-mode: normal;
       }
     }
+  }
+  &.heart {
+    position: absolute;
+    width: 10rem;
+    height: 9rem;
+    top: 10%;
+    right: 10%;
+    background: rgb(241, 71, 20);
+    transform: rotate(-45deg);
+  }
+
+  &.heart::before,
+  &.heart::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    background: rgb(241, 71, 20);
+    border-radius: 50%;
+  }
+
+  &.heart::before {
+    top: -50px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 50px;
+    top: 0;
   }
 }
