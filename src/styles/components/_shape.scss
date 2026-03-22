@@ -224,36 +224,36 @@
 
 @keyframes scale1 {
   0% {
-    transform: scale(0, 0) rotate(30deg);
+    transform: scale(1) rotate(30deg);
   }
   50% {
-    transform: scale(0.5, 0.5) rotate(30deg);
+    transform: scale(1.2) rotate(30deg);
   }
   100% {
-    transform: scale(0, 0) rotate(30deg);
+    transform: scale(1) rotate(30deg);
   }
 }
 
 @keyframes scale2 {
   0% {
-    transform: scale(0, 0) rotate(-10deg);
+    transform: scale(1) rotate(-10deg);
   }
   50% {
-    transform: scale(0.5, 0.5) rotate(-10deg);
+    transform: scale(1.2) rotate(-10deg);
   }
   100% {
-    transform: scale(0, 0) rotate(-10deg);
+    transform: scale(1) rotate(-10deg);
   }
 }
 
 @keyframes scale3 {
   0% {
-    transform: scale(0, 0) rotate(40deg);
+    transform: scale(1) rotate(40deg);
   }
   50% {
-    transform: scale(0.5, 0.5) rotate(40deg);
+    transform: scale(1.2) rotate(40deg);
   }
   100% {
-    transform: scale(0, 0) rotate(40deg);
+    transform: scale(1) rotate(40deg);
   }
 }
