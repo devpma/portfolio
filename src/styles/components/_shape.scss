@@ -149,10 +149,10 @@
 
   .heart-box {
     position: absolute;
-    animation: scale 3s ease-in-out infinite;
 
     .heart {
       position: relative;
+      display: block;
       width: 2rem;
       height: 2rem;
       border-radius: 0 0 0 0.2rem;
@@ -183,6 +183,8 @@
     &.heart-1 {
       top: 10%;
       right: 10%;
+      transform: scale(1) rotate(30deg);
+      animation: scale1 2s ease-in-out infinite;
 
       .heart {
         background: #72f467;
@@ -197,6 +199,8 @@
     &.heart-2 {
       top: 20%;
       right: 20%;
+      transform: scale(1) rotate(-10deg);
+      animation: scale2 2s ease-in-out infinite;
 
       .heart {
         background: #3e8837;
@@ -209,8 +213,10 @@
     }
 
     &.heart-3 {
-      top: 10%;
-      right: 5%;
+      top: 30%;
+      right: 7%;
+      transform: scale(1) rotate(40deg);
+      animation: scale3 2s ease-in-out infinite;
 
       .heart {
         background: #1ec10f;
@@ -224,14 +230,38 @@
   }
 }
 
-@keyframes scale {
+@keyframes scale1 {
   0% {
-    transform: scale(0, 0);
+    transform: scale(0, 0) rotate(30deg);
   }
   50% {
-    transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5) rotate(30deg);
   }
   100% {
-    transform: scale(0, 0);
+    transform: scale(0, 0) rotate(30deg);
+  }
+}
+
+@keyframes scale2 {
+  0% {
+    transform: scale(0, 0) rotate(-10deg);
+  }
+  50% {
+    transform: scale(0.5, 0.5) rotate(-10deg);
+  }
+  100% {
+    transform: scale(0, 0) rotate(-10deg);
+  }
+}
+
+@keyframes scale3 {
+  0% {
+    transform: scale(0, 0) rotate(40deg);
+  }
+  50% {
+    transform: scale(0.5, 0.5) rotate(40deg);
+  }
+  100% {
+    transform: scale(0, 0) rotate(40deg);
   }
 }
