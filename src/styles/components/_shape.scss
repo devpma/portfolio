@@ -147,33 +147,82 @@
     }
   }
 
-  .heart {
+  .heart-box {
     position: absolute;
-    width: 10rem;
-    height: 9rem;
-    top: 10%;
-    right: 10%;
-    background: rgb(241, 71, 20);
-    transform: rotate(-45deg);
-  }
+    animation: scale 3s ease-in-out infinite;
 
-  .heart::before,
-  .heart::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 90px;
-    background: rgb(241, 71, 20);
-    border-radius: 50%;
-  }
+    .heart {
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0 0 0 0.2rem;
+      transform: rotate(-45deg);
 
-  .heart::before {
-    top: -50px;
-    left: 0;
-  }
+      &::before,
+      &::after {
+        content: '';
+        content: '';
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background: #72f467;
+        border-radius: 50%;
+      }
 
-  .heart::after {
-    left: 50px;
-    top: 0;
+      &::before {
+        top: -1.2rem;
+        left: 0;
+      }
+
+      &::after {
+        left: 1.2rem;
+        top: 0;
+      }
+    }
+
+    &.heart-1 {
+      top: 10%;
+      right: 10%;
+      background: #72f467;
+
+      &::before,
+      &::after {
+        background: #72f467;
+      }
+    }
+
+    &.heart-2 {
+      top: 20%;
+      right: 20%;
+      background: #3e8837;
+
+      &::before,
+      &::after {
+        background: #3e8837;
+      }
+    }
+
+    &.heart-3 {
+      top: 10%;
+      right: 5%;
+      background: #1ec10f;
+
+      &::before,
+      &::after {
+        background: #1ec10f;
+      }
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0);
   }
 }
