@@ -9,7 +9,7 @@
 
   .shape {
     position: absolute;
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px) contrast(0.85);
     box-shadow:
       rgba(0, 0, 0, 0.15) 0px 0px 25px inset,
       rgba(0, 0, 0, 0.08) 0px 0px 60px inset,
@@ -110,6 +110,8 @@
     }
 
     @include mobile {
+      backdrop-filter: none;
+
       &.shape-1 {
         top: 28%;
         right: -2%;
