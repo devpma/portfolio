@@ -10,25 +10,8 @@
   .shape {
     position: absolute;
     border-radius: 50%;
-    backdrop-filter: blur(14px) contrast(0.85);
-    -webkit-backdrop-filter: blur(14px);
-    background:
-      radial-gradient(
-        circle at 30% 30%,
-        rgb(0 0 0 / 15%),
-        rgb(1 1 1 / 5%) 40%,
-        rgb(0 0 0 / 2%) 60%,
-        transparent 70%
-      ),
-      #ffffff08;
-    border: 1px solid rgb(0 0 0 / 12%);
-    box-shadow:
-      inset 0 0 25px #00000026,
-      inset 0 0 60px #00000014,
-      0 20px 60px #00000040,
-      0 0 40px #00000012;
-    mix-blend-mode: screen;
-    will-change: transform;
+    overflow: hidden;
+    isolation: isolate;
 
     &.shape-1 {
       width: 40rem;
@@ -120,6 +103,21 @@
       }
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      background: rgba(255, 255, 255, 0.05);
+
+      @supports (-webkit-touch-callout: none) {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -137,13 +135,6 @@
       );
       filter: blur(10px);
       opacity: 0.7;
-    }
-
-    @supports (-webkit-touch-callout: none) {
-      .shape {
-        backdrop-filter: blur(8px);
-        mix-blend-mode: normal;
-      }
     }
   }
 
