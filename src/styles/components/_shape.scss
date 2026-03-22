@@ -183,33 +183,42 @@
     &.heart-1 {
       top: 10%;
       right: 10%;
-      background: #72f467;
 
-      &::before,
-      &::after {
+      .heart {
         background: #72f467;
+
+        &::before,
+        &::after {
+          background: #72f467;
+        }
       }
     }
 
     &.heart-2 {
       top: 20%;
       right: 20%;
-      background: #3e8837;
 
-      &::before,
-      &::after {
+      .heart {
         background: #3e8837;
+
+        &::before,
+        &::after {
+          background: #3e8837;
+        }
       }
     }
 
     &.heart-3 {
       top: 10%;
       right: 5%;
-      background: #1ec10f;
 
-      &::before,
-      &::after {
+      .heart {
         background: #1ec10f;
+
+        &::before,
+        &::after {
+          background: #1ec10f;
+        }
       }
     }
   }
