@@ -12,27 +12,26 @@
   .visual-logo {
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
-    position: absolute; // absolute로 변경해서 배경처럼 깔기
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     padding: 1rem 1.2rem;
-
+    text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    // 개별 글자를 span으로 감싸야 함
-    // <span class="l-park">P</span><span class="l-mina">M</span> 형태
     .l-park {
-      font-size: clamp(4rem, 8vw, 9rem);
-      color: #1a1a1a;
+      font-size: clamp(4rem, 13vw, 18rem);
+      color: #111111; // 솔리드
       display: block;
       letter-spacing: -0.04em;
     }
 
     .l-mina {
-      font-size: clamp(4rem, 8vw, 9rem);
-      color: rgba(15, 15, 15, 0.28); // 핵심: 흐린 열
+      font-size: clamp(4rem, 13vw, 18rem);
+      color: transparent; // 핵심: 아웃라인만
+      -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
       display: block;
       letter-spacing: -0.04em;
     }
@@ -42,6 +41,9 @@
       .l-mina {
         font-size: clamp(3rem, 6vw, 6rem);
       }
+      .l-mina {
+        -webkit-text-stroke-width: 1.5px;
+      }
     }
 
     @include tablet {
@@ -49,12 +51,18 @@
       .l-mina {
         font-size: clamp(2.4rem, 5vw, 4.5rem);
       }
+      .l-mina {
+        -webkit-text-stroke-width: 1.2px;
+      }
     }
 
     @include mobile {
       .l-park,
       .l-mina {
         font-size: clamp(2rem, 12vw, 3.5rem);
+      }
+      .l-mina {
+        -webkit-text-stroke-width: 1px;
       }
     }
   }
@@ -227,6 +235,65 @@
         rgba(255, 255, 255, 0.3) 60%,
         transparent 70%
       );
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes radius1 {
+  0% {
+    border-radius: 50% 60% 40% 70%;
+  }
+  50% {
+    border-radius: 60% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 50% 60% 40% 70%;
+  }
+}
+@keyframes radius2 {
+  0% {
+    border-radius: 50% 60% 60% 40%;
+  }
+  50% {
+    border-radius: 30% 70% 50%;
+  }
+  100% {
+    border-radius: 50% 60% 60% 40%;
+  }
+}
+@keyframes radius3 {
+  0% {
+    border-radius: 60% 70% 50% 90%;
+  }
+  50% {
+    border-radius: 50% 60% 65% 65%;
+  }
+  100% {
+    border-radius: 60% 70% 50% 90%;
+  }
+}
+
+@include tablet {
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
     }
   }
 }
