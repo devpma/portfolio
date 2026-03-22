@@ -123,6 +123,7 @@
     }
 
     &::after {
+      content: '';
       position: absolute;
       top: 15%;
       left: 20%;
