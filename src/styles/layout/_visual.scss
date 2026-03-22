@@ -14,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     padding: 1rem 1.2rem;
     text-align: center;
     display: grid;
@@ -33,11 +33,13 @@
       -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
       display: block;
       letter-spacing: -0.04em;
-      transition: all 0.2s;
+      transition:
+        color 0.25s ease,
+        -webkit-text-stroke-color 0.25s ease;
 
       &:hover {
-        color: #0f0f0f47;
-        -webkit-text-stroke: none;
+        color: rgba(15, 15, 15, 0.28);
+        -webkit-text-stroke-color: transparent;
       }
     }
 
@@ -83,7 +85,7 @@
     padding: 5rem 2rem 3rem;
     word-break: keep-all;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     min-height: 100vh;
 
     p {
