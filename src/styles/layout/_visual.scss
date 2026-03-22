@@ -1,7 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// Visual Section
 .visual-wrap {
   position: relative;
   overflow: hidden;
@@ -9,16 +8,54 @@
   color: #333;
   width: 100%;
 
+  // 로고를 2열 그리드로 변경
   .visual-logo {
     font-family: ClimateCrisisKR-1979;
-    font-size: clamp(12.5rem, -0.67rem + 17vw, 19rem);
-    padding: 8rem 2rem;
-    line-height: 1;
-    position: relative;
+    line-height: 0.82;
+    position: absolute; // absolute로 변경해서 배경처럼 깔기
+    top: 0;
+    left: 0;
     z-index: 1;
+    padding: 1rem 1.2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    // 개별 글자를 span으로 감싸야 함
+    // <span class="l-park">P</span><span class="l-mina">M</span> 형태
+    .l-park {
+      font-size: clamp(4rem, 8vw, 9rem);
+      color: #1a1a1a;
+      display: block;
+      letter-spacing: -0.04em;
+    }
+
+    .l-mina {
+      font-size: clamp(4rem, 8vw, 9rem);
+      color: rgba(15, 15, 15, 0.28); // 핵심: 흐린 열
+      display: block;
+      letter-spacing: -0.04em;
+    }
 
     @include laptop {
-      font-size: clamp(3.55rem, calc(-0.52rem + 12.71vw), 12.5rem);
+      .l-park,
+      .l-mina {
+        font-size: clamp(3rem, 6vw, 6rem);
+      }
+    }
+
+    @include tablet {
+      .l-park,
+      .l-mina {
+        font-size: clamp(2.4rem, 5vw, 4.5rem);
+      }
+    }
+
+    @include mobile {
+      .l-park,
+      .l-mina {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+      }
     }
   }
 
@@ -26,13 +63,15 @@
     font-family: $font-medium;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: flex-end;
     text-align: right;
-    gap: 2rem;
-    padding: 2rem 2rem 5rem;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5rem 2rem 3rem;
     word-break: keep-all;
     position: relative;
     z-index: 1;
+    min-height: 100vh; // 로고가 absolute라 캡션이 높이를 잡아야 함
 
     p {
       font-size: $font-size-lg;
@@ -46,16 +85,19 @@
     }
 
     @include tablet {
-      flex-wrap: wrap;
-      padding: 0 2rem 2rem;
-
+      padding: 4rem 2rem 2rem;
       p {
         font-size: $font-size-xs;
       }
     }
+
+    @include mobile {
+      padding: 3rem 1.5rem 2rem;
+    }
   }
 }
 
+// 버블: mix-blend-mode 제거 + 흰색 계열로 수정
 .floating-shapes {
   position: absolute;
   inset: 0;
@@ -63,31 +105,31 @@
   pointer-events: none;
 
   .shape {
-    // mix-blend-mode: screen; ← 이거 제거
+    position: absolute;
+    // backdrop-filter는 desktop만
+    backdrop-filter: blur(10px);
+    box-shadow:
+      rgba(255, 255, 255, 0.5) 0px 0px 35px inset,
+      rgba(0, 0, 0, 0.08) 0px 0px 60px inset,
+      rgba(0, 0, 0, 0.15) 0px 20px 50px,
+      rgba(0, 0, 0, 0.05) 0px 0px 30px;
+    // mix-blend-mode: screen; ← 제거
+    will-change: transform;
+    border-radius: 50%;
     background:
       radial-gradient(
         circle at 30% 30%,
-        rgba(255, 255, 255, 0.35),
-        // 흰색 하이라이트로
-        rgba(255, 255, 255, 0.1) 40%,
+        rgba(255, 255, 255, 0.38),
+        rgba(255, 255, 255, 0.12) 40%,
         rgba(255, 255, 255, 0.04) 60%,
-        transparent 70%
+        transparent 72%
       ),
-      rgba(255, 255, 255, 0.06); // 흰색 베이스
-    border-color: rgba(255, 255, 255, 0.25); // 테두리도 흰색으로
-    box-shadow:
-      rgba(255, 255, 255, 0.45) 0px 0px 30px inset,
-      // 흰 내부 글로우
-      rgba(0, 0, 0, 0.08) 0px 0px 60px inset,
-      rgba(0, 0, 0, 0.15) 0px 20px 50px;
-
-    @supports (-webkit-touch-callout: none) {
-      backdrop-filter: blur(6px) contrast(0.92);
-    }
+      rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.28);
 
     &.shape-1 {
-      width: 60rem;
-      height: 60rem;
+      width: 40rem;
+      height: 40rem;
       bottom: -5%;
       right: -2%;
       border-radius: 50% 60% 40% 70%;
@@ -97,8 +139,8 @@
     }
 
     &.shape-2 {
-      width: 50rem;
-      height: 60rem;
+      width: 40rem;
+      height: 40rem;
       top: -13%;
       left: -2%;
       border-radius: 50% 60% 60% 40%;
@@ -108,8 +150,8 @@
     }
 
     &.shape-3 {
-      width: 32rem;
-      height: 32rem;
+      width: 22rem;
+      height: 22rem;
       bottom: 15%;
       right: 31%;
       border-radius: 60% 70% 50% 90%;
@@ -125,19 +167,16 @@
         top: 20%;
         right: -4%;
       }
-
       &.shape-2 {
         width: 25rem;
         height: 22rem;
         top: -10%;
-        right: -2%;
+        left: -2%;
       }
-
       &.shape-3 {
         width: 13rem;
         height: 13rem;
         top: 10%;
-        display: none;
       }
     }
 
@@ -147,12 +186,10 @@
         height: 16rem;
         top: 25%;
       }
-
       &.shape-2 {
         width: 17rem;
         height: 16rem;
       }
-
       &.shape-3 {
         width: 8rem;
         height: 7rem;
@@ -161,18 +198,15 @@
 
     @include mobile {
       backdrop-filter: none;
-
       &.shape-1 {
         top: 28%;
         right: -2%;
       }
-
       &.shape-2 {
         width: 14rem;
         top: -4%;
         left: -5%;
       }
-
       &.shape-3 {
         display: none;
       }
@@ -181,78 +215,18 @@
     &::after {
       content: '';
       position: absolute;
-      top: 15%;
-      left: 20%;
+      top: 14%;
+      left: 18%;
       width: 40%;
-      height: 25%;
+      height: 24%;
       filter: blur(10px);
-      opacity: 0.7;
+      opacity: 0.75;
       border-radius: 50%;
       background: radial-gradient(
-        rgba(255, 255, 255, 0.9),
-        // 하이라이트 더 강하게
+        rgba(255, 255, 255, 0.92),
         rgba(255, 255, 255, 0.3) 60%,
         transparent 70%
       );
-    }
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-@keyframes radius1 {
-  0% {
-    border-radius: 50% 60% 40% 70%;
-  }
-  50% {
-    border-radius: 60% 60% 30% 60%;
-  }
-  100% {
-    border-radius: 50% 60% 40% 70%;
-  }
-}
-@keyframes radius2 {
-  0% {
-    border-radius: 50% 60% 60% 40%;
-  }
-  50% {
-    border-radius: 30% 70% 50%;
-  }
-  100% {
-    border-radius: 50% 60% 60% 40%;
-  }
-}
-@keyframes radius3 {
-  0% {
-    border-radius: 60% 70% 50% 90%;
-  }
-  50% {
-    border-radius: 50% 60% 65% 65%;
-  }
-  100% {
-    border-radius: 60% 70% 50% 90%;
-  }
-}
-
-@include tablet {
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
     }
   }
 }
