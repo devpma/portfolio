@@ -11,6 +11,8 @@
   .visual-logo {
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
+    font-size: 18rem;
+    color: $color-text;
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -20,9 +22,6 @@
     //grid-template-columns: 1fr 1fr;
 
     .l-text {
-      font-size: 18rem;
-      color: $color-text;
-
       &.l-park {
         letter-spacing: -0.07em;
       }
@@ -32,9 +31,6 @@
       }
 
       > span {
-        font-size: inherit;
-        color: inherit;
-        letter-spacing: inherit;
         transition:
           color 0.25s ease,
           -webkit-text-stroke-color 0.25s ease;
@@ -48,8 +44,9 @@
     }
 
     @include laptop {
+      font-size: 10rem;
+
       .l-text {
-        font-size: 14rem;
         > span {
           &:hover {
             -webkit-text-stroke-width: 0.15rem;
@@ -60,7 +57,6 @@
 
     @include tablet {
       .l-text {
-        font-size: 10rem;
         > span {
           &:hover {
             color: $color-text;
