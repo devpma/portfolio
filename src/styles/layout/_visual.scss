@@ -113,7 +113,7 @@
       rgb(0 0 0 / 5%) 0 0 10rem inset,
       rgb(0 0 0 / 5%) 0 0 2rem inset,
       rgb(0 0 0 / 10%) 0 2rem 5rem,
-      rgb(0 0 0 / 5%) 0 0 1rem m;
+      rgb(0 0 0 / 5%) 0 0 1rem;
     //mix-blend-mode: screen;
     //will-change: transform;
     background:
@@ -138,6 +138,11 @@
       animation:
         float 4s ease-in-out infinite,
         radius1 2s ease-in-out infinite;
+
+      &::after {
+        top: 18%;
+        left: 15%;
+      }
     }
 
     &.shape-2 {
@@ -149,6 +154,11 @@
       animation:
         float 4s ease-in-out infinite,
         radius2 2s ease-in-out infinite;
+
+      &::after {
+        top: 55%;
+        left: 50%;
+      }
     }
 
     &.shape-3 {
@@ -160,7 +170,13 @@
       animation:
         float 46s ease-in-out infinite,
         radius3 3s ease-in-out infinite;
+
+      &::after {
+        top: 12%;
+        left: 10%;
+      }
     }
+
     &.shape-4 {
       width: 13rem;
       height: 13rem;
@@ -170,6 +186,11 @@
       animation:
         float 46s ease-in-out infinite,
         radius3 2s ease-in-out infinite;
+
+      &::after {
+        top: 20%;
+        left: 30%;
+      }
     }
 
     @include laptop {
@@ -238,7 +259,7 @@
         left: -5%;
       }
       &.shape-3 {
-        width: 6rem 60px;
+        width: 6rem;
         height: 6rem;
         right: inherit;
         left: 6%;
