@@ -29,14 +29,11 @@
 
     .l-mina {
       font-size: clamp(4rem, 13vw, 18rem);
-      color: transparent;
-      -webkit-text-stroke: 2px $color-text;
       display: block;
       letter-spacing: -0.04em;
       transition:
         color 0.25s ease,
-        opacity 0.25s ease,
-        -webkit-text-stroke-color 0.25s ease;
+        opacity 0.25s ease;
 
       &:hover {
         color: $color-text;
@@ -119,7 +116,7 @@
 .floating-shapes {
   position: absolute;
   inset: 0;
-  z-index: 5;
+  z-index: 1;
   pointer-events: none;
 
   .shape {
