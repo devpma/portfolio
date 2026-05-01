@@ -129,10 +129,10 @@
     //border-image: initial;
 
     &.shape-1 {
-      width: 15rem;
-      height: 15rem;
-      top: 45%;
-      left: 25%;
+      width: 45rem;
+      height: 45rem;
+      top: 15%;
+      right: -40px;
       border-radius: 50%;
       animation:
         float 4s ease-in-out infinite,
@@ -169,10 +169,10 @@
     }
 
     &.shape-3 {
-      width: 27rem;
-      height: 27rem;
-      bottom: 13%;
-      right: 5%;
+      width: 30rem;
+      height: 30rem;
+      bottom: 10%;
+      left: 20%;
       border-radius: 60% 70% 50% 90%;
       animation:
         float 46s ease-in-out infinite,
@@ -185,10 +185,11 @@
     }
 
     &.shape-4 {
-      width: 13rem;
-      height: 13rem;
-      right: 17%;
-      bottom: 5%;
+      //width: 6rem;
+      //height: 6rem;
+      //left: 8%;
+      //bottom: 2%;
+      display: none;
       border-radius: 50% 60% 60% 40%;
       animation:
         float 46s ease-in-out infinite,
@@ -201,21 +202,21 @@
     }
 
     @include laptop {
-      &.shape-1 {
-        top: 28%;
-        left: 35%;
-      }
+      //&.shape-1 {
+      //top: 28%;
+      //left: 35%;
+      //}
       &.shape-2 {
         width: 45rem;
         height: 45rem;
         top: -20%;
         left: -10%;
       }
-      &.shape-3 {
-        width: 15rem;
-        height: 15rem;
-        bottom: 1 2%;
-      }
+      //&.shape-3 {
+      //width: 15rem;
+      //height: 15rem;
+      //bottom: 12%;
+      //}
       &.shape-4 {
         width: 10rem;
         height: 10rem;
@@ -226,15 +227,18 @@
 
     @include tablet {
       &.shape-1 {
+        //width: 30rem;
+        //height: 30rem;
+        //right: -5%;
+        //top: 17%;
         width: 30rem;
         height: 30rem;
-        right: -5%;
-        top: 17%;
+        top: 20%;
       }
       &.shape-2 {
-        width: 14rem;
-        height: 15rem;
-        top: -5%;
+        width: 25rem;
+        height: 25rem;
+        top: -10%;
         left: -5%;
       }
       &.shape-3 {
@@ -256,8 +260,6 @@
     @include mobile {
       backdrop-filter: none;
       &.shape-1 {
-        width: 30rem;
-        height: 30rem;
         right: -5%;
         top: 17%;
       }
@@ -273,13 +275,6 @@
         right: inherit;
         left: 6%;
         bottom: 2%;
-      }
-      &.shape-4 {
-        width: 13rem;
-        height: 13rem;
-        right: inherit;
-        left: 20%;
-        bottom: 5%;
       }
     }
 
