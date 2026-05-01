@@ -20,54 +20,40 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    .l-park {
-      font-size: clamp(4rem, 13vw, 18rem);
+    > span {
+      font-size: 18rem;
       color: $color-text;
-      display: block;
       letter-spacing: -0.04em;
-    }
-
-    .l-mina {
-      font-size: clamp(4rem, 13vw, 18rem);
       display: block;
-      letter-spacing: -0.04em;
       transition:
         color 0.25s ease,
-        opacity 0.25s ease;
+        background-color 0.25s ease,
+        -webkit-text-stroke-color 0.25s ease;
 
       &:hover {
         color: $color-text;
-        opacity: 0.28;
-        -webkit-text-stroke-color: transparent;
+        background-color: transparent;
+        -webkit-text-stroke: 2px $color-text;
       }
     }
 
     @include laptop {
-      .l-park,
-      .l-mina {
-        font-size: clamp(3rem, 6vw, 6rem);
-      }
-      .l-mina {
+      > span {
+        font-size: 14rem;
         -webkit-text-stroke-width: 1.5px;
       }
     }
 
     @include tablet {
-      .l-park,
-      .l-mina {
-        font-size: clamp(2.4rem, 5vw, 4.5rem);
-      }
-      .l-mina {
+      > span {
+        font-size: 10rem;
         -webkit-text-stroke-width: 1.2px;
       }
     }
 
     @include mobile {
-      .l-park,
-      .l-mina {
-        font-size: clamp(2rem, 12vw, 3.5rem);
-      }
-      .l-mina {
+      > span {
+        font-size: 8rem;
         -webkit-text-stroke-width: 1px;
       }
     }
