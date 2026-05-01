@@ -12,7 +12,6 @@
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
     font-size: 25rem;
-    letter-spacing: -0.07em;
     color: $color-text;
     position: absolute;
     top: 2rem;
@@ -23,6 +22,12 @@
     //grid-template-columns: 1fr 1fr;
 
     .l-text {
+      &.l-park {
+        letter-spacing: -2.8rem;
+      }
+      &.l-mina {
+        letter-spacing: -1.1rem;
+      }
       > span {
         transition:
           opacity 0.25s ease,
