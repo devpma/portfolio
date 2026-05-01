@@ -4,15 +4,15 @@
 .visual-wrap {
   position: relative;
   overflow: hidden;
-  background: $color-white;
-  color: $color-text;
+  background: $color-gray;
+  color: $color-dark;
   width: 100%;
 
   .visual-logo {
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
     font-size: 25rem;
-    color: $color-text;
+    color: $color-dark;
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -35,7 +35,7 @@
 
         &:hover {
           opacity: 0.25;
-          -webkit-text-stroke: 0.2rem $color-text;
+          -webkit-text-stroke: 0.2rem $color-dark;
         }
       }
     }
@@ -56,7 +56,7 @@
       .l-text {
         > span {
           &:hover {
-            color: $color-text;
+            color: $color-dark;
             -webkit-text-stroke-width: 0;
           }
         }

@@ -46,7 +46,7 @@
         font-size: clamp(1.6rem, 1.8vw, 1.7rem);
         line-height: 1.6;
         margin-bottom: 1rem;
-        color: $color-text;
+        color: $color-dark;
 
         strong {
           font-family: $font-medium;
@@ -81,7 +81,7 @@
         .stat-label {
           display: block;
           font-size: $font-size-sm;
-          color: $color-text;
+          color: $color-dark;
           font-family: $font-medium;
         }
       }
@@ -117,7 +117,7 @@
 
       .location {
         font-size: $font-size-sm;
-        color: $color-text;
+        color: $color-dark;
       }
     }
 
