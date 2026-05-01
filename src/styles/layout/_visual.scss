@@ -4,7 +4,7 @@
 .visual-wrap {
   position: relative;
   overflow: hidden;
-  background: $color-black;
+  background: $color-primary;
   width: 100%;
 
   .visual-logo {
@@ -12,7 +12,7 @@
     line-height: 0.82;
     font-size: 25rem;
     letter-spacing: -0.4rem;
-    color: $color-primary;
+    color: $color-black;
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -76,7 +76,7 @@
     p {
       font-size: $font-size-lg;
       line-height: $line-height-normal;
-      color: #666;
+      color: $color-dark;
       pointer-events: auto;
     }
 
@@ -110,20 +110,20 @@
     //backdrop-filter: blur(14px) contrast(1);
     backdrop-filter: blur(0.12rem);
     box-shadow:
-      rgb(255 255 255 / 5%) 0 0 10rem inset,
-      rgb(255 255 255 / 1%) 0 0 2rem inset,
-      rgb(255 255 255 / 5%) 0 2rem 5rem,
-      rgb(255 255 255 / 1%) 0 0 2rem;
+      rgb(0 0 0 / 8%) 0 0 10rem inset,
+      rgb(0 0 0 / 5%) 0 0 2rem inset,
+      rgb(0 0 0 / 12%) 0 2rem 5rem,
+      rgb(0 0 0 / 5%) 0 0 1rem;
     //mix-blend-mode: screen;
     //will-change: transform;
     background:
       radial-gradient(
         circle at 30% 10%,
-        rgb(255 255 255 / 9%),
-        rgb(255 255 255 / 7%) 20%,
-        rgb(255 255 255 / 3%) 64% 5%
+        rgb(0 0 0 / 10%),
+        rgb(0 0 0 / 6%) 20%,
+        rgb(0 0 0 / 2%) 64% 5%
       ),
-      rgb(255 255 255 / 9%);
+      rgb(0 0 0 / 5%);
     //border-width: 1px;
     //border-style: solid;
     //border-color: rgba(137, 134, 134, 0.9);
@@ -157,11 +157,11 @@
       background:
         radial-gradient(
           circle at 70% 75%,
-          rgb(255 255 255 / 8%),
-          rgb(255 255 255 / 6%) 20%,
-          rgb(255 255 255 / 30%) 64% 0%
+          rgb(0 0 0 / 10%),
+          rgb(0 0 0 / 6%) 20%,
+          rgb(0 0 0 / 2%) 64% 0%
         ),
-        rgb(255 255 255 / 2%);
+        rgb(0 0 0 / 5%);
 
       &::after {
         top: 55%;
@@ -293,8 +293,8 @@
       opacity: 0.7;
       border-radius: 50%;
       background: radial-gradient(
-        rgba(255, 255, 255, 0.8),
-        rgba(255, 255, 255, 0.2) 60%,
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.1) 60%,
         transparent 70%
       );
     }
