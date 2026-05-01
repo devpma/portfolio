@@ -19,50 +19,59 @@
     display: grid;
     //grid-template-columns: 1fr 1fr;
 
-    > span {
+    .l-text {
       font-size: 18rem;
       color: $color-text;
-      display: block;
-      transition:
-        color 0.25s ease,
-        -webkit-text-stroke-color 0.25s ease;
 
-      &:hover {
-        color: $color-text;
-        color: transparent;
-        -webkit-text-stroke: 0.2rem $color-text;
-      }
-
-      .l-park {
+      &.l-park {
         letter-spacing: -0.04em;
       }
 
-      .l-mina {
+      &.l-mina {
         letter-spacing: 0.1em;
+      }
+
+      > span {
+        font-size: inherit;
+        color: inherit;
+        letter-spacing: inherit;
+        transition:
+          color 0.25s ease,
+          -webkit-text-stroke-color 0.25s ease;
+
+        &:hover {
+          color: $color-text;
+          color: transparent;
+          -webkit-text-stroke: 0.2rem $color-text;
+        }
       }
     }
 
     @include laptop {
-      > span {
+      .l-text {
         font-size: 14rem;
-        &:hover {
-          -webkit-text-stroke-width: 0.15rem;
+        > span {
+          &:hover {
+            -webkit-text-stroke-width: 0.15rem;
+          }
         }
       }
     }
 
     @include tablet {
-      > span {
+      .l-text {
         font-size: 10rem;
-        &:hover {
-          color: $color-text;
-          -webkit-text-stroke-width: 0;
+        > span {
+          &:hover {
+            color: $color-text;
+            -webkit-text-stroke-width: 0;
+          }
         }
       }
     }
 
     @include mobile {
-      > span {
+      .l-text {
         font-size: 8rem;
       }
     }
