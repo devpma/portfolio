@@ -43,7 +43,6 @@
     @include tablet {
       font-size: 10rem;
       .l-text {
-        gap: 0.5rem;
         > span {
           &:hover {
             opacity: 1;
@@ -237,10 +236,6 @@
 
     @include tablet {
       &.shape-1 {
-        //width: 30rem;
-        //height: 30rem;
-        //right: -5%;
-        //top: 17%;
         width: 30rem;
         height: 30rem;
         top: 20%;
@@ -252,11 +247,20 @@
         left: -5%;
       }
       &.shape-3 {
-        width: 6rem;
-        height: 6rem;
+        width: 12rem;
+        height: 12rem;
         right: inherit;
         left: 6%;
-        bottom: 2%;
+        bottom: 5%;
+        box-shadow:
+          rgb(0 0 0 / 8%) 0 0 3rem inset,
+          rgb(0 0 0 / 5%) 0 0 1rem inset,
+          rgb(0 0 0 / 12%) 0 1rem 2rem,
+          rgb(0 0 0 / 5%) 0 0 0.5rem;
+
+        &::after {
+          filter: blur(4px);
+        }
       }
       &.shape-4 {
         width: 13rem;
@@ -268,10 +272,10 @@
     }
 
     @include mobile {
-      backdrop-filter: none;
       &.shape-1 {
-        right: -5%;
-        top: 17%;
+        right: inherit;
+        left: -5%;
+        top: 0%;
       }
       &.shape-2 {
         width: 14rem;
@@ -280,11 +284,21 @@
         left: -5%;
       }
       &.shape-3 {
-        width: 6rem;
-        height: 6rem;
+        backdrop-filter: none;
+        width: 10rem;
+        height: 10rem;
         right: inherit;
         left: 6%;
         bottom: 2%;
+        box-shadow:
+          rgb(0 0 0 / 8%) 0 0 2rem inset,
+          rgb(0 0 0 / 5%) 0 0 0.5rem inset,
+          rgb(0 0 0 / 12%) 0 0.5rem 1.5rem,
+          rgb(0 0 0 / 5%) 0 0 0.3rem;
+
+        &::after {
+          filter: blur(3px);
+        }
       }
     }
 
