@@ -273,9 +273,9 @@
 
     @include mobile {
       &.shape-1 {
-        right: inherit;
-        left: -5%;
-        top: 0%;
+        right: -5%;
+        bottom: 5%;
+        top: inherit;
       }
       &.shape-2 {
         width: 14rem;
