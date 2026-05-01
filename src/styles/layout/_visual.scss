@@ -145,8 +145,8 @@
     &.shape-1 {
       width: 40rem;
       height: 40rem;
-      bottom: -5%;
-      right: -2%;
+      bottom: 15%;
+      right: 40%;
       border-radius: 50% 60% 40% 70%;
       animation:
         float 4s ease-in-out infinite,
@@ -165,14 +165,24 @@
     }
 
     &.shape-3 {
-      width: 22rem;
-      height: 22rem;
+      width: 20rem;
+      height: 20rem;
       bottom: 15%;
-      right: 31%;
+      right: 3%;
       border-radius: 60% 70% 50% 90%;
       animation:
         float 46s ease-in-out infinite,
         radius3 3s ease-in-out infinite;
+    }
+    &.shape-4 {
+      width: 15rem;
+      height: 15rem;
+      right: 16%;
+      bottom: 0%;
+      border-radius: 50% 60% 60% 40%;
+      animation:
+        float 46s ease-in-out infinite,
+        radius3 2s ease-in-out infinite;
     }
 
     @include laptop {
