@@ -19,18 +19,13 @@
     left: 2rem;
     z-index: 2;
     text-align: center;
-    display: grid;
     //grid-template-columns: 1fr 1fr;
 
     .l-text {
       display: flex;
       justify-content: space-between;
-      &.l-park {
-        letter-spacing: -2.8rem;
-      }
-      &.l-mina {
-        letter-spacing: -1.1rem;
-      }
+      gap: 1rem;
+
       > span {
         transition:
           opacity 0.25s ease,
