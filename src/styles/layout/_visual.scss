@@ -12,6 +12,7 @@
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
     font-size: 25rem;
+    letter-spacing: -0.4rem;
     color: $color-dark;
     position: absolute;
     top: 2rem;
@@ -22,6 +23,8 @@
     //grid-template-columns: 1fr 1fr;
 
     .l-text {
+      display: flex;
+      justify-content: space-between;
       &.l-park {
         letter-spacing: -2.8rem;
       }
@@ -40,8 +43,11 @@
       }
     }
 
+    @include desktop {
+      font-size: 20rem;
+    }
     @include laptop {
-      font-size: 10rem;
+      font-size: 15rem;
 
       .l-text {
         > span {
@@ -53,6 +59,7 @@
     }
 
     @include tablet {
+      font-size: 13rem;
       .l-text {
         > span {
           &:hover {
@@ -64,9 +71,7 @@
     }
 
     @include mobile {
-      .l-text {
-        font-size: 8rem;
-      }
+      font-size: 8rem;
     }
   }
 
