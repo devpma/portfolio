@@ -28,14 +28,14 @@
     }
   }
   .info-text {
+    padding-top: 2.5rem;
+    border-top: 1px solid $color-border;
+
     > dt {
       @include section-label;
     }
 
     &.contact {
-      padding-top: 2.5rem;
-      border-top: 1px solid $color-border;
-
       .contact-links {
         display: flex;
         gap: 1rem;
@@ -60,8 +60,6 @@
       }
     }
     &.skills {
-      margin-bottom: 2.5rem;
-
       .skills-tags {
         display: flex;
         flex-wrap: wrap;
@@ -129,7 +127,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
-      padding-top: 3rem;
+      margin-bottom: 2.5rem;
 
       @include mobile {
         grid-template-columns: repeat(3, 1fr);
