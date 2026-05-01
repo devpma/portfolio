@@ -32,7 +32,6 @@
     }
   }
 
-  // 왼쪽: 소개
   .about-content {
     .about-intro {
       margin-bottom: 5rem;
@@ -55,6 +54,50 @@
           color: $color-dark;
         }
       }
+    }
+    .contact-info {
+      padding-top: 2.5rem;
+      border-top: 1px solid $color-border;
+
+      .contact-title {
+        @include section-label;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-link {
+        display: inline-block;
+        font-size: $font-size-sm;
+        color: $color-dark;
+        font-family: $font-medium;
+        border-bottom: 1px solid $color-dark;
+        padding-bottom: 0.2rem;
+        width: fit-content;
+        transition:
+          color $transition-fast,
+          border-color $transition-fast;
+
+        &:hover {
+          color: $color-border;
+          border-color: $color-border;
+        }
+      }
+    }
+  }
+
+  .about-card {
+    padding-top: 1rem;
+    border-top: 2px solid $color-dark;
+
+    @include laptop {
+      border-top: none;
+      border-left: 2px solid $color-dark;
+      padding-top: 0;
+      padding-left: 3rem;
     }
 
     .about-stats {
@@ -87,19 +130,6 @@
           letter-spacing: 0.05em;
         }
       }
-    }
-  }
-
-  // 오른쪽: 정보
-  .about-card {
-    padding-top: 1rem;
-    border-top: 2px solid $color-dark;
-
-    @include laptop {
-      border-top: none;
-      border-left: 2px solid $color-dark;
-      padding-top: 0;
-      padding-left: 3rem;
     }
 
     .profile-info {
@@ -136,53 +166,20 @@
         .skill-tag {
           display: inline-block;
           padding: 0.6rem 1.4rem;
-          background: transparent;
+          background-color: transparent;
           color: $color-dark;
           font-size: $font-size-sm;
           border-radius: 2rem;
           border: 1px solid $color-dark;
           font-family: $font-medium;
           transition:
-            background $transition-fast,
+            background-color $transition-fast,
             color $transition-fast;
 
           &:hover {
             background: $color-dark;
             color: $color-white;
           }
-        }
-      }
-    }
-
-    .contact-info {
-      padding-top: 2.5rem;
-      border-top: 1px solid $color-border;
-
-      .contact-title {
-        @include section-label;
-      }
-
-      .contact-links {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .contact-link {
-        display: inline-block;
-        font-size: $font-size-sm;
-        color: $color-dark;
-        font-family: $font-medium;
-        border-bottom: 1px solid $color-dark;
-        padding-bottom: 0.2rem;
-        width: fit-content;
-        transition:
-          color $transition-fast,
-          border-color $transition-fast;
-
-        &:hover {
-          color: $color-border;
-          border-color: $color-border;
         }
       }
     }
