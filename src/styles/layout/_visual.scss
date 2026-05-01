@@ -134,7 +134,7 @@
       height: 15rem;
       top: 45%;
       left: 25%;
-      border-radius: 50% 60% 40% 70%;
+      border-radius: 50%;
       animation:
         float 4s ease-in-out infinite,
         radius1 2s ease-in-out infinite;
@@ -314,13 +314,13 @@
 }
 @keyframes radius1 {
   0% {
-    border-radius: 50% 60% 40% 70%;
+    border-radius: 50%;
   }
   50% {
-    border-radius: 60% 60% 30% 60%;
+    border-radius: 60% 50% 60% 50%;
   }
   100% {
-    border-radius: 50% 60% 40% 70%;
+    border-radius: 50%;
   }
 }
 @keyframes radius2 {
