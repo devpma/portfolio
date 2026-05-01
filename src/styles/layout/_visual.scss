@@ -17,12 +17,13 @@
     top: 2rem;
     left: 2rem;
     z-index: 2;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 4rem);
     //grid-template-columns: 1fr 1fr;
 
     .l-text {
-      display: flex;
-      justify-content: space-between;
+      display: inline-flex;
 
       > span {
         transition: opacity 0.25s ease;
@@ -34,7 +35,10 @@
     }
 
     @include desktop {
-      font-size: 20rem;
+      font-size: 13rem;
+      .l-text {
+        gap: 1rem;
+      }
     }
     @include laptop {
       font-size: 14rem;
@@ -42,7 +46,10 @@
 
     @include tablet {
       font-size: 10rem;
+      flex-direction: column;
       .l-text {
+        width: 100%;
+        justify-content: space-between;
         > span {
           &:hover {
             opacity: 1;
