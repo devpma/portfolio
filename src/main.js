@@ -149,109 +149,115 @@ cursorScaleElements.forEach((el) => {
 })
 // About 애니메이션
 gsap.from('.about-intro h2', {
-  y: 50,
+  y: 60,
   opacity: 0,
-  duration: 0.9,
+  duration: 1.2,
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.about-intro',
-    start: 'top 75%',
+    start: 'top 60%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 gsap.from('.intro-text', {
-  y: 30,
+  y: 40,
   opacity: 0,
-  stagger: 0.15,
-  duration: 0.7,
+  stagger: 0.25,
+  duration: 1.0,
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.about-intro',
-    start: 'top 65%',
+    start: 'top 55%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
-// stat 카운터
+// stat 카운터 (스크롤할 때마다 재실행)
 document.querySelectorAll('.stat-number').forEach((el) => {
   const original = el.textContent.trim()
   const num = parseInt(original)
   const suffix = original.replace(/[0-9]/g, '')
 
   if (!isNaN(num)) {
+    let anim
     ScrollTrigger.create({
       trigger: el,
-      start: 'top 80%',
-      once: true,
+      start: 'top 75%',
       onEnter: () => {
-        gsap.fromTo(
+        if (anim) anim.kill()
+        el.textContent = '0' + suffix
+        anim = gsap.fromTo(
           el,
           { textContent: 0 },
           {
             textContent: num,
-            duration: 1.2,
-            ease: 'power1.out',
+            duration: 1.8,
+            ease: 'power2.out',
             snap: { textContent: 1 },
             onUpdate() {
               el.textContent = Math.round(Number(el.textContent)) + suffix
             }
           }
         )
+      },
+      onLeaveBack: () => {
+        if (anim) anim.kill()
+        el.textContent = original
       }
     })
   }
 })
 
 gsap.from('.stat-item', {
-  y: 30,
+  y: 40,
   opacity: 0,
-  stagger: 0.15,
-  duration: 0.6,
+  stagger: 0.2,
+  duration: 1.0,
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-text.stats',
-    start: 'top 75%',
+    start: 'top 60%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 // 스킬 태그 순차 등장
 gsap.from('.skill-tag', {
-  scale: 0.7,
+  scale: 0.6,
   opacity: 0,
-  stagger: 0.05,
-  duration: 0.35,
-  ease: 'back.out(1.5)',
+  stagger: 0.07,
+  duration: 0.5,
+  ease: 'back.out(1.7)',
   scrollTrigger: {
     trigger: '.skills-tags',
-    start: 'top 82%',
+    start: 'top 65%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 // 연락처 슬라이드인
 gsap.from('.contact-link', {
-  x: -15,
+  x: -20,
   opacity: 0,
-  stagger: 0.12,
-  duration: 0.5,
+  stagger: 0.18,
+  duration: 0.8,
   ease: 'power2.out',
   scrollTrigger: {
     trigger: '.info-text.contact',
-    start: 'top 82%',
+    start: 'top 65%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 gsap.from('.about-card', {
-  x: 40,
+  x: 60,
   opacity: 0,
-  duration: 0.8,
+  duration: 1.1,
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.about-card',
-    start: 'top 70%',
+    start: 'top 60%',
     toggleActions: 'play reverse play reverse'
   }
 })
