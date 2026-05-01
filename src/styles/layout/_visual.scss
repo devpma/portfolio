@@ -40,21 +40,26 @@
     @include laptop {
       > span {
         font-size: 14rem;
-        -webkit-text-stroke-width: 1.5px;
+        &:hover {
+          -webkit-text-stroke-width: 1.5px;
+        }
       }
     }
 
     @include tablet {
       > span {
         font-size: 10rem;
-        -webkit-text-stroke-width: 1.2px;
-      }
+        &:hover {
+          -webkit-text-stroke-width: 1.2px;
+        }
     }
 
     @include mobile {
       > span {
         font-size: 8rem;
-        -webkit-text-stroke-width: 1px;
+        &:hover {
+          -webkit-text-stroke-width: 1px;
+        }
       }
     }
   }
