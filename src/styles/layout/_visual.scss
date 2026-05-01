@@ -110,22 +110,21 @@
     //backdrop-filter: blur(14px) contrast(1);
     backdrop-filter: blur(0.12rem);
     box-shadow:
-      rgb(250 250 250 / 10%) 0 0 10rem inset,
-      rgb(250 250 250 / 10%) 0 0 2rem inset,
-      rgb(250 250 250 / 10%) 0 2rem 5rem,
-      rgb(250 250 250 / 12%) 0 0 1rem;
+      rgb(0 0 0 / 5%) 0 0 10rem inset,
+      rgb(0 0 0 / 5%) 0 0 2rem inset,
+      rgb(0 0 0 / 10%) 0 2rem 5rem,
+      rgb(0 0 0 / 5%) 0 0 1rem m;
     //mix-blend-mode: screen;
     //will-change: transform;
-    border-radius: 50%;
     background:
       radial-gradient(
-        circle at 30% 30%,
-        rgb(200 200 200 / 10%),
-        rgb(182 182 182 / 15%) 20%,
-        rgb(250 250 250 / 6%) 60%,
-        rgb(250 250 250 / 5%) 5%
+        circle at 30% 10%,
+        rgb(0 0 0 / 5%),
+        rgb(0 0 0 / 4%) 20%,
+        rgb(0 0 0 / 1%) 64%,
+        rgb(0 0 0 / 1%) 0%
       ),
-      rgb(123 123 123 / 6%);
+      rgb(0 0 0 / 1%);
     //border-width: 1px;
     //border-style: solid;
     //border-color: rgba(137, 134, 134, 0.9);
