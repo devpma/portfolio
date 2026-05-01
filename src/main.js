@@ -148,29 +148,98 @@ cursorScaleElements.forEach((el) => {
   })
 })
 // About 애니메이션
-gsap.from('.about-intro', {
-  y: 40,
+gsap.from('.about-intro h2', {
+  y: 50,
   opacity: 0,
-  duration: 0.8,
+  duration: 0.9,
   ease: 'power3.out',
   scrollTrigger: {
     trigger: '.about-intro',
-    start: 'top 70%',
-    end: 'bottom top',
+    start: 'top 75%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
-gsap.from('.about-stats .stat-item', {
+gsap.from('.intro-text', {
+  y: 30,
+  opacity: 0,
+  stagger: 0.15,
+  duration: 0.7,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.about-intro',
+    start: 'top 65%',
+    toggleActions: 'play reverse play reverse'
+  }
+})
+
+// stat 카운터
+document.querySelectorAll('.stat-number').forEach((el) => {
+  const original = el.textContent.trim()
+  const num = parseInt(original)
+  const suffix = original.replace(/[0-9]/g, '')
+
+  if (!isNaN(num)) {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.fromTo(
+          el,
+          { textContent: 0 },
+          {
+            textContent: num,
+            duration: 1.2,
+            ease: 'power1.out',
+            snap: { textContent: 1 },
+            onUpdate() {
+              el.textContent = Math.round(Number(el.textContent)) + suffix
+            }
+          }
+        )
+      }
+    })
+  }
+})
+
+gsap.from('.stat-item', {
   y: 30,
   opacity: 0,
   stagger: 0.15,
   duration: 0.6,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: '.about-stats',
+    trigger: '.info-text.stats',
     start: 'top 75%',
-    end: 'bottom top',
+    toggleActions: 'play reverse play reverse'
+  }
+})
+
+// 스킬 태그 순차 등장
+gsap.from('.skill-tag', {
+  scale: 0.7,
+  opacity: 0,
+  stagger: 0.05,
+  duration: 0.35,
+  ease: 'back.out(1.5)',
+  scrollTrigger: {
+    trigger: '.skills-tags',
+    start: 'top 82%',
+    toggleActions: 'play reverse play reverse'
+  }
+})
+
+// 연락처 슬라이드인
+gsap.from('.contact-link', {
+  x: -15,
+  opacity: 0,
+  stagger: 0.12,
+  duration: 0.5,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.info-text.contact',
+    start: 'top 82%',
     toggleActions: 'play reverse play reverse'
   }
 })
@@ -183,7 +252,6 @@ gsap.from('.about-card', {
   scrollTrigger: {
     trigger: '.about-card',
     start: 'top 70%',
-    end: 'bottom top',
     toggleActions: 'play reverse play reverse'
   }
 })

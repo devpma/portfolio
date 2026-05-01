@@ -139,8 +139,11 @@
         color: #555;
 
         strong {
-          font-family: $font-medium;
+          font-family: $font-bold;
           color: $color-dark;
+          background: $color-primary;
+          padding: 0 0.3em;
+          border-radius: 0.3rem;
         }
       }
     }
