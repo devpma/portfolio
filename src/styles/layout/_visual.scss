@@ -24,11 +24,11 @@
       color: $color-text;
 
       &.l-park {
-        letter-spacing: -0.04em;
+        letter-spacing: -0.07em;
       }
 
       &.l-mina {
-        letter-spacing: 0.1em;
+        letter-spacing: -0.1em;
       }
 
       > span {
@@ -120,32 +120,32 @@
 .floating-shapes {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 5;
   pointer-events: none;
 
   .shape {
     position: absolute;
-    backdrop-filter: blur(14px) contrast(1);
+    //backdrop-filter: blur(14px) contrast(1);
     box-shadow:
-      rgba(255, 255, 255, 0.15) 0px 0px 25px inset,
-      rgba(0255, 255, 255, 0.08) 0px 0px 60px inset,
-      rgba(255, 255, 255, 0.25) 0px 20px 60px,
-      rgba(255, 255, 255, 0.07) 0px 0px 40px;
+      rgba(100, 100, 100, 0.15) 0px 0px 2.5rem inset,
+      rgba(0100, 100, 100, 0.08) 0px 0px 6rem inset,
+      rgba(100, 100, 100, 0.25) 0px 20px 6rem,
+      rgba(100, 100, 100, 0.07) 0px 0px 4rem;
     //mix-blend-mode: screen;
     //will-change: transform;
     border-radius: 50%;
     background:
       radial-gradient(
         circle at 30% 30%,
-        rgba(255, 255, 255, 0.15),
-        rgba(255, 255, 255, 0.05) 40%,
-        rgba(255, 255, 255, 0.02) 60%,
+        rgba(100, 100, 100, 0.15),
+        rgba(100, 100, 100, 0.05) 40%,
+        rgba(100, 100, 100, 0.02) 60%,
         transparent 70%
       ),
-      rgba(255, 255, 255, 0.03);
+      rgba(100, 100, 100, 0.03);
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(100, 100, 100, 0.12);
     border-image: initial;
 
     &.shape-1 {
