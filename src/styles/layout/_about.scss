@@ -18,17 +18,74 @@
     max-width: 120rem;
     margin: 0 auto;
     padding: 0 $spacing-md;
-  }
-
-  .about-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 6rem;
     align-items: start;
-
     @include laptop {
       grid-template-columns: 1fr;
       gap: 5rem;
+    }
+  }
+  .info-text {
+    > dt {
+      @include section-label;
+    }
+
+    &.contact {
+      padding-top: 2.5rem;
+      border-top: 1px solid $color-border;
+
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .contact-link {
+        display: inline-block;
+        font-size: $font-size-sm;
+        color: $color-dark;
+        font-family: $font-medium;
+        border-bottom: 1px solid $color-dark;
+        padding-bottom: 0.2rem;
+        width: fit-content;
+        transition:
+          color $transition-fast,
+          border-color $transition-fast;
+
+        &:hover {
+          color: $color-border;
+          border-color: $color-border;
+        }
+      }
+    }
+    &.skills {
+      margin-bottom: 2.5rem;
+
+      .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+
+        .skill-tag {
+          display: inline-block;
+          padding: 0.6rem 1.4rem;
+          background-color: transparent;
+          color: $color-dark;
+          font-size: $font-size-sm;
+          border-radius: 2rem;
+          border: 1px solid $color-dark;
+          font-family: $font-medium;
+          transition:
+            background-color $transition-fast,
+            color $transition-fast;
+
+          &:hover {
+            background: $color-dark;
+            color: $color-white;
+          }
+        }
+      }
     }
   }
 
@@ -52,65 +109,6 @@
         strong {
           font-family: $font-medium;
           color: $color-dark;
-        }
-      }
-    }
-    .info-text {
-      @include section-label;
-
-      &.contact {
-        padding-top: 2.5rem;
-        border-top: 1px solid $color-border;
-
-        .contact-links {
-          display: flex;
-          gap: 1rem;
-        }
-
-        .contact-link {
-          display: inline-block;
-          font-size: $font-size-sm;
-          color: $color-dark;
-          font-family: $font-medium;
-          border-bottom: 1px solid $color-dark;
-          padding-bottom: 0.2rem;
-          width: fit-content;
-          transition:
-            color $transition-fast,
-            border-color $transition-fast;
-
-          &:hover {
-            color: $color-border;
-            border-color: $color-border;
-          }
-        }
-      }
-      &.skills {
-        margin-bottom: 2.5rem;
-
-        .skills-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.8rem;
-
-          .skill-tag {
-            display: inline-block;
-            padding: 0.6rem 1.4rem;
-            background-color: transparent;
-            color: $color-dark;
-            font-size: $font-size-sm;
-            border-radius: 2rem;
-            border: 1px solid $color-dark;
-            font-family: $font-medium;
-            transition:
-              background-color $transition-fast,
-              color $transition-fast;
-
-            &:hover {
-              background: $color-dark;
-              color: $color-white;
-            }
-          }
         }
       }
     }
