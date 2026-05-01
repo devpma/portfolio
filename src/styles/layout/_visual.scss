@@ -127,10 +127,10 @@
     position: absolute;
     //backdrop-filter: blur(14px) contrast(1);
     box-shadow:
-      rgba(100, 100, 100, 0.15) 0px 0px 2.5rem inset,
-      rgba(0100, 100, 100, 0.08) 0px 0px 6rem inset,
-      rgba(100, 100, 100, 0.25) 0px 20px 6rem,
-      rgba(100, 100, 100, 0.07) 0px 0px 4rem;
+      rgba(100, 100, 100, 0.15) 0rem 0rem 2.5rem inset,
+      rgba(0100, 100, 100, 0.08) 0rem 0rem 6rem inset,
+      rgba(100, 100, 100, 0.15) 0rem 1rem 3rem,
+      rgba(100, 100, 100, 0.07) 0rem 0rem 4rem;
     //mix-blend-mode: screen;
     //will-change: transform;
     border-radius: 50%;
@@ -142,11 +142,11 @@
         rgba(100, 100, 100, 0.02) 60%,
         transparent 70%
       ),
-      rgba(100, 100, 100, 0.03);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(100, 100, 100, 0.12);
-    border-image: initial;
+      rgba(125, 125, 125, 0.03);
+    //border-width: 1px;
+    //border-style: solid;
+    //border-color: rgba(137, 134, 134, 0.9);
+    //border-image: initial;
 
     &.shape-1 {
       width: 40rem;
