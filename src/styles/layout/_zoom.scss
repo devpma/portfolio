@@ -32,6 +32,9 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
+      aspect-ratio: 1470 / 980;
+      border: 1rem $color-dark solid;
+      background-color: $color-white;
 
       img {
         width: 100%;
