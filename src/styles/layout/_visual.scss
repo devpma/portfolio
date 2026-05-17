@@ -4,7 +4,7 @@
 .visual-wrap {
   position: relative;
   overflow: hidden;
-  background: $color-primary;
+  background: $color-dark;
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -13,7 +13,7 @@
     font-family: ClimateCrisisKR-1979;
     line-height: 0.82;
     font-size: clamp(8rem, 12vw, 22rem);
-    color: $color-black;
+    color: $color-primary;
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -69,7 +69,7 @@
     p {
       font-size: $font-size-lg;
       line-height: $line-height-normal;
-      color: $color-dark;
+      color: $color-primary;
       pointer-events: auto;
     }
 

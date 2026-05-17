@@ -6,14 +6,18 @@ gsap.registerPlugin(ScrollTrigger)
 
 const mm = gsap.matchMedia()
 
-// 무한 스크롤 텍스트
-const movingWrapper = document.querySelector('.pin-moving-wrapper')
-const movingText = document.querySelector('.pin-moving-text')
+// 무한 스크롤 텍스트 + 돋보기 텍스트
+// 폰트 로드 후 width 측정해야 정확함
+document.fonts.ready.then(() => {
+  const movingWrapper = document.querySelector('.pin-moving-wrapper')
+  const movingText = document.querySelector('.pin-moving-text')
+  const magWrapper = document.querySelector('.mag-text-wrapper')
+  const magText = document.querySelector('.mag-text')
 
-if (movingWrapper && movingText) {
+  if (!movingWrapper || !movingText) return
+
   const textWidth = movingText.offsetWidth
   const cloneCount = Math.ceil(window.innerWidth / textWidth) + 3
-
   for (let i = 0; i < cloneCount; i++) {
     const clone = movingText.cloneNode(true)
     clone.setAttribute('aria-hidden', 'true')
@@ -26,30 +30,31 @@ if (movingWrapper && movingText) {
     ease: 'none',
     repeat: -1
   })
-}
 
-// 돋보기 텍스트 (2배 크기, 같은 시각적 속도)
-const magWrapper = document.querySelector('.mag-text-wrapper')
-const magText = document.querySelector('.mag-text')
+  // 돋보기: bgX 기준으로 직접 동기화 — 렌즈 위치 오프셋 보정
+  const lensEl = document.querySelector('#animate1')
+  if (magWrapper && magText && lensEl) {
+    const magTextWidth = magText.offsetWidth
+    const magCloneCount = Math.ceil(window.innerWidth / magTextWidth) + 3
+    for (let i = 0; i < magCloneCount; i++) {
+      const clone = magText.cloneNode(true)
+      clone.setAttribute('aria-hidden', 'true')
+      magWrapper.appendChild(clone)
+    }
 
-if (magWrapper && magText) {
-  const magTextWidth = magText.offsetWidth
-  const magCloneCount = Math.ceil(window.innerWidth / magTextWidth) + 3
+    const borderW = parseFloat(getComputedStyle(lensEl).borderLeftWidth)
+    const lensContentLeft = lensEl.offsetLeft + borderW
+    const lensContentWidth = lensEl.clientWidth
+    const r = magTextWidth / textWidth
 
-  for (let i = 0; i < magCloneCount; i++) {
-    const clone = magText.cloneNode(true)
-    clone.setAttribute('aria-hidden', 'true')
-    magWrapper.appendChild(clone)
+    gsap.ticker.add(() => {
+      const bgX = gsap.getProperty(movingWrapper, 'x')
+      const rawMagX = r * bgX - r * lensContentLeft + (lensContentWidth / 2) * (1 - r)
+      const loopedMagX = rawMagX % magTextWidth
+      gsap.set(magWrapper, { x: loopedMagX })
+    })
   }
-
-  // 폰트가 2배 크기 → duration을 동일하게 유지해 2배 빠른 속도 연출
-  gsap.to(magWrapper, {
-    x: -magTextWidth,
-    duration: 20,
-    ease: 'none',
-    repeat: -1
-  })
-}
+})
 
 // 이미지 줌 효과
 mm.add('(min-width: 1025px)', () => {

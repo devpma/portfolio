@@ -11,7 +11,7 @@
 }
 
 .about-wrap {
-  padding: $spacing-xl 0 0;
+  padding: 15rem 0;
   background: $color-white;
 
   .about-inner {
@@ -33,6 +33,7 @@
 
     > dt {
       @include section-label;
+      display: none;
     }
 
     &.contact {
@@ -88,11 +89,12 @@
 
     &.stats {
       border-top: 0;
+      padding-top: 0;
 
       dd {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
+        // grid-template-columns: repeat(3, 1fr);
+        // gap: 3rem;
         margin-bottom: 3rem;
 
         @include mobile {
@@ -101,6 +103,10 @@
         }
 
         .stat-item {
+          display: flex;
+          align-items: center;
+          gap: 3rem;
+
           .stat-number {
             display: block;
             font-size: clamp(3.5rem, 5vw, 6rem);
@@ -150,7 +156,7 @@
   }
 
   .about-card {
-    border-top: 2px solid $color-dark;
+    // border-top: 2px solid $color-dark;
 
     @include laptop {
       border-top: none;
@@ -184,9 +190,8 @@
   .text-wrap {
     position: relative;
     z-index: 5;
-    height: 30rem;
     @include flex-center;
-    margin-top: 6rem;
+    margin-top: 15rem;
 
     p {
       font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
