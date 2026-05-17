@@ -42,10 +42,10 @@ if (magWrapper && magText) {
     magWrapper.appendChild(clone)
   }
 
-  // 폰트가 2배라 textWidth도 약 2배 → duration도 2배로 같은 속도 유지
+  // 폰트가 2배 크기 → duration을 동일하게 유지해 2배 빠른 속도 연출
   gsap.to(magWrapper, {
     x: -magTextWidth,
-    duration: 40,
+    duration: 20,
     ease: 'none',
     repeat: -1
   })
