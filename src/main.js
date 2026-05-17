@@ -28,6 +28,29 @@ if (movingWrapper && movingText) {
   })
 }
 
+// 돋보기 텍스트 (2배 크기, 같은 시각적 속도)
+const magWrapper = document.querySelector('.mag-text-wrapper')
+const magText = document.querySelector('.mag-text')
+
+if (magWrapper && magText) {
+  const magTextWidth = magText.offsetWidth
+  const magCloneCount = Math.ceil(window.innerWidth / magTextWidth) + 3
+
+  for (let i = 0; i < magCloneCount; i++) {
+    const clone = magText.cloneNode(true)
+    clone.setAttribute('aria-hidden', 'true')
+    magWrapper.appendChild(clone)
+  }
+
+  // 폰트가 2배라 textWidth도 약 2배 → duration도 2배로 같은 속도 유지
+  gsap.to(magWrapper, {
+    x: -magTextWidth,
+    duration: 40,
+    ease: 'none',
+    repeat: -1
+  })
+}
+
 // 이미지 줌 효과
 mm.add('(min-width: 1025px)', () => {
   const imageZoom = gsap.timeline({
