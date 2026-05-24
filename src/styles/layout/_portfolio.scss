@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.portfolio-box {
+  margin: 10rem 0;
+  display: inline-flex;
+  gap: 5rem;
+  padding: $spacing-md;
+
+  .img {
+    flex-shrink: 1;
+    // border: 7rem solid $color-dark-gray;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 0.8rem 3rem rgba(0, 0, 0, 0.2);
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 1920 / 1080;
+      border-radius: $border-radius-lg;
+    }
+
+    &:hover {
+      &:after {
+        background-color: $color-primary;
+      }
+    }
+  }
+
+  .info-text {
+    // padding: $spacing-xl $spacing-md;
+    display: inline-flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    row-gap: 4rem;
+    // width: 100%;
+    // max-width: 120rem;
+    // margin: 0 auto;
+
+    .project-name {
+      font-family: $font-display;
+      font-size: clamp(3rem, 4vw, 4.5rem);
+      line-height: 1;
+      display: block;
+    }
+
+    .info-desc {
+      font-size: $font-size-lg;
+
+      > p {
+        + p {
+          margin-top: 1.2rem;
+        }
+      }
+      strong {
+        font-family: $font-bold;
+        color: $color-black;
+        @include highlight;
+      }
+    }
+
+    .info-list {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      row-gap: 1.2rem;
+
+      dt {
+        font-family: $font-bold;
+      }
+      dd {
+        color: $color-dark-gray;
+        margin: 0;
+      }
+    }
+  }
+}

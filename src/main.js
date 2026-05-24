@@ -11,8 +11,8 @@ const mm = gsap.matchMedia()
 document.fonts.ready.then(() => {
   const movingWrapper = document.querySelector('.pin-moving-wrapper')
   const movingText = document.querySelector('.pin-moving-text')
-  const magWrapper = document.querySelector('.mag-text-wrapper')
-  const magText = document.querySelector('.mag-text')
+  const magWrapper = document.querySelector('.zoom-text-wrapper')
+  const magText = document.querySelector('.zoom-text')
 
   if (!movingWrapper || !movingText) return
 
@@ -31,9 +31,10 @@ document.fonts.ready.then(() => {
     repeat: -1
   })
 
-  // 돋보기: bgX 기준으로 직접 동기화 — 렌즈 위치 오프셋 보정
+  // 커서 팔로잉 돋보기
   const lensEl = document.querySelector('#animate1')
-  if (magWrapper && magText && lensEl) {
+  const pinWrap = document.querySelector('.pin-wrap')
+  if (magWrapper && magText && lensEl && pinWrap) {
     const magTextWidth = magText.offsetWidth
     const magCloneCount = Math.ceil(window.innerWidth / magTextWidth) + 3
     for (let i = 0; i < magCloneCount; i++) {
@@ -42,101 +43,36 @@ document.fonts.ready.then(() => {
       magWrapper.appendChild(clone)
     }
 
-    const borderW = parseFloat(getComputedStyle(lensEl).borderLeftWidth)
-    const lensContentLeft = lensEl.offsetLeft + borderW
-    const lensContentWidth = lensEl.clientWidth
     const r = magTextWidth / textWidth
 
+    // 렌즈 초기 상태: 섹션 중앙 + 크게 (overflow:hidden이 자연스럽게 클리핑)
+    gsap.set(lensEl, { xPercent: -50, yPercent: -50, width: '95vmin', height: '95vmin' })
+
+    // 스크롤에 따라 큰 원 → 작은 돋보기로 자연스럽게 축소
+    gsap.to(lensEl, {
+      width: '28rem',
+      height: '28rem',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: pinWrap,
+        start: 'top 70%',
+        end: 'bottom 30%',
+        scrub: 2
+      }
+    })
+
+    // 확대 텍스트 위치 동기화 (렌즈 중앙 = 뷰포트 중앙 기준)
     gsap.ticker.add(() => {
+      const innerRadius = lensEl.clientWidth / 2
       const bgX = gsap.getProperty(movingWrapper, 'x')
-      const rawMagX = r * bgX - r * lensContentLeft + (lensContentWidth / 2) * (1 - r)
+      const lensCenterX = window.innerWidth / 2
+      const rawMagX = r * (bgX - lensCenterX) + innerRadius
       const loopedMagX = rawMagX % magTextWidth
       gsap.set(magWrapper, { x: loopedMagX })
     })
   }
 })
 
-// 이미지 줌 효과
-mm.add('(min-width: 1025px)', () => {
-  const imageZoom = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#trigger1',
-      start: 'top top+=300',
-      end: 'bottom top',
-      scrub: 0.5,
-      invalidateOnRefresh: true
-    }
-  })
-
-  imageZoom
-    .to('#animate1', {
-      scale: 0.7,
-      borderRadius: '30rem',
-      ease: 'none'
-    })
-    .to(
-      '#animate1 img',
-      {
-        scale: 1.05,
-        ease: 'none'
-      },
-      0
-    )
-})
-
-mm.add('(min-width: 641px) and (max-width: 1024px)', () => {
-  const imageZoom = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#trigger1',
-      start: 'top top+=150',
-      end: 'bottom top',
-      scrub: 0.5,
-      invalidateOnRefresh: true
-    }
-  })
-
-  imageZoom
-    .to('#animate1', {
-      scale: 0.7,
-      borderRadius: '20rem',
-      ease: 'none'
-    })
-    .to(
-      '#animate1 img',
-      {
-        scale: 1.05,
-        ease: 'none'
-      },
-      0
-    )
-})
-
-mm.add('(max-width: 640px)', () => {
-  const imageZoom = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#trigger1',
-      start: 'top top+=200',
-      end: 'bottom top',
-      scrub: 0.5,
-      invalidateOnRefresh: true
-    }
-  })
-
-  imageZoom
-    .to('#animate1', {
-      scale: 0.7,
-      borderRadius: '10rem',
-      ease: 'none'
-    })
-    .to(
-      '#animate1 img',
-      {
-        scale: 1.05,
-        ease: 'none'
-      },
-      0
-    )
-})
 
 // 커서 효과
 const cursor = document.querySelector('.cursor')

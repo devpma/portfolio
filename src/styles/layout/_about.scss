@@ -1,67 +1,79 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-@mixin section-label {
-  font-size: $font-size-sm;
-  font-family: $font-bold;
-  margin-bottom: 1.5rem;
-  color: $color-border;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
+// @mixin section-label {
+//   font-size: $font-size-sm;
+//   font-family: $font-bold;
+//   margin-bottom: 1.5rem;
+//   color: $color-dark-gray;
+//   letter-spacing: 0.1em;
+//   text-transform: uppercase;
+// }
 
 .about-wrap {
-  padding: 15rem 0;
-  background: $color-white;
+  padding: 10rem 0;
 
   .about-inner {
-    max-width: 120rem;
+    // max-width: 120rem;
     margin: 0 auto;
     padding: 0 $spacing-md;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    gap: 3.2rem;
 
     @include laptop {
       // grid-template-columns: 1fr;
       // gap: 5rem;
     }
   }
-  .info-text {
-    // padding-top: 3rem;
-    // border-top: 1px solid $color-border;
 
-    // > dt {
-    //   @include section-label;
-    //   display: none;
-    // }
+  .title-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
 
-    &.skills {
-      .skills-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
+    .about-title {
+      font-size: clamp(3rem, 4vw, 5rem);
+      font-family: $font-bold;
+      font-family: $font-display;
+      margin-bottom: 1rem;
+      color: $color-black;
+    }
 
-        .skill-tag {
-          display: inline-block;
-          padding: 0.6rem 1.4rem;
-          background-color: transparent;
-          color: $color-dark;
-          font-size: $font-size-sm;
-          border-radius: 2rem;
-          border: 1px solid $color-dark;
-          font-family: $font-medium;
-          transition:
-            background-color $transition-fast,
-            color $transition-fast;
+    .contact-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: $font-size-base;
+      color: $color-black;
+      font-family: $font-medium;
+      letter-spacing: -0.02rem;
+      transition:
+        color $transition-fast,
+        border-color $transition-fast;
 
-          &:hover {
-            background: $color-dark;
-            color: $color-white;
-          }
+      > a {
+        border-bottom: 0.1rem solid $color-black;
+        width: fit-content;
+
+        &:hover {
+          color: $color-dark-gray;
+          border-color: $color-dark-gray;
         }
       }
+    }
+  }
+
+  .info-text {
+    // padding-top: 3rem;
+    // border-top: 1px solid $color-dark-gray;
+    font-family: $font-medium;
+
+    > dt {
+      @include sr-only;
+      // @include section-label;
+      // display: none;
     }
 
     &.stats {
@@ -84,126 +96,67 @@
 
         .stat-item {
           display: flex;
-          align-items: center;
-          gap: 2rem;
+          align-items: flex-end;
+          gap: 1rem;
 
           .stat-number {
             display: block;
-            font-size: clamp(3.5rem, 5vw, 6rem);
-            font-family: $font-display;
-            color: $color-dark;
-            line-height: 1;
-            margin-bottom: 0.8rem;
+            // font-size: clamp(3.5rem, 5vw, 4rem);
+            font-size: 2.2rem;
+            font-family: $font-bold;
+            line-height: $line-height-tight;
+            // font-family: $font-display;
+            color: $color-black;
           }
 
           .stat-label {
             display: block;
-            font-size: $font-size-xs;
-            color: $color-border;
+            font-size: $font-size-base;
+            color: $color-black;
             font-family: $font-medium;
-            letter-spacing: 0.05em;
           }
         }
       }
     }
 
-    &.contact {
-      .contact-links {
+    &.skills {
+      .skills-tags {
         display: flex;
-        gap: 1rem;
-      }
+        flex-wrap: wrap;
+        gap: 1.2rem;
 
-      .contact-link {
-        display: inline-block;
-        font-size: $font-size-sm;
-        color: $color-dark;
-        font-family: $font-medium;
-        border-bottom: 1px solid $color-dark;
-        padding-bottom: 0.2rem;
-        width: fit-content;
-        transition:
-          color $transition-fast,
-          border-color $transition-fast;
+        .skill-tag {
+          display: inline-block;
+          padding: 0.8rem 1.6rem;
+          background-color: transparent;
+          color: $color-black;
+          font-size: $font-size-base;
+          border-radius: 4rem;
+          border: 0.2rem solid $color-black;
+          font-family: $font-medium;
+          transition:
+            background-color $transition-fast,
+            color $transition-fast;
 
-        &:hover {
-          color: $color-border;
-          border-color: $color-border;
+          &:hover {
+            background: $color-black;
+            color: $color-white;
+          }
         }
       }
     }
   }
 
-  // .about-content {
-  //   .about-intro {
-  //     margin-bottom: 3rem;
+  .intro-text {
+    font-size: clamp(1.6rem, 1.8vw, 1.7rem);
+    line-height: 1.8;
+    font-family: $font-medium;
+    color: #555;
 
-  //     h2 {
-  //       font-size: clamp(3rem, 4vw, 5rem);
-  //       font-family: $font-bold;
-  //       margin-bottom: 1rem;
-  //       color: $color-dark;
-  //     }
-
-  //     .intro-text {
-  //       font-size: clamp(1.6rem, 1.8vw, 1.7rem);
-  //       line-height: 1.8;
-  //       color: #555;
-
-  //       strong {
-  //         font-family: $font-bold;
-  //         color: $color-dark;
-  //         background: $color-primary;
-  //         padding: 0 0.3em;
-  //         border-radius: 0.3rem;
-  //       }
-  //     }
-  //   }
-  // }
-
-  .text-wrap {
-    position: relative;
-    z-index: 5;
-    @include flex-center;
-    margin-top: 15rem;
-
-    p {
-      font-size: clamp($font-size-sm, 3.13vw, $spacing-lg);
-      text-align: center;
-      line-height: $line-height-normal;
-      white-space: nowrap;
-      font-family: $font-medium;
-      position: relative;
-      padding: 0 $spacing-md;
-      overflow: hidden;
-
-      &.on {
-        animation: typing 2s steps(36);
-
-        &::after {
-          content: '';
-          display: inline-flex;
-          position: absolute;
-          right: auto;
-          bottom: 1rem;
-          margin-left: $spacing-sm;
-          width: 0.2rem;
-          height: 3rem;
-          background-color: $color-dark;
-          animation: blink 1.2s step-end infinite;
-
-          @include mobile {
-            width: 0.1rem;
-            height: 1.5rem;
-            bottom: 0.3rem;
-            margin-left: 0.5rem;
-          }
-        }
-      }
-    }
-
-    @include tablet {
-      margin-top: 0rem;
-      height: 25rem;
+    strong {
+      font-family: $font-bold;
+      color: $color-black;
+      @include highlight;
     }
   }
 }
