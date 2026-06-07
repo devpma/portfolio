@@ -1,53 +1,24 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// @mixin section-label {
-//   font-size: $font-size-sm;
-//   font-family: $font-bold;
-//   margin-bottom: 1.5rem;
-//   color: $color-dark-gray;
-//   letter-spacing: 0.1em;
-//   text-transform: uppercase;
-// }
-
 .about-wrap {
-  padding: 10rem 0;
-
-  .about-inner {
-    // max-width: 120rem;
-    margin: 0 auto;
-    padding: 0 $spacing-md;
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-
-    @include laptop {
-      // grid-template-columns: 1fr;
-      // gap: 5rem;
-    }
-  }
+  padding: $spacing-xxl $spacing-lg;
+  background-color: $color-light-gray;
+  border-radius: $border-radius-lg $border-radius-lg 0 0;
+  position: relative;
+  z-index: 10;
+  margin-top: -$spacing-lg;
 
   .title-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5rem;
-
-    .about-title {
-      font-size: clamp(3rem, 4vw, 5rem);
-      font-family: $font-bold;
-      font-family: $font-display;
-      margin-bottom: 1rem;
-      color: $color-black;
-    }
+    @include flex-between;
+    gap: $spacing-xl;
 
     .contact-links {
       display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      font-size: $font-size-base;
+      gap: $spacing-sm;
+      font-size: $font-size-md;
       color: $color-black;
-      font-family: $font-medium;
       letter-spacing: -0.02rem;
       transition:
         color $transition-fast,
@@ -63,116 +34,173 @@
         }
       }
     }
+    @include laptop {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+
+      .contact-links {
+        font-size: $font-size-xs;
+      }
+    }
   }
+  @include laptop {
+    padding: $spacing-xl $spacing-md;
+  }
+  @include laptop {
+    padding: $spacing-lg $spacing-md;
+  }
+}
 
-  .info-text {
-    // padding-top: 3rem;
-    // border-top: 1px solid $color-dark-gray;
-    font-family: $font-medium;
-
+.about-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  .info-stats {
     > dt {
       @include sr-only;
-      // @include section-label;
-      // display: none;
     }
 
-    &.stats {
-      // border-top: 0;
-      // padding-top: 0;
+    > dd {
+      display: flex;
+      align-items: center;
+      gap: $spacing-lg;
 
-      dd {
+      .stat-item {
         display: flex;
-        align-items: center;
-        gap: 3rem;
-        // display: grid;
-        // grid-template-columns: repeat(3, 1fr);
-        // gap: 3rem;
-        // margin-bottom: 3rem;
+        align-items: flex-end;
+        gap: $spacing-sm;
 
-        @include mobile {
-          grid-template-columns: repeat(1, 1fr);
-          gap: 1.5rem;
+        .stat-number {
+          display: block;
+          // font-size: clamp(3.5rem, 5vw, 4rem);
+          font-size: $font-size-xxl;
+          font-weight: bold;
+          line-height: $line-height-tight;
+          // font-family: $font-display-bold;
+          color: $color-black;
         }
 
+        .stat-label {
+          display: block;
+          font-size: $font-size-md;
+          color: $color-black;
+        }
+      }
+    }
+    @include laptop {
+      > dd {
+        gap: $spacing-sm;
         .stat-item {
-          display: flex;
-          align-items: flex-end;
-          gap: 1rem;
+          gap: $spacing-sm;
 
           .stat-number {
-            display: block;
-            // font-size: clamp(3.5rem, 5vw, 4rem);
-            font-size: 2.2rem;
-            font-family: $font-bold;
-            line-height: $line-height-tight;
-            // font-family: $font-display;
-            color: $color-black;
+            font-size: $font-size-xl;
           }
 
           .stat-label {
-            display: block;
-            font-size: $font-size-base;
-            color: $color-black;
-            font-family: $font-medium;
+            font-size: $font-size-sm;
           }
         }
       }
     }
-
-    &.skills {
-      .skills-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.2rem;
-
-        .skill-tag {
-          display: inline-block;
-          padding: 0.8rem 1.6rem;
-          background-color: transparent;
-          color: $color-black;
-          font-size: $font-size-base;
-          border-radius: 4rem;
-          border: 0.2rem solid $color-black;
-          font-family: $font-medium;
-          transition:
-            background-color $transition-fast,
-            color $transition-fast;
-
-          &:hover {
-            background: $color-black;
-            color: $color-white;
-          }
-        }
+    @include tablet {
+      > dd {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   }
+  .info-skills {
+    > dt {
+      @include sr-only;
+    }
 
-  .intro-text {
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+
+      .skill-tag {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        background-color: transparent;
+        color: $color-black;
+        font-size: $font-size-md;
+        border-radius: 4rem;
+        border: 0.1rem solid $color-black;
+        transition:
+          background-color $transition-fast,
+          color $transition-fast;
+
+        &:hover {
+          background: $color-black;
+          color: $color-white;
+        }
+      }
+    }
+
+    @include tablet {
+      dd {
+        .stat-item {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 1.5rem;
+          .skills-tags {
+            .skill-tag {
+              padding: 0.6rem 1.2rem;
+            }
+          }
+        }
+      }
+      @include laptop {
+        .skills-tags {
+          gap: $spacing-sm;
+          .skill-tag {
+            padding: 0.8rem 1.6rem;
+            font-size: $font-size-sm;
+            &:hover {
+              background: $color-white;
+              color: $color-black;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .info-text {
     font-size: clamp(1.6rem, 1.8vw, 1.7rem);
-    line-height: 1.8;
-    font-family: $font-medium;
     color: #555;
 
     strong {
-      font-family: $font-bold;
-      color: $color-black;
-      @include highlight;
+      @include highlight(primary);
+      font-weight: bold;
+    }
+
+    @include laptop {
+      padding: $spacing-lg 0;
     }
   }
+  @include laptop {
+    margin-top: $spacing-lg;
+  }
+  @include tablet {
+    margin-top: $spacing-md;
+    gap: $spacing-md;
+  }
 }
+// // Animations
+// @keyframes typing {
+//   from {
+//     width: 0;
+//   }
+//   to {
+//     width: 100%;
+//   }
+// }
 
-// Animations
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
+// @keyframes blink {
+//   50% {
+//     opacity: 0;
+//   }
+// }
