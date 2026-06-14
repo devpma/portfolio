@@ -80,9 +80,15 @@
 }
 
 @font-face {
-  font-family: 'IntelOneMono';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-bold.woff2')
-    format('woff2');
+  font-family: 'NanumGothicCoding';
+  src: url('/portfolio/fonts/NanumGothicCoding.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NanumGothicCoding';
+  src: url('/portfolio/fonts/NanumGothicCoding-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
 }

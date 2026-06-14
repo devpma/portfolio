@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ttf2woff2": "^8.0.1"
+  }
+}
