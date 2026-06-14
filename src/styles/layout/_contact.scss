@@ -7,7 +7,6 @@
   @include flex-between;
 
   .main-title {
-    font-family: $font-medium;
   }
 
   .contact-box {
@@ -15,12 +14,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: $spacing-sm;
     padding: $spacing-md;
 
     @include tablet {
       gap: 0;
-      row-gap: 1rem;
+      row-gap: $spacing-sm;
     }
 
     dt {
@@ -28,11 +27,11 @@
       box-sizing: border-box;
 
       @include tablet {
-        width: 10rem;
+        width: $spacing-xxl;
       }
 
       @include mobile {
-        width: 5rem;
+        width: $spacing-xl;
         font-size: $font-size-xs;
       }
     }
@@ -41,11 +40,11 @@
       font-size: $font-size-sm;
 
       @include tablet {
-        width: calc(100% - 10rem);
+        width: calc(100% - $spacing-xxl);
       }
 
       @include mobile {
-        width: calc(100% - 5rem);
+        width: calc(100% - $spacing-xl);
         font-size: $font-size-xs;
       }
     }

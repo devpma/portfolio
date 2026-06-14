@@ -6,8 +6,46 @@ gsap.registerPlugin(ScrollTrigger)
 
 const mm = gsap.matchMedia()
 
-// 무한 스크롤 텍스트 + 돋보기 텍스트
-// 폰트 로드 후 width 측정해야 정확함
+// 비주얼 pin — 어바웃이 위로 덮어오는 효과
+ScrollTrigger.create({
+  trigger: '.visual-wrap',
+  start: 'top top',
+  end: () => `+=${document.querySelector('.about-wrap').offsetHeight}`,
+  pin: true,
+  pinSpacing: false
+})
+
+// 비주얼 텍스트 진입 애니메이션 — 글자별 낙하
+gsap.set('.visual-logo .position span, .visual-logo .name span', { y: -80, opacity: 0 })
+gsap.set('.visual-caption p', { y: 30, opacity: 0 })
+
+gsap.to('.visual-logo .position span', {
+  y: 0,
+  opacity: 1,
+  duration: 0.6,
+  ease: 'power4.out',
+  stagger: 0.05,
+  delay: 0.1
+})
+gsap.to('.visual-logo .name span', {
+  y: 0,
+  opacity: 1,
+  duration: 0.6,
+  ease: 'power4.out',
+  stagger: 0.05,
+  delay: 0.65
+})
+gsap.to('.visual-caption p', {
+  y: 0,
+  opacity: 1,
+  duration: 0.9,
+  stagger: 0.2,
+  ease: 'power3.out',
+  delay: 1.1
+})
+
+// zoom section JS (보류)
+/*
 document.fonts.ready.then(() => {
   const movingWrapper = document.querySelector('.pin-moving-wrapper')
   const movingText = document.querySelector('.pin-moving-text')
@@ -24,14 +62,8 @@ document.fonts.ready.then(() => {
     movingWrapper.appendChild(clone)
   }
 
-  gsap.to(movingWrapper, {
-    x: -textWidth,
-    duration: 20,
-    ease: 'none',
-    repeat: -1
-  })
+  gsap.to(movingWrapper, { x: -textWidth, duration: 20, ease: 'none', repeat: -1 })
 
-  // 커서 팔로잉 돋보기
   const lensEl = document.querySelector('#animate1')
   const pinWrap = document.querySelector('.pin-wrap')
   if (magWrapper && magText && lensEl && pinWrap) {
@@ -42,37 +74,22 @@ document.fonts.ready.then(() => {
       clone.setAttribute('aria-hidden', 'true')
       magWrapper.appendChild(clone)
     }
-
     const r = magTextWidth / textWidth
-
-    // 렌즈 초기 상태: 섹션 중앙 + 크게 (overflow:hidden이 자연스럽게 클리핑)
-    gsap.set(lensEl, { xPercent: -50, yPercent: -50, width: '95vmin', height: '95vmin' })
-
-    // 스크롤에 따라 큰 원 → 작은 돋보기로 자연스럽게 축소
+    gsap.set(lensEl, { xPercent: -50, yPercent: -50, width: '90vh', height: '90vh' })
     gsap.to(lensEl, {
-      width: '28rem',
-      height: '28rem',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: pinWrap,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        scrub: 2
-      }
+      width: '28rem', height: '28rem', ease: 'none',
+      scrollTrigger: { trigger: pinWrap, start: 'top 70%', end: 'bottom 30%', scrub: 2 }
     })
-
-    // 확대 텍스트 위치 동기화 (렌즈 중앙 = 뷰포트 중앙 기준)
     gsap.ticker.add(() => {
       const innerRadius = lensEl.clientWidth / 2
       const bgX = gsap.getProperty(movingWrapper, 'x')
       const lensCenterX = window.innerWidth / 2
       const rawMagX = r * (bgX - lensCenterX) + innerRadius
-      const loopedMagX = rawMagX % magTextWidth
-      gsap.set(magWrapper, { x: loopedMagX })
+      gsap.set(magWrapper, { x: rawMagX % magTextWidth })
     })
   }
 })
-
+*/
 
 // 커서 효과
 const cursor = document.querySelector('.cursor')
@@ -91,54 +108,68 @@ gsap.ticker.add(() => {
   })
 })
 
-const aboutWrap = document.querySelector('.about-wrap')
-if (aboutWrap) {
-  aboutWrap.addEventListener('mouseenter', () => {
-    cursor.classList.add('black')
+const visualWrap = document.querySelector('.visual-wrap')
+if (visualWrap) {
+  visualWrap.addEventListener('mouseenter', () => {
+    cursor.classList.add('white')
   })
-  aboutWrap.addEventListener('mouseleave', () => {
-    cursor.classList.remove('black')
+  visualWrap.addEventListener('mouseleave', () => {
+    cursor.classList.remove('white')
   })
 }
 
-// 커서 확대 효과
-const cursorScaleElements = document.querySelectorAll('.cursor-scale')
-cursorScaleElements.forEach((el) => {
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add(el.classList.contains('small') ? 'grow-small' : 'grow')
-  })
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('grow', 'grow-small')
-  })
-})
+// // 커서 확대 효과
+// const cursorScaleElements = document.querySelectorAll('.cursor-scale')
+// cursorScaleElements.forEach((el) => {
+//   el.addEventListener('mouseenter', () => {
+//     cursor.classList.add(el.classList.contains('small') ? 'grow-small' : 'grow')
+//   })
+//   el.addEventListener('mouseleave', () => {
+//     cursor.classList.remove('grow', 'grow-small')
+//   })
+// })
+
 // About 애니메이션
-gsap.from('.about-intro h2', {
+gsap.from('.about-wrap .title', {
   y: 60,
   opacity: 0,
   duration: 1.2,
   ease: 'power3.out',
   scrollTrigger: {
-    trigger: '.about-intro',
-    start: 'top 60%',
+    trigger: '.about-wrap .title-box',
+    start: 'top 70%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
-gsap.from('.intro-text', {
+gsap.from('.about-wrap .contact-link', {
+  x: -20,
+  opacity: 0,
+  stagger: 0.15,
+  duration: 0.8,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.about-wrap .title-box',
+    start: 'top 65%',
+    toggleActions: 'play reverse play reverse'
+  }
+})
+
+gsap.from('.about-wrap .info-stats', {
   y: 40,
   opacity: 0,
-  stagger: 0.25,
+  stagger: 0.2,
   duration: 1.0,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: '.about-intro',
-    start: 'top 55%',
+    trigger: '.about-wrap .info-text',
+    start: 'top 100%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 // stat 카운터 (스크롤할 때마다 재실행)
-document.querySelectorAll('.stat-number').forEach((el) => {
+document.querySelectorAll('.about-wrap .stat-number').forEach((el) => {
   const original = el.textContent.trim()
   const num = parseInt(original)
   const suffix = original.replace(/[0-9]/g, '')
@@ -173,138 +204,219 @@ document.querySelectorAll('.stat-number').forEach((el) => {
   }
 })
 
-gsap.from('.stat-item', {
+gsap.from('.about-wrap .stat-item', {
   y: 40,
   opacity: 0,
   stagger: 0.2,
   duration: 1.0,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: '.info-text.stats',
+    trigger: '.about-wrap .info-stats',
     start: 'top 60%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
 // 스킬 태그 순차 등장
-gsap.from('.skill-tag', {
+gsap.from('.about-wrap .skill-tag', {
   scale: 0.6,
   opacity: 0,
   stagger: 0.07,
   duration: 0.5,
   ease: 'back.out(1.7)',
   scrollTrigger: {
-    trigger: '.skills-tags',
+    trigger: '.about-wrap .skills-tags',
     start: 'top 65%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
-// 연락처 슬라이드인
-gsap.from('.contact-link', {
-  x: -20,
+gsap.from('.about-wrap .info-text p', {
+  y: 40,
   opacity: 0,
-  stagger: 0.18,
-  duration: 0.8,
+  stagger: 0.2,
+  duration: 1.0,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: '.info-text.contact',
-    start: 'top 65%',
-    toggleActions: 'play reverse play reverse'
-  }
-})
-
-gsap.from('.about-card', {
-  x: 60,
-  opacity: 0,
-  duration: 1.1,
-  ease: 'power3.out',
-  scrollTrigger: {
-    trigger: '.about-card',
+    trigger: '.about-wrap .info-text',
     start: 'top 60%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
-// 타이핑 텍스트
-ScrollTrigger.create({
-  trigger: '.text-wrap',
-  start: 'top 70%',
-  end: 'bottom 20%',
-  onEnter: () => {
-    const p = document.querySelector('.text-wrap p')
-    if (p) p.classList.add('on')
-  },
-  onLeave: () => {
-    const p = document.querySelector('.text-wrap p')
-    if (p) p.classList.remove('on')
-  },
-  onEnterBack: () => {
-    const p = document.querySelector('.text-wrap p')
-    if (p) p.classList.add('on')
-  },
-  onLeaveBack: () => {
-    const p = document.querySelector('.text-wrap p')
-    if (p) p.classList.remove('on')
+// portfolio effect
+gsap.from('.portfolio-wrap .title', {
+  y: 60,
+  opacity: 0,
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.portfolio-wrap .title-box',
+    start: 'top 70%',
+    toggleActions: 'play reverse play reverse'
   }
 })
 
-// 가로 스크롤 슬라이드
-const sldWrap = document.querySelector('.sld-wrap')
-const slides = document.querySelector('.items')
-
-if (slides && sldWrap) {
-  mm.add('(min-width: 641px)', () => {
-    gsap.to(slides, {
-      x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
-      ease: 'none',
+gsap.utils.toArray('.portfolio-wrap .portfolio-box').forEach((box) => {
+  const infoText = box.querySelector('.info-text')
+  if (infoText) {
+    gsap.from(infoText.querySelectorAll('p'), {
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1.0,
+      ease: 'power2.out',
       scrollTrigger: {
-        trigger: sldWrap,
-        start: 'top top',
-        end: () => `+=${slides.scrollWidth - sldWrap.offsetWidth}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true
+        trigger: infoText,
+        start: 'top 85%',
+        toggleActions: 'play reverse play reverse'
       }
     })
+  }
+
+  const desc = box.querySelector('.info-desc')
+  if (desc) {
+    gsap.from(desc.querySelectorAll('dt, dd'), {
+      scale: 0.6,
+      opacity: 0,
+      stagger: 0.07,
+      duration: 0.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: desc,
+        start: 'top 85%',
+        toggleActions: 'play reverse play reverse'
+      }
+    })
+  }
+})
+
+// Scroll word highlight
+const highlightWords = gsap.utils.toArray('.highlight-text .word')
+if (highlightWords.length) {
+  gsap.set(highlightWords, { color: '#d0d0d0' })
+
+  const scrubDistance = highlightWords.length * 160
+  const holdDistance = 500
+  const totalAnimDist = scrubDistance + holdDistance
+
+  // animation 끝난 후 portfolio가 viewport 하단에 오도록 margin 계산 (resize 대응)
+  const portfolioEl = document.querySelector('.portfolio-wrap')
+  const highlightEl = document.querySelector('.highlight-wrap')
+
+  const syncPortfolioMargin = () => {
+    if (!portfolioEl || !highlightEl) return
+    const margin = totalAnimDist + window.innerHeight - highlightEl.offsetHeight
+    portfolioEl.style.marginTop = `${Math.max(0, margin)}px`
+  }
+
+  syncPortfolioMargin()
+  ScrollTrigger.addEventListener('refreshInit', syncPortfolioMargin)
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.highlight-wrap',
+      start: 'top top',
+      end: () => `+=${totalAnimDist + window.innerHeight}`,
+      scrub: 1.5,
+      pin: true,
+      pinSpacing: false,
+      invalidateOnRefresh: true
+    }
   })
+
+  highlightWords.forEach((word, i) => {
+    const isAccent = word.classList.contains('accent')
+    tl.to(word, { color: isAccent ? '#ffe36d' : '#333', ease: 'none', duration: 1 }, i * 0.8)
+  })
+
+  // 단어 애니메이션 종료 후 hold 구간 (scrub 비율에 맞춰 빈 tween 추가)
+  const wordsDuration = (highlightWords.length - 1) * 0.8 + 1
+  tl.to({}, { duration: (wordsDuration * holdDistance) / scrubDistance })
 }
 
-// 모바일 슬라이드 애니메이션
-mm.add('(max-width: 640px)', () => {
-  const items = gsap.utils.toArray('.sld .item')
+// // 타이핑 텍스트
+// ScrollTrigger.create({
+//   trigger: '.text-wrap',
+//   start: 'top 70%',
+//   end: 'bottom 20%',
+//   onEnter: () => {
+//     const p = document.querySelector('.text-wrap p')
+//     if (p) p.classList.add('on')
+//   },
+//   onLeave: () => {
+//     const p = document.querySelector('.text-wrap p')
+//     if (p) p.classList.remove('on')
+//   },
+//   onEnterBack: () => {
+//     const p = document.querySelector('.text-wrap p')
+//     if (p) p.classList.add('on')
+//   },
+//   onLeaveBack: () => {
+//     const p = document.querySelector('.text-wrap p')
+//     if (p) p.classList.remove('on')
+//   }
+// })
 
-  items.forEach((item) => {
-    const img = item.querySelector('.img')
-    const txt = item.querySelector('.txt')
+// // 가로 스크롤 슬라이드
+// const sldWrap = document.querySelector('.sld-wrap')
+// const slides = document.querySelector('.items')
 
-    gsap.set(img, { opacity: 0, y: 60 })
-    gsap.set(txt, { opacity: 0, y: 30 })
+// if (slides && sldWrap) {
+//   mm.add('(min-width: 641px)', () => {
+//     gsap.to(slides, {
+//       x: () => -(slides.scrollWidth - sldWrap.offsetWidth),
+//       ease: 'none',
+//       scrollTrigger: {
+//         trigger: sldWrap,
+//         start: 'top top',
+//         end: () => `+=${slides.scrollWidth - sldWrap.offsetWidth}`,
+//         pin: true,
+//         scrub: 1,
+//         invalidateOnRefresh: true
+//       }
+//     })
+//   })
+// }
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play reverse play reverse'
-        }
-      })
-      .to(img, {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: 'power4.out'
-      })
-      .to(
-        txt,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: 'power4.out'
-        },
-        '-=0.3'
-      )
-  })
-})
+// // 모바일 슬라이드 애니메이션
+// mm.add('(max-width: 640px)', () => {
+//   const items = gsap.utils.toArray('.sld .item')
+
+//   items.forEach((item) => {
+//     const img = item.querySelector('.img')
+//     const txt = item.querySelector('.txt')
+
+//     gsap.set(img, { opacity: 0, y: 60 })
+//     gsap.set(txt, { opacity: 0, y: 30 })
+
+//     gsap
+//       .timeline({
+//         scrollTrigger: {
+//           trigger: item,
+//           start: 'top 80%',
+//           end: 'bottom 20%',
+//           toggleActions: 'play reverse play reverse'
+//         }
+//       })
+//       .to(img, {
+//         y: 0,
+//         opacity: 1,
+//         duration: 0.6,
+//         ease: 'power4.out'
+//       })
+//       .to(
+//         txt,
+//         {
+//           y: 0,
+//           opacity: 1,
+//           duration: 0.3,
+//           ease: 'power4.out'
+//         },
+//         '-=0.3'
+//       )
+//   })
+// })
+
+// 여러 pin 섹션이 있을 때 트리거 위치 재계산
+ScrollTrigger.refresh()

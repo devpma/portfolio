@@ -42,9 +42,9 @@
   justify-content: space-between;
 }
 
-@mixin border-standard {
-  border: 0.1rem solid $color-dark-gray;
-}
+// @mixin border-standard {
+//   border: 0.1rem solid $color-dark-gray;
+// }
 
 @mixin sr-only {
   position: absolute;
@@ -59,10 +59,11 @@
   border: 0;
 }
 
-@mixin highlight {
-  background: $color-primary;
-  padding: 0 0.3em;
+@mixin highlight() {
+  padding: 0rem 0.3rem;
   border-radius: 0.3rem;
+  color: $color-black;
+  background: $color-primary;
 }
 // ============================================
 // Animations

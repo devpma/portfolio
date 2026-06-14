@@ -6,3 +6,37 @@
   width: 100%;
   overflow-x: hidden;
 }
+
+.title {
+  font-size: clamp(2rem, 8vw, 5rem);
+  // font-family: $font-display;
+  font-weight: $font-weight-bold;
+  color: $color-black;
+
+  .primary {
+    color: $color-primary;
+    margin-left: $spacing-xs;
+  }
+}
+
+.cursor {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  margin-left: -$spacing-md;
+  margin-top: -$spacing-md;
+  border-radius: $border-radius-circle;
+  border: 0.25rem solid $color-black;
+  @include smooth-transition(transform);
+  transform-origin: center center;
+  pointer-events: none;
+  z-index: 1000;
+
+  &.white {
+    border-color: $color-white;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}

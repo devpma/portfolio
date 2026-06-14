@@ -16,8 +16,9 @@ html {
 
 body {
   font-family: $font-base;
-  font-size: $font-size-base;
+  font-size: $font-size-md;
   line-height: $line-height-normal;
+  font-weight: $font-weight-regular;
   color: $color-black;
   background: $color-white;
   overflow-x: hidden;
