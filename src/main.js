@@ -15,33 +15,49 @@ ScrollTrigger.create({
   pinSpacing: false
 })
 
-// 비주얼 텍스트 진입 애니메이션 — 글자별 낙하
-gsap.set('.visual-logo .position span, .visual-logo .name span', { y: -80, opacity: 0 })
+// 비주얼 텍스트 진입 애니메이션 — 타이핑 효과
+gsap.set('.visual-logo .position span', { opacity: 0 })
+gsap.set('.visual-logo .name span:not(.cursor)', { opacity: 0 })
 gsap.set('.visual-caption p', { y: 30, opacity: 0 })
 
+// position 타이핑
 gsap.to('.visual-logo .position span', {
-  y: 0,
   opacity: 1,
-  duration: 0.6,
-  ease: 'power4.out',
-  stagger: 0.05,
-  delay: 0.1
+  duration: 0.01,
+  stagger: 0.07,
+  delay: 0.3
 })
-gsap.to('.visual-logo .name span', {
-  y: 0,
-  opacity: 1,
-  duration: 0.6,
-  ease: 'power4.out',
-  stagger: 0.05,
-  delay: 0.65
+
+// name 타이핑 + 커서 이동
+document.fonts.ready.then(() => {
+  const nameEl = document.querySelector('.visual-logo .name')
+  if (!nameEl) return
+
+  const cursor = nameEl.querySelector('.cursor')
+  const letterSpans = [...nameEl.querySelectorAll('span:not(.cursor)')]
+  if (!cursor || !letterSpans.length) return
+
+  const charWidth = letterSpans[0].getBoundingClientRect().width
+  const nameRect = nameEl.getBoundingClientRect()
+  const letterRect = letterSpans[0].getBoundingClientRect()
+  const topOffset = letterRect.top - nameRect.top
+
+  gsap.set(cursor, { x: 0, top: topOffset })
+
+  const tl = gsap.timeline({ delay: 1.1 })
+  letterSpans.forEach((span, i) => {
+    tl.set(span, { opacity: 1 }, i * 0.1)
+    tl.set(cursor, { x: (i + 1) * charWidth }, i * 0.1)
+  })
 })
+
 gsap.to('.visual-caption p', {
   y: 0,
   opacity: 1,
   duration: 0.9,
   stagger: 0.2,
   ease: 'power3.out',
-  delay: 1.1
+  delay: 2.2
 })
 
 // zoom section JS (보류)

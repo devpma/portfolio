@@ -17,9 +17,9 @@
   }
 
   .visual-logo {
-    font-family: $font-display-bold;
+    font-family: $font-base;
     line-height: 1;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.2rem;
     color: $color-white;
     position: absolute;
     top: 4rem;
@@ -27,94 +27,38 @@
     z-index: 2;
 
     .position {
-      font-size: clamp($spacing-lg, 8.5vw, 26rem);
-      color: transparent;
-      -webkit-text-stroke: 2px $color-light-gray;
+      font-size: clamp(1.4rem, 2vw, 2.4rem);
+      color: rgba(255, 255, 255, 0.5);
       white-space: nowrap;
+      margin-bottom: 1rem;
 
       span {
         display: inline-block;
-        transition: color 0.2s;
-
-        &:hover {
-          color: $color-white;
-        }
       }
-
-      // [방향 3] 그라디언트 — 위 3줄 지우고 아래 주석 해제
-      // color: transparent;
-      // background: linear-gradient(160deg, $color-black 55%, $color-primary 100%);
-      // -webkit-background-clip: text;
-      // background-clip: text;
-      // -webkit-text-stroke: 0;
     }
+
     .name {
       font-size: clamp($spacing-lg, 9.5vw, 28rem);
-      font-style: italic;
+      font-style: normal;
       color: $color-primary;
       white-space: nowrap;
+      position: relative;
 
       span {
         display: inline-block;
       }
 
-      // [방향 3] 그라디언트 — 아래 주석 해제
-      // color: transparent;
-      // background: linear-gradient(160deg, $color-primary 0%, $color-black 50%);
-      // -webkit-background-clip: text;
-      // background-clip: text;
+      .cursor {
+        position: absolute;
+        left: 0;
+        animation: blink 1s step-end infinite;
+      }
     }
 
-    // .l-text {
-    //   flex: 1;
-    //   display: flex;
-    //   justify-content: space-between;
-
-    //   > span {
-    //     transition: color 0.25s ease;
-
-    //     &:hover {
-    //       color: $color-primary;
-    //     }
-    //   }
-
-    //   &.l-park {
-    //     > span {
-    //       &:nth-child(1) {
-    //         color: $color-primary;
-    //       }
-    //     }
-    //   }
-
-    //   &.l-mina {
-    //     > span {
-    //       &:nth-child(3) {
-    //         color: $color-primary;
-    //       }
-    //     }
-    //   }
-    // }
-
-    // @include tablet {
-    //   flex-direction: column;
-    //   gap: 0;
-
-    //   .l-text {
-    //     > span {
-    //       &:hover {
-    //         opacity: 1;
-    //       }
-    //     }
-    //   }
-    // }
     @include tablet {
       top: $spacing-md;
       left: $spacing-md;
       line-height: 1.2;
-
-      .position {
-        -webkit-text-stroke: 1px $color-light-gray;
-      }
     }
   }
 
@@ -156,6 +100,11 @@
       padding: $spacing-lg 1.5rem $spacing-xl;
     }
   }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .floating-shapes {

@@ -8,200 +8,153 @@
   position: relative;
   z-index: 10;
   margin-top: -$spacing-lg;
-  text-align: center;
 
-  .title-box {
-    margin-bottom: $spacing-lg;
-  }
-
-  // .title-box {
-  //   @include flex-between;
-  //   gap: $spacing-xl;
-
-  //   @include laptop {
-  //     flex-direction: column;
-  //     align-items: flex-start;
-  //     gap: $spacing-sm;
-
-  //     .contact-links {
-  //       font-size: $font-size-xs;
-  //     }
-  //   }
-  // }
   @include laptop {
     padding: $spacing-xl $spacing-md;
   }
 }
 
-.about-info {
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: $spacing-xl;
+  align-items: start;
+
+  @include laptop {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.about-col--main {
+  .title-box {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.about-col--side {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: $spacing-lg;
-  .info-stats {
-    > dt {
-      @include sr-only;
-    }
+  gap: $spacing-xl;
 
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+    align-items: flex-start;
+  }
+}
+
+.info-stats {
+  > dt {
+    @include sr-only;
+  }
+
+  > dd {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    .stat-item {
+      .stat-number {
+        display: block;
+        font-size: 4rem;
+        font-weight: $font-weight-bold;
+        line-height: 1;
+      }
+
+      .stat-label {
+        display: block;
+        font-size: $font-size-sm;
+        color: $color-dark-gray;
+        margin-top: 0.4rem;
+      }
+    }
+  }
+
+  @include laptop {
     > dd {
-      display: flex;
-      align-items: center;
-      gap: $spacing-lg;
+      gap: $spacing-md;
 
       .stat-item {
-        display: flex;
-        align-items: center;
-        gap: $spacing-sm;
-
         .stat-number {
-          display: block;
-          // font-size: clamp(3.5rem, 5vw, 4rem);
-          font-size: 4rem;
-          // font-weight: $font-weight-bold;
-          // font-family: $font-display;
-          font-weight: $font-weight-bold;
-          line-height: 1;
-          // font-family: $font-display-bold;
+          font-size: $font-size-xxl;
         }
-
-        .stat-label {
-          display: block;
-          // font-size: $font-size-md;
-          // color: $color-black;
-        }
-      }
-    }
-    @include laptop {
-      > dd {
-        gap: $spacing-sm;
-        .stat-item {
-          gap: $spacing-sm;
-
-          .stat-number {
-            font-size: $font-size-xl;
-          }
-        }
-      }
-    }
-    @include tablet {
-      > dd {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  }
-  .info-text {
-    max-width: 80vw;
-    font-size: clamp(1.4rem, 1.6vw, 1.5rem);
-    color: #555;
-    word-break: keep-all;
-
-    strong {
-      font-weight: $font-weight-bold;
-    }
-
-    p {
-      & + p {
-        margin-top: $spacing-sm;
-      }
-    }
-
-    @include laptop {
-      padding: $spacing-sm 0;
-    }
-
-    @include tablet {
-      max-width: 100%;
-    }
-  }
-  @include laptop {
-    margin-top: $spacing-lg;
-  }
-  @include tablet {
-    margin-top: $spacing-md;
-    gap: $spacing-md;
-  }
-  .info-skills {
-    > dt {
-      @include sr-only;
-    }
-
-    .skills-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-
-      .skill-tag {
-        display: inline-block;
-        background-color: transparent;
-        letter-spacing: 0.1rem;
-        // font-style: italic;
-        color: $color-black;
-        background-color: $color-primary;
-        border: 0.1rem solid $color-primary;
-        border-radius: $border-radius-lg;
-        padding: 0.3rem $spacing-md;
-
-        // letter-spacing: 0.2rem;
-        // border-bottom: 0.1rem solid $color-black;
-        // color: $color-black;
-        // font-size: $font-size-md;
-        // padding: 0.8rem 1.6rem;
-        // border-radius: 4rem;
-        // border: 0.1rem solid $color-black;
-        transition:
-          background-color $transition-fast,
-          color $transition-fast;
-
-        &:hover {
-          color: $color-black;
-          background-color: $color-white;
-          border-color: $color-black;
-        }
-
-        &::before {
-          content: '#';
-          display: inline-block;
-          margin-right: 0.2rem;
-        }
-      }
-    }
-
-    // @include tablet {
-    //   dd {
-    //     .stat-item {
-    //       grid-template-columns: repeat(1, 1fr);
-    //       gap: 1.5rem;
-    //       .skills-tags {
-    //         .skill-tag {
-    //           padding: 0.6rem 1.2rem;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    @include laptop {
-      .skills-tags {
-        gap: $spacing-sm;
-        .skill-tag {
-          padding: 0.2rem 1.2rem;
-          font-size: $font-size-sm;
-          &:hover {
-            background: $color-white;
-            color: $color-black;
-          }
-        }
-      }
-    }
-    @include tablet {
-      .skills-tags {
-        gap: $spacing-sm;
-        justify-content: flex-end;
       }
     }
   }
 }
+
+.info-text {
+  font-size: clamp(1.4rem, 1.6vw, 1.5rem);
+  color: #555;
+  word-break: keep-all;
+  line-height: $line-height-normal;
+
+  strong {
+    font-weight: $font-weight-bold;
+    color: $color-black;
+  }
+
+  p + p {
+    margin-top: $spacing-sm;
+  }
+}
+
+.info-skills {
+  .skills-title {
+    font-size: $font-size-sm;
+    color: $color-dark-gray;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1rem;
+  }
+
+  .skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .skill-tag {
+      display: inline-block;
+      background-color: $color-primary;
+      border: 0.1rem solid $color-primary;
+      border-radius: $border-radius-lg;
+      padding: 0.3rem $spacing-md;
+      letter-spacing: 0.1rem;
+      color: $color-black;
+      transition:
+        background-color $transition-fast,
+        color $transition-fast,
+        border-color $transition-fast;
+
+      &::before {
+        content: '#';
+        display: inline-block;
+        margin-right: 0.2rem;
+      }
+
+      &:hover {
+        background-color: $color-white;
+        border-color: $color-black;
+      }
+    }
+  }
+
+  @include laptop {
+    .skills-tags {
+      .skill-tag {
+        padding: 0.2rem 1.2rem;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
 .contact-links {
   margin-top: $spacing-xl;
   color: $color-black;
@@ -209,32 +162,13 @@
   font-weight: $font-weight-bold;
   letter-spacing: 0.2rem;
   border-bottom: 0.3rem solid $color-black;
-  // margin-bottom: $spacing-lg;
+  width: fit-content;
   transition:
     color $transition-fast,
     border-color $transition-fast;
 
-  > a {
-    // border-bottom: 0.1rem solid $color-black;
-    width: fit-content;
-
-    &:hover {
-      border-color: $color-dark-gray;
-    }
+  &:hover {
+    border-color: $color-dark-gray;
+    color: $color-dark-gray;
   }
 }
-// // Animations
-// @keyframes typing {
-//   from {
-//     width: 0;
-//   }
-//   to {
-//     width: 100%;
-//   }
-// }
-
-// @keyframes blink {
-//   50% {
-//     opacity: 0;
-//   }
-// }

@@ -27,7 +27,7 @@
 
   .img {
     flex: 0 0 60%;
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius-md;
     aspect-ratio: 1920 / 1080;
     overflow: hidden;
 
@@ -61,7 +61,7 @@
   background-color: $color-white;
   padding: 4rem;
   row-gap: $spacing-lg;
-  border-radius: $border-radius-lg;
+  border-radius: $border-radius-md;
   word-break: keep-all;
 
   .project-name {
