@@ -17,7 +17,7 @@ ScrollTrigger.create({
 
 // 비주얼 텍스트 진입 애니메이션 — 타이핑 효과
 gsap.set('.visual-logo .position span', { opacity: 0 })
-gsap.set('.visual-logo .name span:not(.cursor)', { opacity: 0 })
+gsap.set('.visual-logo .name span:not(.name-cursor)', { opacity: 0 })
 gsap.set('.visual-caption p', { y: 30, opacity: 0 })
 
 // position 타이핑
@@ -33,21 +33,32 @@ document.fonts.ready.then(() => {
   const nameEl = document.querySelector('.visual-logo .name')
   if (!nameEl) return
 
-  const cursor = nameEl.querySelector('.cursor')
-  const letterSpans = [...nameEl.querySelectorAll('span:not(.cursor)')]
+  const cursor = nameEl.querySelector('.name-cursor')
+  const letterSpans = [...nameEl.querySelectorAll('span:not(.name-cursor)')]
   if (!cursor || !letterSpans.length) return
 
-  const charWidth = letterSpans[0].getBoundingClientRect().width
-  const nameRect = nameEl.getBoundingClientRect()
-  const letterRect = letterSpans[0].getBoundingClientRect()
-  const topOffset = letterRect.top - nameRect.top
+  const getMetrics = () => {
+    const charWidth = letterSpans[0].getBoundingClientRect().width
+    const nameRect = nameEl.getBoundingClientRect()
+    const lastRect = letterSpans[letterSpans.length - 1].getBoundingClientRect()
+    return {
+      charWidth,
+      xEnd: lastRect.right - nameRect.left
+    }
+  }
 
-  gsap.set(cursor, { x: 0, top: topOffset })
+  const { charWidth } = getMetrics()
+  gsap.set(cursor, { x: 0 })
 
   const tl = gsap.timeline({ delay: 1.1 })
   letterSpans.forEach((span, i) => {
     tl.set(span, { opacity: 1 }, i * 0.1)
     tl.set(cursor, { x: (i + 1) * charWidth }, i * 0.1)
+  })
+
+  window.addEventListener('resize', () => {
+    const { xEnd } = getMetrics()
+    gsap.set(cursor, { x: xEnd })
   })
 })
 

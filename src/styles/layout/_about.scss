@@ -10,7 +10,8 @@
   margin-top: -$spacing-lg;
 
   @include laptop {
-    padding: $spacing-xl $spacing-md;
+    padding: $spacing-lg $spacing-md;
+    border-radius: $border-radius-md $border-radius-md 0 0;
   }
 }
 
@@ -22,22 +23,14 @@
 
   @include laptop {
     grid-template-columns: 1fr 1fr;
-    gap: $spacing-xl;
   }
 
   @include tablet {
     grid-template-columns: 1fr;
-    gap: $spacing-lg;
   }
 }
 
-.about-col--main {
-  .title-box {
-    margin-bottom: $spacing-xl;
-  }
-}
-
-.about-col--side {
+.about-side {
   display: flex;
   flex-direction: column;
   gap: $spacing-xl;
@@ -83,7 +76,7 @@
 
       .stat-item {
         .stat-number {
-          font-size: $font-size-xxl;
+          font-size: 3rem;
         }
       }
     }
@@ -170,5 +163,18 @@
   &:hover {
     border-color: $color-dark-gray;
     color: $color-dark-gray;
+  }
+}
+
+.about-text {
+  .title-box {
+    margin-bottom: $spacing-xl;
+    line-height: 1;
+  }
+
+  @include tablet {
+    .title-box {
+      margin-bottom: $spacing-md;
+    }
   }
 }

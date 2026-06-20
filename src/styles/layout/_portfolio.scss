@@ -11,18 +11,15 @@
   > ul {
     display: flex;
     flex-direction: column;
+    row-gap: $spacing-xl;
   }
   @include laptop {
     padding: $spacing-xl $spacing-md;
-  }
-  @include laptop {
-    padding: $spacing-lg $spacing-md;
   }
 }
 .portfolio-box {
   display: flex;
   gap: $spacing-lg;
-  padding: $spacing-md 0;
   word-break: keep-all;
 
   .img {
@@ -52,6 +49,9 @@
       width: 100%;
     }
   }
+  @include tablet {
+    gap: $spacing-md;
+  }
 }
 
 .portfolio-info {
@@ -73,9 +73,8 @@
     // -webkit-text-stroke: 1px $color-black;
   }
 
-  .info-text {
+  .info-desc {
     word-break: keep-all;
-    font-size: $font-size-lg;
 
     > p {
       + p {
@@ -87,10 +86,11 @@
     }
   }
 
-  .info-desc {
+  .info-list {
     display: grid;
     grid-template-columns: 8rem 1fr;
     row-gap: $spacing-xs;
+    font-size: $font-size-sm;
     dt {
       font-weight: $font-weight-bold;
     }
@@ -108,10 +108,10 @@
   @include tablet {
     padding: 3rem;
     border-radius: $border-radius-md;
-    .info-text {
+    .info-desc {
       font-size: $font-size-md;
     }
-    .info-desc {
+    .info-list {
       font-size: $font-size-sm;
       grid-template-columns: 6rem 1fr;
     }

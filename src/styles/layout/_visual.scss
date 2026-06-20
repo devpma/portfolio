@@ -38,18 +38,19 @@
     }
 
     .name {
-      font-size: clamp($spacing-lg, 9.5vw, 28rem);
+      font-size: clamp(3rem, 12vw, 28rem);
       font-style: normal;
       color: $color-primary;
-      white-space: nowrap;
+      // white-space: nowrap;
       position: relative;
 
       span {
         display: inline-block;
       }
 
-      .cursor {
+      .name-cursor {
         position: absolute;
+        bottom: 0.1em;
         left: 0;
         animation: blink 1s step-end infinite;
       }
@@ -103,8 +104,13 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .floating-shapes {
