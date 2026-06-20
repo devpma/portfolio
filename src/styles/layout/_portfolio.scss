@@ -107,6 +107,8 @@
     }
   }
   @include tablet {
+    padding: 3rem;
+    border-radius: $border-radius-md;
     .info-text {
       font-size: $font-size-md;
     }
