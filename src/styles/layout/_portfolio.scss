@@ -64,7 +64,7 @@
   word-break: keep-all;
 
   .project-name {
-    font-size: clamp($spacing-lg, 4vw, 3rem);
+    font-size: clamp(2.5rem, 4vw, 3rem);
     line-height: 1;
     word-break: break-all;
     font-weight: $font-weight-bold;
@@ -96,6 +96,17 @@
     }
     dd {
       margin: 0;
+    }
+  }
+
+  @include laptop {
+  }
+  @include tablet {
+    .info-text {
+      font-size: $font-size-md;
+    }
+    .info-desc {
+      font-size: $font-size-xs;
     }
   }
 }
