@@ -83,8 +83,7 @@
       }
     }
     strong {
-      @include highlight(black);
-      // border-bottom: 0.2rem solid $color-black;
+      font-weight: $font-weight-bold;
     }
   }
 
