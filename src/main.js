@@ -169,19 +169,6 @@ gsap.from('.about-wrap .title', {
   }
 })
 
-gsap.from('.about-wrap .contact-link', {
-  x: -20,
-  opacity: 0,
-  stagger: 0.15,
-  duration: 0.8,
-  ease: 'power2.out',
-  scrollTrigger: {
-    trigger: '.about-wrap .title-box',
-    start: 'top 65%',
-    toggleActions: 'play reverse play reverse'
-  }
-})
-
 gsap.from('.about-wrap .info-stats', {
   y: 40,
   opacity: 0,
@@ -271,21 +258,37 @@ gsap.from('.about-wrap .info-text p', {
   }
 })
 
-// portfolio effect
-gsap.from('.portfolio-wrap .title', {
-  y: 60,
+gsap.from('.about-wrap .contact-link', {
+  y: 40,
+  scale: 0.6,
   opacity: 0,
-  duration: 1.2,
-  ease: 'power3.out',
+  stagger: 0.07,
+  duration: 0.5,
+  ease: 'back.out(1.7)',
   scrollTrigger: {
-    trigger: '.portfolio-wrap .title-box',
-    start: 'top 70%',
+    trigger: desc,
+    start: 'top 85%',
     toggleActions: 'play reverse play reverse'
   }
 })
 
+// portfolio effect
+gsap.utils.toArray('.portfolio-wrap .project-name').forEach((name) => {
+  gsap.from(name, {
+    y: 40,
+    opacity: 0,
+    duration: 1.0,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: name,
+      start: 'top 70%',
+      toggleActions: 'play reverse play reverse'
+    }
+  })
+})
+
 gsap.utils.toArray('.portfolio-wrap .portfolio-box').forEach((box) => {
-  const infoText = box.querySelector('.info-text')
+  const infoText = box.querySelector('.info-desc')
   if (infoText) {
     gsap.from(infoText.querySelectorAll('p'), {
       y: 40,
@@ -301,7 +304,7 @@ gsap.utils.toArray('.portfolio-wrap .portfolio-box').forEach((box) => {
     })
   }
 
-  const desc = box.querySelector('.info-desc')
+  const desc = box.querySelector('.info-list')
   if (desc) {
     gsap.from(desc.querySelectorAll('dt, dd'), {
       scale: 0.6,
