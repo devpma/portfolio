@@ -31,9 +31,6 @@
   @include laptop {
     padding: $spacing-xl $spacing-md;
   }
-  @include laptop {
-    padding: $spacing-lg $spacing-md;
-  }
 }
 
 .about-info {
@@ -96,8 +93,9 @@
   }
   .info-text {
     max-width: 80vw;
-    font-size: clamp(1.6rem, 1.6vw, 1.5rem);
+    font-size: clamp(1.4rem, 1.6vw, 1.5rem);
     color: #555;
+    word-break: keep-all;
 
     strong {
       @include highlight();
@@ -105,7 +103,8 @@
     }
 
     @include laptop {
-      padding: $spacing-lg 0;
+      padding: $spacing-sm 0;
+      max-width: 100%;
     }
   }
   @include laptop {
@@ -124,17 +123,19 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.2rem;
-      justify-content: flex-end;
+      justify-content: center;
 
       .skill-tag {
         display: inline-block;
         background-color: transparent;
         letter-spacing: 0.1rem;
-        color: $color-white;
-        font-style: italic;
-        background-color: $color-black;
-        padding: $spacing-xs $spacing-md;
+        // font-style: italic;
+        color: $color-black;
+        background-color: $color-primary;
+        border: 0.1rem solid $color-primary;
         border-radius: $border-radius-lg;
+        padding: 0.3rem $spacing-md;
+
         // letter-spacing: 0.2rem;
         // border-bottom: 0.1rem solid $color-black;
         // color: $color-black;
@@ -147,43 +148,49 @@
           color $transition-fast;
 
         &:hover {
-          background: $color-black;
-          color: $color-white;
+          color: $color-black;
+          background-color: $color-white;
+          border-color: $color-black;
         }
 
         &::before {
           content: '#';
           display: inline-block;
-          font-weight: $font-weight-bold;
           margin-right: 0.2rem;
         }
       }
     }
 
-    @include tablet {
-      dd {
-        .stat-item {
-          grid-template-columns: repeat(1, 1fr);
-          gap: 1.5rem;
-          .skills-tags {
-            .skill-tag {
-              padding: 0.6rem 1.2rem;
-            }
+    // @include tablet {
+    //   dd {
+    //     .stat-item {
+    //       grid-template-columns: repeat(1, 1fr);
+    //       gap: 1.5rem;
+    //       .skills-tags {
+    //         .skill-tag {
+    //           padding: 0.6rem 1.2rem;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    @include laptop {
+      .skills-tags {
+        gap: $spacing-sm;
+        .skill-tag {
+          padding: 0.2rem 1.2rem;
+          font-size: $font-size-sm;
+          &:hover {
+            background: $color-white;
+            color: $color-black;
           }
         }
       }
-      @include laptop {
-        .skills-tags {
-          gap: $spacing-sm;
-          .skill-tag {
-            padding: 0.8rem 1.6rem;
-            font-size: $font-size-sm;
-            &:hover {
-              background: $color-white;
-              color: $color-black;
-            }
-          }
-        }
+    }
+    @include tablet {
+      .skills-tags {
+        gap: $spacing-sm;
+        justify-content: flex-end;
       }
     }
   }

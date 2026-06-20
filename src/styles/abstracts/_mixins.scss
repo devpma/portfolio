@@ -59,11 +59,16 @@
   border: 0;
 }
 
-@mixin highlight() {
-  padding: 0rem 0.3rem;
-  border-radius: 0.3rem;
-  color: $color-black;
-  background: $color-primary;
+@mixin highlight($type: white) {
+  padding: 0 0.3rem 0.2rem;
+
+  @if $type == black {
+    background-color: $color-black;
+    color: $color-white;
+  } @else {
+    background-color: $color-white;
+    color: $color-black;
+  }
 }
 // ============================================
 // Animations
