@@ -147,7 +147,8 @@
   }
 }
 
-.contact-links {
+.contact-link {
+  display: inline-block;
   margin-top: $spacing-xl;
   color: $color-black;
   font-size: $font-size-lg;

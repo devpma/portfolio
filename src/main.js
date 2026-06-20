@@ -259,14 +259,13 @@ gsap.from('.about-wrap .info-text p', {
 })
 
 gsap.from('.about-wrap .contact-link', {
-  y: 40,
   scale: 0.6,
   opacity: 0,
   stagger: 0.07,
   duration: 0.5,
   ease: 'back.out(1.7)',
   scrollTrigger: {
-    trigger: desc,
+    trigger: '.about-wrap .contact-link',
     start: 'top 85%',
     toggleActions: 'play reverse play reverse'
   }
