@@ -23,6 +23,7 @@
   display: flex;
   gap: $spacing-lg;
   padding: $spacing-md 0;
+  word-break: keep-all;
 
   .img {
     flex: 0 0 60%;
@@ -100,6 +101,10 @@
   }
 
   @include laptop {
+    row-gap: $spacing-md;
+    .project-name {
+      line-height: $line-height-normal;
+    }
   }
   @include tablet {
     .info-text {
@@ -107,6 +112,7 @@
     }
     .info-desc {
       font-size: $font-size-sm;
+      grid-template-columns: 6rem 1fr;
     }
   }
 }
