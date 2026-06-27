@@ -27,6 +27,7 @@
     z-index: 2;
 
     .position {
+      display: block;
       font-size: clamp(1.4rem, 2vw, 2.4rem);
       color: rgba(255, 255, 255, 0.5);
       white-space: nowrap;
@@ -38,6 +39,7 @@
     }
 
     .name {
+      display: block;
       font-size: clamp(3rem, 12vw, 28rem);
       font-style: normal;
       color: $color-primary;
@@ -103,5 +105,11 @@
   }
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-cursor {
+    animation: none;
   }
 }
