@@ -147,31 +147,6 @@
   }
 }
 
-.contact-link {
-  display: inline-block;
-  margin-top: $spacing-xl;
-  color: $color-black;
-  @include font-size(large);
-  font-weight: $font-weight-bold;
-  letter-spacing: 0.2rem;
-  border-bottom: 0.3rem solid $color-black;
-  width: fit-content;
-  transition:
-    color $transition-fast,
-    border-color $transition-fast;
-
-  &:hover {
-    border-color: $color-dark-gray;
-    color: $color-dark-gray;
-  }
-
-  &:focus-visible {
-    outline: 0.3rem solid $color-primary;
-    outline-offset: 0.4rem;
-    border-radius: $border-radius-sm;
-  }
-}
-
 .about-text {
   .title-box {
     margin-bottom: $spacing-xl;
