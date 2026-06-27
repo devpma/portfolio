@@ -63,7 +63,7 @@
 
       .stat-label {
         display: block;
-        font-size: $font-size-sm;
+        @include font-size(small);
         color: $color-dark-gray;
         margin-top: 0.4rem;
       }
@@ -101,7 +101,7 @@
 
 .info-skills {
   .skills-title {
-    font-size: $font-size-sm;
+    @include font-size(small);
     color: $color-dark-gray;
     margin-bottom: $spacing-sm;
     letter-spacing: 0.1rem;
@@ -141,7 +141,7 @@
     .skills-tags {
       .skill-tag {
         padding: 0.2rem 1.2rem;
-        font-size: $font-size-sm;
+        @include font-size(small);
       }
     }
   }
@@ -151,7 +151,7 @@
   display: inline-block;
   margin-top: $spacing-xl;
   color: $color-black;
-  font-size: $font-size-lg;
+  @include font-size(large);
   font-weight: $font-weight-bold;
   letter-spacing: 0.2rem;
   border-bottom: 0.3rem solid $color-black;

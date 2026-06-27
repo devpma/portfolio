@@ -1,18 +1,11 @@
-// Colors
-//$color-primary: #ffae00;
-//$color-primary: #00dfff;
-//$color-primary: #666;
-// $color-light-gray: #f5f5f5;
-// $color-dark-gray: #666;
-// $color-black: #000;
+// color
 $color-primary: #ffe36d;
-// $color-primary: #ffeb98;
 $color-white: #fff;
 $color-dark-gray: #888;
 $color-light-gray: #eee;
 $color-black: #333;
 
-// Typography
+// font
 $font-base:
   'IntelOneMono',
   'NanumGothicCoding',
@@ -24,13 +17,14 @@ $font-base:
 $font-display: 'ClimateCrisisKoreanBold';
 $font-display-bold: 'ClimateCrisisKoreanBold';
 
-// font sizes
-$font-size-xs: 1.2rem;
-$font-size-sm: 1.4rem;
-$font-size-md: 1.6rem;
-$font-size-lg: 1.8rem;
-$font-size-xl: 2rem;
-$font-size-xxl: 2.2rem;
+$font-sizes: (
+  xxlarge: 2.2rem,
+  xlarge: 2rem,
+  large: 1.8em,
+  medium: 1.6rem,
+  small: 1.4rem,
+  xsmall: 1.2rem
+);
 
 // line height
 $line-height-tight: 1.5;
@@ -40,11 +34,9 @@ $line-height-loose: 2;
 // font weight
 $font-weight-light: 300;
 $font-weight-regular: 400;
-// $font-weight-semibold: 600;
 $font-weight-bold: 700;
-// $font-weight-black: 900;
 
-// Spacing
+// spacing
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 2rem;
@@ -52,18 +44,19 @@ $spacing-lg: 3rem;
 $spacing-xl: 5rem;
 $spacing-xxl: 10rem;
 
-// Breakpoints
+// breakpoint
 $breakpoint-mobile: 478px;
 $breakpoint-tablet: 640px;
 $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1450px;
 
-// Effects
+// border radius
 $border-radius-sm: 0.5rem;
 $border-radius-md: 3rem;
 $border-radius-lg: 5rem;
 $border-radius-circle: 50%;
 
+// effects
 $transition-fast: 0.2s;
 $transition-normal: 0.3s;
 $transition-slow: 0.5s;

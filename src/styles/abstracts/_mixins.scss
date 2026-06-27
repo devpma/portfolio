@@ -1,8 +1,5 @@
 @use 'variables' as *;
 
-// ============================================
-// Media Queries
-// ============================================
 @mixin mobile {
   @media (max-width: $breakpoint-mobile) {
     @content;
@@ -27,9 +24,10 @@
   }
 }
 
-// ============================================
-// Utilities
-// ============================================
+@mixin font-size($size) {
+  font-size: map-get($font-sizes, $size);
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -41,10 +39,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
-// @mixin border-standard {
-//   border: 0.1rem solid $color-dark-gray;
-// }
 
 @mixin sr-only {
   position: absolute;
@@ -59,20 +53,6 @@
   border: 0;
 }
 
-@mixin highlight($type: white) {
-  padding: 0 0.3rem 0.2rem;
-
-  @if $type == black {
-    background-color: $color-black;
-    color: $color-white;
-  } @else {
-    background-color: $color-white;
-    color: $color-black;
-  }
-}
-// ============================================
-// Animations
-// ============================================
 @mixin smooth-transition($property: all) {
   transition: $property $transition-fast ease;
 }

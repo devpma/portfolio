@@ -69,8 +69,6 @@
     line-height: 1;
     word-break: break-all;
     font-weight: $font-weight-bold;
-    // font-family: $font-display-bold;
-    // -webkit-text-stroke: 1px $color-black;
   }
 
   .info-desc {
@@ -90,7 +88,7 @@
     display: grid;
     grid-template-columns: 8rem 1fr;
     row-gap: $spacing-xs;
-    font-size: $font-size-sm;
+    @include font-size(small);
     dt {
       font-weight: $font-weight-bold;
     }
@@ -109,10 +107,10 @@
     padding: 3rem;
     border-radius: $border-radius-md;
     .info-desc {
-      font-size: $font-size-sm;
+      @include font-size(small);
     }
     .info-list {
-      font-size: $font-size-sm;
+      @include font-size(small);
       grid-template-columns: 6rem 1fr;
     }
   }
