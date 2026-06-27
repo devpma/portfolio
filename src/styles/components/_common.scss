@@ -2,6 +2,22 @@
 @use '../abstracts/mixins' as *;
 
 // Common Components
+.skip-link {
+  position: absolute;
+  top: -10rem;
+  left: $spacing-sm;
+  background: $color-primary;
+  color: $color-black;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-weight: $font-weight-bold;
+  z-index: 9999;
+
+  &:focus {
+    top: $spacing-sm;
+  }
+}
+
 .wrapper {
   width: 100%;
   overflow-x: hidden;
