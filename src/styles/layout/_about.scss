@@ -83,22 +83,6 @@
   }
 }
 
-.info-text {
-  font-size: clamp(1.4rem, 1.6vw, 1.5rem);
-  color: #555;
-  word-break: keep-all;
-  line-height: $line-height-normal;
-
-  strong {
-    font-weight: $font-weight-bold;
-    color: $color-black;
-  }
-
-  p + p {
-    margin-top: $spacing-sm;
-  }
-}
-
 .info-skills {
   .skills-title {
     @include font-size(small);
@@ -156,6 +140,26 @@
   @include tablet {
     .title-box {
       margin-bottom: $spacing-md;
+    }
+  }
+}
+
+.info-text {
+  font-size: clamp(1.4rem, 1.6vw, 1.5rem);
+  color: #555;
+  word-break: keep-all;
+
+  strong {
+    font-weight: $font-weight-bold;
+    color: $color-black;
+  }
+
+  p + p {
+    margin-top: $spacing-sm;
+  }
+  @include laptop {
+    br {
+      display: none;
     }
   }
 }

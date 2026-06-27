@@ -79,8 +79,7 @@
     pointer-events: none;
 
     p {
-      @include font-size(medium);
-      line-height: $line-height-normal;
+      @include font-size(small);
       color: rgba(255, 255, 255, 0.7);
       pointer-events: auto;
     }

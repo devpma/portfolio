@@ -13,6 +13,16 @@
     flex-direction: column;
     row-gap: $spacing-xl;
   }
+
+  .title-box {
+    color: $color-black;
+    margin-bottom: $spacing-md;
+
+    .primary {
+      color: $color-white;
+    }
+  }
+
   @include laptop {
     padding: $spacing-xl $spacing-md;
   }
@@ -100,7 +110,7 @@
   @include laptop {
     row-gap: $spacing-md;
     .project-name {
-      line-height: $line-height-normal;
+      line-height: 1.8;
     }
   }
   @include tablet {
